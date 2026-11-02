@@ -1,0 +1,981 @@
+
+
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - generator meczu</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #eceff3;
+      color: #111827;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+    button, input, textarea, select { font: inherit; }
+    .topbar {
+      background: #07111d;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 12px rgba(0,0,0,.25);
+    }
+    .topbar-inner {
+      width: min(1280px, calc(100% - 24px));
+      margin: 0 auto;
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 900;
+    }
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: conic-gradient(#ff0046, #ff6b8a, #ff0046);
+      box-shadow: inset 0 0 0 5px rgba(255,255,255,.18);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .nav a {
+      color: #c5ced8;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .theme-toggle {
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      min-width: 42px;
+      height: 34px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    .page {
+      width: min(1280px, calc(100% - 24px));
+      margin: 14px auto 30px;
+      display: grid;
+      gap: 12px;
+    }
+    .hero, .card {
+      background: #fff;
+      border: 1px solid #dfe3e8;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 26px rgba(15,23,42,.08);
+    }
+    .hero {
+      padding: 16px;
+      background: linear-gradient(135deg, #07111d, #243244);
+      color: #fff;
+    }
+    .hero h1 { margin: 0; font-size: 26px; }
+    .hero p { margin: 6px 0 0; color: #cbd5e1; font-weight: 700; }
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 460px;
+      gap: 12px;
+      align-items: start;
+    }
+    .panel-title {
+      margin: 0;
+      padding: 12px;
+      background: #f6f7f9;
+      border-bottom: 1px solid #dfe3e8;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .panel-body { padding: 12px; }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .field { display: grid; gap: 5px; min-width: 0; }
+    .field.full { grid-column: 1 / -1; }
+    label {
+      color: #4b5563;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid #dfe3e8;
+      border-radius: 7px;
+      padding: 9px;
+      background: #fff;
+      color: #111827;
+      min-width: 0;
+    }
+    textarea {
+      min-height: 92px;
+      resize: vertical;
+      line-height: 1.45;
+    }
+    .hint {
+      margin: 4px 0 0;
+      color: #69727d;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .builder {
+      display: grid;
+      gap: 8px;
+    }
+    .builder-scroll {
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+    .builder-scroll .builder {
+      min-width: max-content;
+    }
+    .builder-scroll::-webkit-scrollbar {
+      height: 10px;
+    }
+    .builder-scroll::-webkit-scrollbar-track {
+      background: #edf0f3;
+      border-radius: 999px;
+    }
+    .builder-scroll::-webkit-scrollbar-thumb {
+      background: #ff0046;
+      border-radius: 999px;
+    }
+    .builder-head,
+    .builder-row {
+      display: grid;
+      gap: 7px;
+      align-items: end;
+    }
+    .builder-head {
+      color: #69727d;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 0 44px 0 0;
+    }
+    .event-grid {
+      grid-template-columns: 62px 95px 105px minmax(120px, 1fr) minmax(150px, 1.2fr) 78px 36px;
+    }
+    .player-grid {
+      grid-template-columns: 88px minmax(120px, 1.2fr) minmax(110px, 1fr) minmax(130px, 1.2fr) 62px 62px 58px 72px 58px 58px 58px 58px 80px 58px minmax(180px, 1.4fr) minmax(180px, 1.4fr) 36px;
+    }
+    .builder-row {
+      border: 1px solid #dfe3e8;
+      border-radius: 8px;
+      padding: 8px;
+      background: #fbfcfd;
+    }
+    .builder-row input,
+    .builder-row select {
+      padding: 7px;
+      font-size: 12px;
+    }
+    .remove-row {
+      border: 0;
+      border-radius: 7px;
+      background: #fee2e2;
+      color: #dc2626;
+      height: 34px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .btn {
+      border: 0;
+      border-radius: 7px;
+      padding: 10px 14px;
+      font-weight: 900;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .primary { background: #ff0046; color: #fff; }
+    .secondary { background: #eef1f5; color: #38424f; }
+    .ok { background: #15803d; color: #fff; }
+    .preview {
+      width: 100%;
+      height: 650px;
+      border: 0;
+      background: #fff;
+    }
+    .output-code {
+      min-height: 220px;
+      font-family: Consolas, monospace;
+      font-size: 12px;
+      white-space: pre;
+    }
+    body.dark { background: #0f172a; color: #e5e7eb; }
+    body.dark .card,
+    body.dark .builder-row {
+      background: #172033;
+      border-color: #2c3a50;
+      color: #e5e7eb;
+    }
+    body.dark .panel-title {
+      background: #111827;
+      border-color: #2c3a50;
+      color: #e5e7eb;
+    }
+    body.dark input,
+    body.dark textarea,
+    body.dark select {
+      background: #111827;
+      border-color: #2c3a50;
+      color: #e5e7eb;
+    }
+    body.dark label,
+    body.dark .hint,
+    body.dark .builder-head { color: #a8b3c3; }
+    body.dark .builder-scroll::-webkit-scrollbar-track { background: #111827; }
+    body.dark .builder-scroll::-webkit-scrollbar-thumb { background: #ff2f68; }
+    @media (max-width: 1120px) {
+      .layout { grid-template-columns: 1fr; }
+      .preview { height: 520px; }
+      .builder-head { display: none; }
+      .event-grid,
+      .player-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .remove-row { grid-column: 1 / -1; }
+    }
+    @media (max-width: 620px) {
+      .topbar-inner { flex-direction: column; align-items: stretch; padding: 10px 0; }
+      .form-grid,
+      .event-grid,
+      .player-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="logo">
+        <span class="logo-mark"></span>
+        <span>Flashscore Admin</span>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Wyniki</a>
+        <a href="zawodnicy.html">Zawodnicy</a>
+        <a href="transfery.html">Transfery</a>
+        <button id="themeToggle" class="theme-toggle" type="button" title="Tryb ciemny">☾</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <h1>Generator podstrony meczu</h1>
+      <p>Wpisujesz dane w panelu, sprawdzasz podgląd i pobierasz gotowy plik HTML bez pisania kodu.</p>
+    </section>
+
+    <div class="layout">
+      <section class="card">
+        <h2 class="panel-title">Dane meczu</h2>
+        <div class="panel-body">
+          <form id="matchForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="fileName">Nazwa pliku</label>
+                <input id="fileName" value="mecz10.html" required />
+              </div>
+              <div class="field">
+                <label for="competition">Rozgrywki</label>
+                <input id="competition" value="Mecz towarzyski" required />
+              </div>
+              <div class="field">
+                <label for="date">Data</label>
+                <input id="date" value="15.07.2026" required />
+              </div>
+              <div class="field">
+                <label for="time">Godzina</label>
+                <input id="time" value="20:30" required />
+              </div>
+              <div class="field">
+                <label for="stadium">Stadion</label>
+                <input id="stadium" value="Stadion na ul. Stromej" />
+              </div>
+              <div class="field">
+                <label for="status">Status</label>
+                <input id="status" value="Koniec" />
+              </div>
+              <div class="field">
+                <label for="homeName">Gospodarze</label>
+                <input id="homeName" value="Drużyna A" required />
+              </div>
+              <div class="field">
+                <label for="awayName">Goście</label>
+                <input id="awayName" value="Drużyna B" required />
+              </div>
+              <div class="field">
+                <label for="homeShort">Skrót gospodarzy</label>
+                <input id="homeShort" value="A" />
+              </div>
+              <div class="field">
+                <label for="awayShort">Skrót gości</label>
+                <input id="awayShort" value="B" />
+              </div>
+              <div class="field">
+                <label for="homeScore">Gole gospodarzy</label>
+                <input id="homeScore" type="number" value="2" />
+              </div>
+              <div class="field">
+                <label for="awayScore">Gole gości</label>
+                <input id="awayScore" type="number" value="3" />
+              </div>
+              <div class="field">
+                <label for="mvp">MVP</label>
+                <input id="mvp" value="-" />
+              </div>
+              <div class="field">
+                <label for="referee">Sędzia</label>
+                <input id="referee" value="-" />
+              </div>
+              <div class="field full">
+                <label for="summary">Najważniejsze</label>
+                <textarea id="summary">Krótki opis meczu, najważniejsze momenty i najlepszy zawodnik.</textarea>
+              </div>
+            </div>
+
+            <h2 class="panel-title">Wydarzenia</h2>
+            <div class="panel-body">
+              <div class="builder-scroll">
+                <div class="builder">
+                  <div class="builder-head event-grid">
+                    <span>Minuta</span><span>Strona</span><span>Typ</span><span>Zawodnik</span><span>Opis</span><span>Wynik</span><span></span>
+                  </div>
+                  <div id="eventRows" class="builder"></div>
+                </div>
+              </div>
+              <div class="actions">
+                <button id="addEventBtn" class="btn secondary" type="button">Dodaj wydarzenie</button>
+              </div>
+              <p class="hint">Typy: gol, kartka, zmiana, nietrafiony karny. Dzięki temu nie trzeba ręcznie pisać formatów z średnikami.</p>
+            </div>
+
+            <h2 class="panel-title">Składy na boisku</h2>
+            <div class="panel-body">
+              <div class="builder-scroll">
+                <div class="builder">
+                  <div class="builder-head player-grid">
+                    <span>Strona</span><span>Zawodnik</span><span>Pozycja</span><span>Zdjęcie</span><span>Lewo %</span><span>Góra %</span><span>Min.</span><span>Ocena</span><span>Gole</span><span>Asysty</span><span>ŻK</span><span>CK</span><span>Obrony</span><span>MVP</span><span>Plusy</span><span>Minusy</span><span></span>
+                  </div>
+                  <div id="playerRows" class="builder"></div>
+                </div>
+              </div>
+              <div class="actions">
+                <button id="addHomePlayerBtn" class="btn secondary" type="button">Dodaj gospodarza</button>
+                <button id="addAwayPlayerBtn" class="btn secondary" type="button">Dodaj gościa</button>
+              </div>
+              <p class="hint">Kliknięcie zawodnika w gotowym meczu otworzy jego panel. W polach Plusy i Minusy oddziel kolejne pozycje średnikiem, np. „3 gole; celność podań 95%”.</p>
+            </div>
+
+            <h2 class="panel-title">Statystyki</h2>
+            <div class="panel-body">
+              <div class="field full">
+                <label for="stats">Statystyki</label>
+                <textarea id="stats">Posiadanie piłki;48%;52%
+Strzały;8;10
+Strzały celne;4;6
+Faule;3;4
+Celność podań;84%;88%</textarea>
+                <p class="hint">Format: nazwa; gospodarze; goście</p>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="btn primary" type="submit">Generuj podgląd</button>
+              <button id="downloadBtn" class="btn ok" type="button">Pobierz HTML</button>
+              <button id="copyBtn" class="btn secondary" type="button">Kopiuj kod</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="panel-title">Podgląd</h2>
+        <iframe id="preview" class="preview" title="Podgląd meczu"></iframe>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2 class="panel-title">Gotowy kod HTML</h2>
+      <div class="panel-body">
+        <textarea id="outputCode" class="output-code" readonly></textarea>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById("matchForm");
+    const preview = document.getElementById("preview");
+    const outputCode = document.getElementById("outputCode");
+    const downloadBtn = document.getElementById("downloadBtn");
+    const copyBtn = document.getElementById("copyBtn");
+    const themeToggle = document.getElementById("themeToggle");
+    const eventRows = document.getElementById("eventRows");
+    const playerRows = document.getElementById("playerRows");
+
+    function value(id) {
+      return document.getElementById(id).value.trim();
+    }
+
+    function escapeHtml(text) {
+      return String(text)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function ratingClass(rating) {
+      const number = Number(String(rating || 0).replace(",", "."));
+      if (number < 6) return "rating-red";
+      if (number < 7) return "rating-yellow";
+      if (number < 8) return "rating-light-green";
+      if (number < 9) return "rating-dark-green";
+      return "rating-blue";
+    }
+
+    function initials(name) {
+      return escapeHtml((name || "?").slice(0, 2).toUpperCase());
+    }
+
+    function parseLines(text, expected) {
+      return text.split("\n")
+        .map((line) => line.trim())
+        .filter(Boolean)
+        .map((line) => {
+          const parts = line.split(";").map((part) => part.trim());
+          while (parts.length < expected) parts.push("");
+          return parts;
+        });
+    }
+
+    function addEventRow(data = {}) {
+      const row = document.createElement("div");
+      row.className = "builder-row event-grid";
+      row.innerHTML = `
+        <input class="event-minute" type="text" value="${escapeHtml(data.minute || "")}" placeholder="10" />
+        <select class="event-side">
+          <option value="home"${data.side === "home" ? " selected" : ""}>Gospodarze</option>
+          <option value="away"${data.side === "away" ? " selected" : ""}>Goście</option>
+        </select>
+        <select class="event-type">
+          <option value="goal"${data.type === "goal" ? " selected" : ""}>Gol</option>
+          <option value="yellow"${data.type === "yellow" ? " selected" : ""}>Żółta kartka</option>
+          <option value="red"${data.type === "red" ? " selected" : ""}>Czerwona kartka</option>
+          <option value="sub"${data.type === "sub" ? " selected" : ""}>Zmiana</option>
+          <option value="miss"${data.type === "miss" ? " selected" : ""}>Karny nietrafiony</option>
+        </select>
+        <input class="event-player" type="text" value="${escapeHtml(data.player || "")}" placeholder="Zawodnik" />
+        <input class="event-note" type="text" value="${escapeHtml(data.note || "")}" placeholder="Opis wydarzenia" />
+        <input class="event-score" type="text" value="${escapeHtml(data.score || "")}" placeholder="1-0" />
+        <button class="remove-row" type="button">×</button>
+      `;
+      row.querySelector(".remove-row").addEventListener("click", () => row.remove());
+      eventRows.appendChild(row);
+    }
+
+    function addPlayerRow(data = {}) {
+      const row = document.createElement("div");
+      row.className = "builder-row player-grid";
+      row.innerHTML = `
+        <select class="player-side">
+          <option value="home"${data.side === "home" ? " selected" : ""}>Gospodarze</option>
+          <option value="away"${data.side === "away" ? " selected" : ""}>Goście</option>
+        </select>
+        <input class="player-name" type="text" value="${escapeHtml(data.name || "")}" placeholder="Zawodnik" />
+        <input class="player-position" type="text" value="${escapeHtml(data.position || "")}" placeholder="Pozycja" />
+        <input class="player-photo" type="text" value="${escapeHtml(data.photo || "")}" placeholder="np. 116.jpg" />
+        <input class="player-left" type="number" min="5" max="95" value="${escapeHtml(data.left || "")}" placeholder="34" />
+        <input class="player-top" type="number" min="5" max="95" value="${escapeHtml(data.top || "")}" placeholder="77" />
+        <input class="player-minutes" type="number" min="0" max="180" value="${escapeHtml(data.minutes ?? 90)}" placeholder="90" />
+        <input class="player-rating" type="number" min="1" max="10" step="0.1" value="${escapeHtml(data.rating || "")}" placeholder="7.5" />
+        <input class="player-goals" type="number" min="0" value="${escapeHtml(data.goals || 0)}" />
+        <input class="player-assists" type="number" min="0" value="${escapeHtml(data.assists || 0)}" />
+        <input class="player-yellow" type="number" min="0" value="${escapeHtml(data.yellow || 0)}" />
+        <input class="player-red" type="number" min="0" value="${escapeHtml(data.red || 0)}" />
+        <input class="player-saves" type="text" value="${escapeHtml(data.saves || "")}" placeholder="4/5" />
+        <select class="player-mvp">
+          <option value="no"${data.mvp ? "" : " selected"}>Nie</option>
+          <option value="yes"${data.mvp ? " selected" : ""}>Tak</option>
+        </select>
+        <input class="player-pluses" type="text" value="${escapeHtml(data.pluses || "")}" placeholder="np. 2 gole; 3 przechwyty" />
+        <input class="player-minuses" type="text" value="${escapeHtml(data.minuses || "")}" placeholder="np. strata piłki; niecelny strzał" />
+        <button class="remove-row" type="button">×</button>
+      `;
+      row.querySelector(".remove-row").addEventListener("click", () => row.remove());
+      playerRows.appendChild(row);
+    }
+
+    function collectEvents() {
+      return [...eventRows.querySelectorAll(".builder-row")].map((row) => ({
+        minute: row.querySelector(".event-minute").value.trim(),
+        side: row.querySelector(".event-side").value,
+        type: row.querySelector(".event-type").value,
+        player: row.querySelector(".event-player").value.trim(),
+        note: row.querySelector(".event-note").value.trim(),
+        score: row.querySelector(".event-score").value.trim()
+      })).filter((item) => item.minute || item.player || item.note);
+    }
+
+    function collectPlayers() {
+      return [...playerRows.querySelectorAll(".builder-row")].map((row) => ({
+        side: row.querySelector(".player-side").value,
+        name: row.querySelector(".player-name").value.trim(),
+        position: row.querySelector(".player-position").value.trim(),
+        photo: row.querySelector(".player-photo").value.trim(),
+        left: row.querySelector(".player-left").value.trim(),
+        top: row.querySelector(".player-top").value.trim(),
+        minutes: Number(row.querySelector(".player-minutes").value || 0),
+        rating: row.querySelector(".player-rating").value.trim(),
+        goals: Number(row.querySelector(".player-goals").value || 0),
+        assists: Number(row.querySelector(".player-assists").value || 0),
+        yellow: Number(row.querySelector(".player-yellow").value || 0),
+        red: Number(row.querySelector(".player-red").value || 0),
+        saves: row.querySelector(".player-saves").value.trim(),
+        mvp: row.querySelector(".player-mvp").value === "yes",
+        pluses: row.querySelector(".player-pluses").value.split(";").map((item) => item.trim()).filter(Boolean),
+        minuses: row.querySelector(".player-minuses").value.split(";").map((item) => item.trim()).filter(Boolean)
+      })).filter((item) => item.name);
+    }
+
+    function autoPlacePlayers(players) {
+      const homeSlots = [
+        { left: 22, top: 78 },
+        { left: 50, top: 80 },
+        { left: 78, top: 78 },
+        { left: 34, top: 64 },
+        { left: 66, top: 64 },
+        { left: 50, top: 51 },
+        { left: 22, top: 45 },
+        { left: 78, top: 45 }
+      ];
+      const awaySlots = [
+        { left: 22, top: 22 },
+        { left: 50, top: 20 },
+        { left: 78, top: 22 },
+        { left: 34, top: 36 },
+        { left: 66, top: 36 },
+        { left: 50, top: 49 },
+        { left: 22, top: 55 },
+        { left: 78, top: 55 }
+      ];
+      const counters = { home: 0, away: 0 };
+
+      return players.map((player) => {
+        if (player.left && player.top) return player;
+
+        const slots = player.side === "away" ? awaySlots : homeSlots;
+        const slot = slots[counters[player.side] % slots.length];
+        counters[player.side] += 1;
+
+        return {
+          ...player,
+          left: player.left || slot.left,
+          top: player.top || slot.top
+        };
+      });
+    }
+
+    function iconFor(type) {
+      if (type === "goal") return '<span class="icon goal">G</span>';
+      if (type === "yellow") return '<span class="icon yellow">!</span>';
+      if (type === "red") return '<span class="icon red">R</span>';
+      if (type === "sub") return '<span class="icon sub">↔</span>';
+      if (type === "miss") return '<span class="icon miss">x</span>';
+      return '<span class="icon sub">•</span>';
+    }
+
+    function repeatIcon(count, html) {
+      return Array.from({ length: Number(count || 0) }, () => html).join("");
+    }
+
+    function playerActions(player) {
+      return [
+        repeatIcon(player.goals, '<span class="action goal">G</span>'),
+        repeatIcon(player.assists, '<span class="action sub-in">A</span>'),
+        repeatIcon(player.yellow, '<span class="action card-yellow">!</span>'),
+        repeatIcon(player.red, '<span class="action card-red">R</span>'),
+        player.saves ? `<span class="action save">🧤 ${escapeHtml(player.saves)}</span>` : "",
+        player.mvp ? '<span class="mvp-star">★</span>' : ""
+      ].join("");
+    }
+
+    function playerImage(player, className) {
+      if (player.photo) {
+        return `<img class="${className}" src="${escapeHtml(player.photo)}" alt="${escapeHtml(player.name)}" />`;
+      }
+      return `<span class="${className} initials">${initials(player.name)}</span>`;
+    }
+
+    function buildHtml() {
+      const home = value("homeName");
+      const away = value("awayName");
+      const homeScore = value("homeScore");
+      const awayScore = value("awayScore");
+      const title = `${home} - ${away}`;
+      const events = collectEvents();
+      const players = autoPlacePlayers(collectPlayers());
+      const stats = parseLines(value("stats"), 3);
+      const homePlayers = players.filter((player) => player.side === "home");
+      const awayPlayers = players.filter((player) => player.side === "away");
+
+      const eventsHtml = events.map((event) => `
+        <div class="event ${event.side === "away" ? "away" : ""}">
+          <div class="event-time">${escapeHtml(event.minute)}'</div>
+          <div class="event-main">
+            ${event.side === "away" ? "" : iconFor(event.type)}
+            <span class="event-text">${escapeHtml(event.player)}<span class="event-note">${escapeHtml(event.note)}</span></span>
+            ${event.side === "away" ? iconFor(event.type) : ""}
+          </div>
+          <div class="score-tag">${escapeHtml(event.score)}</div>
+        </div>
+      `).join("");
+
+      function pitchPlayer(player) {
+        const left = player.left || (player.side === "home" ? 34 : 66);
+        const top = player.top || (player.side === "home" ? 72 : 28);
+        return `
+          <div class="player" data-player="${escapeHtml(player.name)}" style="left:${escapeHtml(left)}%;top:${escapeHtml(top)}%;">
+            ${playerImage(player, "player-photo")}
+            <span class="name">${escapeHtml(player.name)} ${player.mvp ? '<span class="mvp-star">★</span>' : ""}</span>
+            <span class="player-actions">${playerActions(player)}</span>
+            <span class="rating ${ratingClass(player.rating)}">${escapeHtml(player.rating || "-")}</span>
+          </div>
+        `;
+      }
+
+      function playerRows(rows) {
+        return rows.map((player) => `
+          <div class="row" data-player="${escapeHtml(player.name)}">
+            ${playerImage(player, "row-photo")}
+            <div>
+              <strong>${escapeHtml(player.name)}</strong>
+              <span>${escapeHtml(player.position)} ${playerActions(player)}</span>
+            </div>
+            <span class="rating ${ratingClass(player.rating)}">${escapeHtml(player.rating || "-")}</span>
+          </div>
+        `).join("");
+      }
+
+      const profiles = Object.fromEntries(players.map((player) => [player.name, {
+        photo: player.photo,
+        position: player.position,
+        minutes: player.minutes,
+        goals: player.goals,
+        assists: player.assists,
+        rating: player.rating,
+        ratingClass: ratingClass(player.rating),
+        pluses: player.pluses,
+        minuses: player.minuses
+      }]));
+      const statsHtml = stats.map(([name, homeValue, awayValue]) => `
+        <div class="stat">
+          <span>${escapeHtml(homeValue)}</span>
+          <span class="bar"></span>
+          <span>${escapeHtml(awayValue)}</span>
+          <div class="stat-label">${escapeHtml(name)}</div>
+        </div>
+      `).join("");
+
+      return `<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${escapeHtml(title)}</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #eceff3; color: #111827; font-family: Arial, Helvetica, sans-serif; font-size: 14px; }
+    button { font-family: inherit; }
+    .topbar { background: #07111d; color: #fff; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 12px rgba(0,0,0,.25); }
+    .topbar-inner { width: min(1180px, calc(100% - 24px)); margin: 0 auto; min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 900; }
+    .logo-mark { width: 32px; height: 32px; border-radius: 50%; background: conic-gradient(#ff0046, #ff6b8a, #ff0046); box-shadow: inset 0 0 0 5px rgba(255,255,255,.18); }
+    .nav { display: flex; gap: 12px; align-items: center; overflow-x: auto; white-space: nowrap; }
+    .nav a { color: #c5ced8; text-decoration: none; font-weight: 800; font-size: 13px; }
+    .theme-toggle { border: 1px solid rgba(255,255,255,.18); border-radius: 999px; background: rgba(255,255,255,.08); color: #fff; min-width: 42px; height: 34px; cursor: pointer; font-weight: 900; }
+    .page { width: min(1180px, calc(100% - 24px)); margin: 14px auto 30px; display: grid; gap: 12px; }
+    .card { background: #fff; border: 1px solid #dfe3e8; border-radius: 8px; overflow: hidden; box-shadow: 0 8px 26px rgba(15,23,42,.08); }
+    .back-button { display: inline-flex; align-items: center; justify-self: start; min-height: 40px; padding: 0 14px; border: 1px solid #dfe3e8; border-radius: 8px; background: #fff; color: #38424f; text-decoration: none; font-weight: 900; }
+    .match-state { display: flex; justify-content: space-between; gap: 12px; padding: 9px 12px; background: #f6f7f9; border-bottom: 1px solid #dfe3e8; color: #69727d; font-size: 12px; font-weight: 800; }
+    .status { color: #d8003d; }
+    .scoreboard { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; padding: 24px 18px 18px; }
+    .team { display: grid; justify-items: center; text-align: center; gap: 9px; min-width: 0; }
+    .crest { width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 18px; font-weight: 900; box-shadow: inset 0 -9px 18px rgba(0,0,0,.22); }
+    .home-crest { background: linear-gradient(135deg, #111827, #ff0046); }
+    .away-crest { background: linear-gradient(135deg, #0f766e, #1d4ed8); }
+    .team-name { font-size: 15px; font-weight: 900; }
+    .team-meta { color: #69727d; font-size: 12px; font-weight: 700; }
+    .score { display: grid; gap: 7px; justify-items: center; text-align: center; }
+    .score-main { font-size: clamp(40px, 7vw, 56px); line-height: 1; font-weight: 900; letter-spacing: -0.05em; }
+    .score-sub { color: #69727d; font-size: 12px; font-weight: 800; }
+    .tabs { display: flex; overflow-x: auto; border-top: 1px solid #dfe3e8; }
+    .tab { border: 0; background: transparent; border-bottom: 3px solid transparent; cursor: pointer; color: #53606d; min-height: 44px; padding: 0 14px; font-size: 12px; font-weight: 900; text-transform: uppercase; white-space: nowrap; }
+    .tab.active { color: #d8003d; border-color: #ff0046; }
+    .layout { display: grid; grid-template-columns: minmax(0,1fr) 330px; gap: 12px; align-items: start; }
+    .panel-title { margin: 0; padding: 12px; background: #f6f7f9; border-bottom: 1px solid #dfe3e8; font-size: 13px; font-weight: 900; text-transform: uppercase; }
+    .panel-body { padding: 12px; }
+    .tab-view { display: none; }
+    .tab-view.active { display: block; }
+    .period { background: #f0f2f5; border: 1px solid #dfe3e8; border-radius: 6px; margin: 6px 0; padding: 8px; text-align: center; font-weight: 900; color: #38424f; font-size: 12px; }
+    .event { display: grid; grid-template-columns: 64px 1fr 64px; align-items: center; min-height: 46px; border-bottom: 1px solid #edf0f3; gap: 8px; }
+    .event-time { color: #68727f; font-weight: 900; text-align: center; font-size: 12px; }
+    .event-main { display: flex; align-items: center; gap: 8px; min-width: 0; }
+    .event.away .event-main { justify-content: flex-end; text-align: right; }
+    .icon, .action { width: 22px; height: 22px; border-radius: 50%; color: #fff; display: inline-grid; place-items: center; flex: 0 0 auto; font-size: 12px; font-weight: 900; box-shadow: 0 2px 5px rgba(0,0,0,.2); }
+    .goal, .action.goal { background: #08a045; }
+    .yellow, .action.card-yellow { background: #f5c400; color: #222; border-radius: 4px; }
+    .red, .action.card-red { background: #dc2626; border-radius: 4px; }
+    .sub, .action.sub-in { background: #1877f2; }
+    .miss, .action.missed-penalty { background: #ef4444; }
+    .action.save { width: auto; min-width: 42px; border-radius: 9px; padding: 0 6px; background: #2563eb; }
+    .event-text { font-weight: 800; }
+    .event-note { display: block; color: #7a838d; font-size: 12px; font-weight: 500; margin-top: 2px; }
+    .score-tag { justify-self: center; color: #4c5560; font-weight: 900; font-size: 12px; }
+    .lineups-header { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; padding: 8px 0 12px; }
+    .line-team { display: flex; align-items: center; gap: 8px; font-weight: 900; }
+    .line-team.away { justify-content: flex-end; text-align: right; }
+    .mini-crest { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 10px; font-weight: 900; flex: 0 0 auto; }
+    .formation-badge { background: #eef1f5; border: 1px solid #dfe3e8; border-radius: 18px; padding: 7px 12px; color: #434d58; font-size: 12px; font-weight: 900; white-space: nowrap; }
+    .pitch { position: relative; min-height: 640px; border-radius: 8px; overflow: hidden; border: 1px solid #08763b; background: linear-gradient(rgba(255,255,255,.16), rgba(255,255,255,.16)) 50% 50% / 100% 2px no-repeat, radial-gradient(circle at 50% 50%, transparent 0 72px, rgba(255,255,255,.72) 73px 75px, transparent 76px), repeating-linear-gradient(90deg, #0b8c45 0 12.5%, #0a7f3f 12.5% 25%); }
+    .pitch::before, .pitch::after { content: ""; position: absolute; left: 26%; width: 48%; height: 92px; border: 2px solid rgba(255,255,255,.65); pointer-events: none; }
+    .pitch::before { top: 0; border-top: 0; }
+    .pitch::after { bottom: 0; border-bottom: 0; }
+    .player { position: absolute; width: 118px; transform: translate(-50%, -50%); display: grid; justify-items: center; gap: 4px; text-align: center; }
+    .player-photo { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,.95); box-shadow: 0 4px 10px rgba(0,0,0,.28); background: #111827; color: #fff; display: grid; place-items: center; font-weight: 900; }
+    .name { max-width: 118px; border-radius: 10px; background: rgba(10,17,26,.84); color: #fff; padding: 3px 6px; font-size: 11px; font-weight: 800; white-space: nowrap; }
+    .player-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 3px; min-height: 18px; max-width: 118px; }
+    .action { width: 18px; height: 18px; font-size: 10px; }
+    .bench { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+    .list { border: 1px solid #dfe3e8; border-radius: 8px; overflow: hidden; background: #fff; }
+    .list-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; background: #f4f6f8; border-bottom: 1px solid #dfe3e8; padding: 9px 10px; font-weight: 900; text-transform: uppercase; font-size: 12px; }
+    .row { display: grid; grid-template-columns: 42px 1fr auto; align-items: center; gap: 8px; min-height: 50px; padding: 7px 10px; border-bottom: 1px solid #edf0f3; }
+    .row:last-child { border-bottom: 0; }
+    .row-photo { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; background: #111827; color: #fff; display: grid; place-items: center; font-weight: 900; }
+    .row strong { display: block; font-size: 13px; }
+    .row span { color: #75808c; font-size: 12px; }
+    .rating { border-radius: 9px; color: #fff; min-width: 34px; padding: 2px 7px; font-size: 11px; line-height: 16px; font-weight: 900; text-align: center; }
+    .rating-red { background: #dc2626; }
+    .rating-yellow { background: #f5c400; color: #111; }
+    .rating-light-green { background: #65a30d; }
+    .rating-dark-green { background: #15803d; }
+    .rating-blue { background: #2563eb; }
+    .mvp-star { display: inline-grid; place-items: center; width: 17px; height: 17px; margin-left: 4px; border-radius: 50%; background: #2563eb; color: #fff; font-size: 11px; font-weight: 900; vertical-align: middle; }
+    .stats { display: grid; gap: 16px; }
+    .stat { display: grid; grid-template-columns: 105px 1fr 105px; gap: 10px; align-items: center; font-weight: 900; }
+    .stat > span:first-child { text-align: left; }
+    .stat > span:nth-child(3) { text-align: right; }
+    .bar { height: 8px; border-radius: 999px; overflow: hidden; background: linear-gradient(90deg, #111827 0 50%, #ff0046 50% 100%); }
+    .stat-label { grid-column: 1 / -1; margin-top: -9px; color: #69727d; text-align: center; font-size: 12px; font-weight: 700; }
+    .info-row { display: flex; justify-content: space-between; gap: 14px; border-bottom: 1px solid #edf0f3; padding: 11px 0; }
+    .info-row span { color: #69727d; }
+    .info-row strong { text-align: right; }
+    .side-card { padding: 12px; border-bottom: 1px solid #dfe3e8; }
+    .side-card:last-child { border-bottom: 0; }
+    .side-card h3 { margin: 0 0 8px; font-size: 13px; text-transform: uppercase; }
+    .field-img { height: 140px; border-radius: 7px; margin-bottom: 10px; background: radial-gradient(circle at 48% 40%, #fff 0 22px, #111827 23px 32px, transparent 33px), repeating-linear-gradient(90deg, #117a3d 0 38px, #0e6c36 38px 76px); border: 1px solid #0c6835; }
+    .note { color: #69727d; line-height: 1.45; margin: 0; }
+    body.dark { background: #0f172a; color: #e5e7eb; }
+    body.dark .card, body.dark .list, body.dark .row, body.dark .back-button { background: #172033; border-color: #2c3a50; color: #e5e7eb; }
+    body.dark .panel-title, body.dark .match-state, body.dark .period, body.dark .list-head { background: #111827; border-color: #2c3a50; color: #e5e7eb; }
+    body.dark .team-meta, body.dark .score-sub, body.dark .event-time, body.dark .event-note, body.dark .score-tag, body.dark .row span, body.dark .info-row span, body.dark .note { color: #a8b3c3; }
+    .player, .row { cursor: pointer; }
+    .player:focus-visible, .row:focus-visible, .profile-close:focus-visible { outline: 3px solid #ff0046; outline-offset: 3px; }
+    .player-profile-backdrop { display: none; position: fixed; inset: 0; z-index: 30; padding: 20px; place-items: center; background: rgba(7,17,29,.64); }
+    .player-profile-backdrop.open { display: grid; }
+    .player-profile { width: min(100%, 480px); max-height: min(700px, calc(100vh - 40px)); overflow: auto; padding: 18px; border: 1px solid #dfe3e8; border-radius: 12px; background: #fff; box-shadow: 0 20px 60px rgba(0,0,0,.34); }
+    .profile-head { display: flex; align-items: center; gap: 13px; padding-bottom: 15px; border-bottom: 1px solid #edf0f3; }
+    .profile-photo { width: 68px; height: 68px; border: 3px solid #edf0f3; border-radius: 50%; object-fit: cover; background: #111827; }
+    .profile-kicker { margin: 0 0 3px; color: #69727d; font-size: 11px; font-weight: 900; text-transform: uppercase; }
+    .profile-name { margin: 0; font-size: 21px; }.profile-position { margin: 4px 0 0; color: #69727d; font-weight: 700; }
+    .profile-close { width: 34px; height: 34px; margin-left: auto; border: 1px solid #dfe3e8; border-radius: 50%; background: #fff; color: #38424f; cursor: pointer; font-size: 22px; line-height: 1; }
+    .profile-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 15px 0; }.profile-stat { padding: 10px 5px; border: 1px solid #dfe3e8; border-radius: 8px; text-align: center; }.profile-stat span { display: block; color: #69727d; font-size: 10px; font-weight: 900; text-transform: uppercase; }.profile-stat strong { display: block; margin-top: 4px; font-size: 18px; }
+    .profile-events { display: flex; justify-content: center; align-items: center; gap: 8px; min-height: 27px; margin-top: 4px; }.profile-event { display: inline-flex; align-items: center; gap: 3px; font-size: 17px; font-weight: 900; }.profile-event .action { width: 19px; height: 19px; font-size: 10px; }
+    .profile-rating { background: #15803d; border-color: #15803d; color: #fff; }.profile-rating span { color: rgba(255,255,255,.78); }.profile-rating.rating-red { background: #dc2626; border-color: #dc2626; }.profile-rating.rating-yellow { background: #f5c400; border-color: #f5c400; color: #111; }.profile-rating.rating-yellow span { color: rgba(17,17,17,.72); }.profile-rating.rating-light-green { background: #65a30d; border-color: #65a30d; }.profile-rating.rating-dark-green { background: #15803d; border-color: #15803d; }.profile-rating.rating-blue { background: #2563eb; border-color: #2563eb; }
+    .profile-list-title { margin: 15px 0 7px; font-size: 12px; text-transform: uppercase; }.profile-list { margin: 0; padding: 0; list-style: none; border: 1px solid #dfe3e8; border-radius: 8px; overflow: hidden; }.profile-list li { display: flex; align-items: center; gap: 8px; min-height: 38px; padding: 8px 10px; border-bottom: 1px solid #edf0f3; font-weight: 700; }.profile-list li:last-child { border-bottom: 0; }.profile-mark { width: 20px; height: 20px; display: grid; place-items: center; flex: 0 0 auto; border-radius: 50%; color: #fff; font-weight: 900; }.profile-plus { background: #08a045; }.profile-minus { background: #dc2626; }
+    body.dark .player-profile { background: #172033; border-color: #2c3a50; color: #e5e7eb; } body.dark .profile-head, body.dark .profile-list li { border-color: #2c3a50; } body.dark .profile-close, body.dark .profile-stat, body.dark .profile-list { background: #172033; border-color: #2c3a50; color: #e5e7eb; } body.dark .profile-kicker, body.dark .profile-position, body.dark .profile-stat span { color: #a8b3c3; }
+    @media (max-width: 860px) { .scoreboard, .layout, .bench, .lineups-header { grid-template-columns: 1fr; } .score { order: -1; } .pitch { min-height: 560px; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="logo"><span class="logo-mark"></span><span>Flashscore</span></div>
+      <nav class="nav"><a href="index.html">Wyniki</a><button id="themeToggle" class="theme-toggle" type="button">☾</button></nav>
+    </div>
+  </header>
+  <div class="page">
+    <a class="back-button" href="index.html">← Wszystkie mecze</a>
+    <section class="card">
+      <div class="match-state"><span>${escapeHtml(value("stadium"))}</span><span class="status">${escapeHtml(value("status"))}</span></div>
+      <div class="scoreboard">
+        <div class="team"><div class="crest home-crest">${escapeHtml(value("homeShort"))}</div><div><div class="team-name">${escapeHtml(home)}</div><div class="team-meta">${escapeHtml(value("competition"))}</div></div></div>
+        <div class="score"><div class="score-main">${escapeHtml(homeScore)}-${escapeHtml(awayScore)}</div><div class="score-sub">${escapeHtml(value("date"))}, ${escapeHtml(value("time"))}</div></div>
+        <div class="team"><div class="crest away-crest">${escapeHtml(value("awayShort"))}</div><div><div class="team-name">${escapeHtml(away)}</div><div class="team-meta">${escapeHtml(value("competition"))}</div></div></div>
+      </div>
+      <nav class="tabs">
+        <button class="tab active" type="button" data-tab="match">Mecz</button>
+        <button class="tab" type="button" data-tab="lineups">Składy</button>
+        <button class="tab" type="button" data-tab="stats">Statystyki</button>
+        <button class="tab" type="button" data-tab="report">Raport</button>
+      </nav>
+    </section>
+    <div class="layout">
+      <main class="card">
+        <section id="match" class="tab-view active"><h2 class="panel-title">Wydarzenia meczu</h2><div class="panel-body"><div class="period">Mecz</div>${eventsHtml}</div></section>
+        <section id="lineups" class="tab-view">
+          <h2 class="panel-title">Składy</h2>
+          <div class="panel-body">
+            <div class="lineups-header">
+              <div class="line-team"><span class="mini-crest home-crest">${escapeHtml(value("homeShort"))}</span><span>${escapeHtml(home)}</span></div>
+              <span class="formation-badge">${homePlayers.length} vs ${awayPlayers.length}</span>
+              <div class="line-team away"><span>${escapeHtml(away)}</span><span class="mini-crest away-crest">${escapeHtml(value("awayShort"))}</span></div>
+            </div>
+            <div class="pitch">${players.map(pitchPlayer).join("")}</div>
+            <div class="bench"><div class="list"><div class="list-head"><span>${escapeHtml(home)}</span><span>Ocena</span></div>${playerRows(homePlayers)}</div><div class="list"><div class="list-head"><span>${escapeHtml(away)}</span><span>Ocena</span></div>${playerRows(awayPlayers)}</div></div>
+          </div>
+        </section>
+        <section id="stats" class="tab-view"><h2 class="panel-title">Statystyki</h2><div class="panel-body stats">${statsHtml}</div></section>
+        <section id="report" class="tab-view"><h2 class="panel-title">Raport</h2><div class="panel-body"><div class="info-row"><span>Rozgrywki</span><strong>${escapeHtml(value("competition"))}</strong></div><div class="info-row"><span>Stadion</span><strong>${escapeHtml(value("stadium"))}</strong></div><div class="info-row"><span>Sędzia</span><strong>${escapeHtml(value("referee"))}</strong></div><div class="info-row"><span>Data</span><strong>${escapeHtml(value("date"))}, ${escapeHtml(value("time"))}</strong></div><div class="info-row"><span>Najlepszy zawodnik</span><strong>${escapeHtml(value("mvp"))}</strong></div></div></section>
+      </main>
+      <aside class="card side-panel"><div class="side-card"><h3>Najważniejsze</h3><div class="field-img"></div><p class="note">${escapeHtml(value("summary"))}</p></div><div class="side-card"><h3>Informacje</h3><div class="info-row"><span>Status</span><strong>${escapeHtml(value("status"))}</strong></div><div class="info-row"><span>Czas</span><strong>90 min</strong></div></div></aside>
+    </div>
+  </div>
+  <script>
+    const playerProfiles = ${JSON.stringify(profiles)};
+    const tabs = document.querySelectorAll(".tab");
+    const tabViews = document.querySelectorAll(".tab-view");
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const target = tab.dataset.tab;
+        tabs.forEach((item) => item.classList.toggle("active", item === tab));
+        tabViews.forEach((view) => view.classList.toggle("active", view.id === target));
+      });
+    });
+    const themeToggle = document.getElementById("themeToggle");
+    function applyTheme(theme) {
+      document.body.classList.toggle("dark", theme === "dark");
+      themeToggle.textContent = theme === "dark" ? "☀" : "☾";
+      localStorage.setItem("flasstromaTheme", theme);
+    }
+    themeToggle.addEventListener("click", () => applyTheme(document.body.classList.contains("dark") ? "light" : "dark"));
+    applyTheme(localStorage.getItem("flasstromaTheme") || "light");
+
+    const profileBackdrop = document.createElement("div");
+    profileBackdrop.className = "player-profile-backdrop";
+    profileBackdrop.innerHTML = '<section class="player-profile" role="dialog" aria-modal="true" aria-label="Profil zawodnika"><div class="profile-head"><img class="profile-photo" alt="" /><div><p class="profile-kicker">Profil zawodnika</p><h2 class="profile-name"></h2><p class="profile-position"></p></div><button class="profile-close" type="button" aria-label="Zamknij">×</button></div><div class="profile-stats"><div class="profile-stat"><span>Min.</span><strong data-field="minutes"></strong></div><div class="profile-stat"><span>Top występy</span><div class="profile-events" data-field="top"></div></div><div class="profile-stat profile-rating"><span>Rating</span><strong data-field="rating"></strong></div></div><h3 class="profile-list-title">Plusy</h3><ul class="profile-list" data-field="pluses"></ul><h3 class="profile-list-title">Minusy</h3><ul class="profile-list" data-field="minuses"></ul></section>';
+    document.body.appendChild(profileBackdrop);
+    let lastProfileTrigger = null;
+    const profileList = (items, type) => (items.length ? items : ["Brak"]).map(item => '<li><span class="profile-mark profile-' + type + '">' + (type === "plus" ? "+" : "−") + '</span>' + item + '</li>').join("");
+    const openProfile = (name, trigger) => {
+      const data = playerProfiles[name]; if (!data) return;
+      lastProfileTrigger = trigger;
+      profileBackdrop.querySelector(".profile-photo").src = data.photo || "";
+      profileBackdrop.querySelector(".profile-photo").alt = name;
+      profileBackdrop.querySelector(".profile-name").textContent = name;
+      profileBackdrop.querySelector(".profile-position").textContent = data.position;
+      profileBackdrop.querySelector('[data-field="minutes"]').textContent = data.minutes;
+      profileBackdrop.querySelector('[data-field="top"]').innerHTML = [data.goals ? '<span class="profile-event">' + data.goals + '<span class="action goal">G</span></span>' : "", data.assists ? '<span class="profile-event">' + data.assists + '<span class="action sub-in">A</span></span>' : ""].join("") || "—";
+      profileBackdrop.querySelector('[data-field="rating"]').textContent = data.rating || "-";
+      profileBackdrop.querySelector('[data-field="pluses"]').innerHTML = profileList(data.pluses, "plus");
+      profileBackdrop.querySelector('[data-field="minuses"]').innerHTML = profileList(data.minuses, "minus");
+      profileBackdrop.querySelector(".profile-rating").className = "profile-stat profile-rating " + data.ratingClass;
+      profileBackdrop.classList.add("open"); profileBackdrop.querySelector(".profile-close").focus();
+    };
+    const closeProfile = () => { profileBackdrop.classList.remove("open"); if (lastProfileTrigger) lastProfileTrigger.focus(); };
+    document.querySelectorAll("[data-player]").forEach(element => { const name = element.dataset.player; element.tabIndex = 0; element.setAttribute("role", "button"); element.setAttribute("aria-label", "Pokaż profil: " + name); element.addEventListener("click", () => openProfile(name, element)); element.addEventListener("keydown", event => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openProfile(name, element); } }); });
+    profileBackdrop.querySelector(".profile-close").addEventListener("click", closeProfile);
+    profileBackdrop.addEventListener("click", event => { if (event.target === profileBackdrop) closeProfile(); });
+    document.addEventListener("keydown", event => { if (event.key === "Escape" && profileBackdrop.classList.contains("open")) closeProfile(); });
+  <\/script>
+</body>
+</html>`;
+    }
+
+    function generate() {
+      const html = buildHtml();
+      outputCode.value = html;
+      preview.srcdoc = html;
+      return html;
+    }
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      generate();
+    });
+
+    document.getElementById("addEventBtn").addEventListener("click", () => addEventRow());
+    document.getElementById("addHomePlayerBtn").addEventListener("click", () => addPlayerRow({ side: "home" }));
+    document.getElementById("addAwayPlayerBtn").addEventListener("click", () => addPlayerRow({ side: "away" }));
+
+    downloadBtn.addEventListener("click", () => {
+      const html = outputCode.value || generate();
+      const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = value("fileName") || "mecz.html";
+      link.click();
+      URL.revokeObjectURL(url);
+    });
+
+    copyBtn.addEventListener("click", async () => {
+      const html = outputCode.value || generate();
+      await navigator.clipboard.writeText(html);
+      copyBtn.textContent = "Skopiowano";
+      setTimeout(() => copyBtn.textContent = "Kopiuj kod", 1400);
+    });
+
+    function applyAdminTheme(theme) {
+      document.body.classList.toggle("dark", theme === "dark");
+      themeToggle.textContent = theme === "dark" ? "☀" : "☾";
+      localStorage.setItem("flasstromaTheme", theme);
+    }
+
+    themeToggle.addEventListener("click", () => {
+      applyAdminTheme(document.body.classList.contains("dark") ? "light" : "dark");
+    });
+
+    addEventRow({ minute: "10", side: "home", type: "goal", player: "Zawodnik A", note: "Gol otwierający wynik", score: "1-0" });
+    addEventRow({ minute: "42", side: "away", type: "yellow", player: "Zawodnik B", note: "Żółta kartka", score: "1-0" });
+    addEventRow({ minute: "70", side: "away", type: "goal", player: "Zawodnik C", note: "Gol zwycięski", score: "2-3" });
+    addPlayerRow({ side: "home", name: "Zawodnik A", position: "Napastnik", rating: "8.1", goals: 1 });
+    addPlayerRow({ side: "home", name: "Zawodnik B", position: "Bramkarz", rating: "7.0", saves: "4/5" });
+    addPlayerRow({ side: "away", name: "Zawodnik C", position: "Napastnik", rating: "9.0", goals: 2, mvp: true });
+    addPlayerRow({ side: "away", name: "Zawodnik D", position: "Obrońca", rating: "6.5", yellow: 1 });
+
+    applyAdminTheme(localStorage.getItem("flasstromaTheme") || "light");
+    generate();
+  </script>
+</body>
+</html>

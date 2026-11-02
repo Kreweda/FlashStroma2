@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pero i Kreweda - Vienna i Ola</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #eceff3; color: #111827; font-family: Arial, Helvetica, sans-serif; font-size: 14px; }
+    button { font-family: inherit; }
+    .topbar { background: #07111d; color: #fff; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 12px rgba(0,0,0,.25); }
+    .topbar-inner { width: min(1180px, calc(100% - 24px)); margin: 0 auto; min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 900; }
+    .logo-mark { width: 32px; height: 32px; border-radius: 50%; background: conic-gradient(#ff0046, #ff6b8a, #ff0046); box-shadow: inset 0 0 0 5px rgba(255,255,255,.18); }
+    .nav { display: flex; gap: 12px; align-items: center; overflow-x: auto; white-space: nowrap; }
+    .nav a { color: #c5ced8; text-decoration: none; font-weight: 800; font-size: 13px; }
+    .theme-toggle { border: 1px solid rgba(255,255,255,.18); border-radius: 999px; background: rgba(255,255,255,.08); color: #fff; min-width: 42px; height: 34px; cursor: pointer; font-weight: 900; }
+    .page { width: min(1180px, calc(100% - 24px)); margin: 14px auto 30px; display: grid; gap: 12px; }
+    .card { background: #fff; border: 1px solid #dfe3e8; border-radius: 8px; overflow: hidden; box-shadow: 0 8px 26px rgba(15,23,42,.08); }
+    .back-button { display: inline-flex; align-items: center; justify-self: start; min-height: 40px; padding: 0 14px; border: 1px solid #dfe3e8; border-radius: 8px; background: #fff; color: #38424f; text-decoration: none; font-weight: 900; }
+    .match-state { display: flex; justify-content: space-between; gap: 12px; padding: 9px 12px; background: #f6f7f9; border-bottom: 1px solid #dfe3e8; color: #69727d; font-size: 12px; font-weight: 800; }
+    .status { color: #d8003d; }
+    .scoreboard { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; padding: 24px 18px 18px; }
+    .team { display: grid; justify-items: center; text-align: center; gap: 9px; min-width: 0; }
+    .crest { width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 18px; font-weight: 900; box-shadow: inset 0 -9px 18px rgba(0,0,0,.22); }
+    .home-crest { background: linear-gradient(135deg, #111827, #ff0046); }
+    .away-crest { background: linear-gradient(135deg, #0f766e, #1d4ed8); }
+    .team-name { font-size: 15px; font-weight: 900; }
+    .team-meta { color: #69727d; font-size: 12px; font-weight: 700; }
+    .score { display: grid; gap: 7px; justify-items: center; text-align: center; }
+    .score-main { font-size: clamp(40px, 7vw, 56px); line-height: 1; font-weight: 900; letter-spacing: -0.05em; }
+    .score-sub { color: #69727d; font-size: 12px; font-weight: 800; }
+    .tabs { display: flex; overflow-x: auto; border-top: 1px solid #dfe3e8; }
+    .tab { border: 0; background: transparent; border-bottom: 3px solid transparent; cursor: pointer; color: #53606d; min-height: 44px; padding: 0 14px; font-size: 12px; font-weight: 900; text-transform: uppercase; white-space: nowrap; }
+    .tab.active { color: #d8003d; border-color: #ff0046; }
+    .layout { display: grid; grid-template-columns: minmax(0,1fr) 330px; gap: 12px; align-items: start; }
+    .panel-title { margin: 0; padding: 12px; background: #f6f7f9; border-bottom: 1px solid #dfe3e8; font-size: 13px; font-weight: 900; text-transform: uppercase; }
+    .panel-body { padding: 12px; }
+    .tab-view { display: none; }
+    .tab-view.active { display: block; }
+    .period { background: #f0f2f5; border: 1px solid #dfe3e8; border-radius: 6px; margin: 6px 0; padding: 8px; text-align: center; font-weight: 900; color: #38424f; font-size: 12px; }
+    .event { display: grid; grid-template-columns: 64px 1fr 64px; align-items: center; min-height: 46px; border-bottom: 1px solid #edf0f3; gap: 8px; }
+    .event-time { color: #68727f; font-weight: 900; text-align: center; font-size: 12px; }
+    .event-main { display: flex; align-items: center; gap: 8px; min-width: 0; }
+    .event.away .event-main { justify-content: flex-end; text-align: right; }
+    .icon, .action { width: 22px; height: 22px; border-radius: 50%; color: #fff; display: inline-grid; place-items: center; flex: 0 0 auto; font-size: 12px; font-weight: 900; box-shadow: 0 2px 5px rgba(0,0,0,.2); }
+    .goal, .action.goal { background: #08a045; }
+    .yellow, .action.card-yellow { background: #f5c400; color: #222; border-radius: 4px; }
+    .red, .action.card-red { background: #dc2626; border-radius: 4px; }
+    .sub, .action.sub-in { background: #1877f2; }
+    .miss, .action.missed-penalty { background: #ef4444; }
+    .action.save { width: auto; min-width: 42px; border-radius: 9px; padding: 0 6px; background: #2563eb; }
+    .event-text { font-weight: 800; }
+    .event-note { display: block; color: #7a838d; font-size: 12px; font-weight: 500; margin-top: 2px; }
+    .score-tag { justify-self: center; color: #4c5560; font-weight: 900; font-size: 12px; }
+    .lineups-header { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; padding: 8px 0 12px; }
+    .line-team { display: flex; align-items: center; gap: 8px; font-weight: 900; }
+    .line-team.away { justify-content: flex-end; text-align: right; }
+    .mini-crest { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 10px; font-weight: 900; flex: 0 0 auto; }
+    .formation-badge { background: #eef1f5; border: 1px solid #dfe3e8; border-radius: 18px; padding: 7px 12px; color: #434d58; font-size: 12px; font-weight: 900; white-space: nowrap; }
+    .pitch { position: relative; min-height: 640px; border-radius: 8px; overflow: hidden; border: 1px solid #08763b; background: linear-gradient(rgba(255,255,255,.16), rgba(255,255,255,.16)) 50% 50% / 100% 2px no-repeat, radial-gradient(circle at 50% 50%, transparent 0 72px, rgba(255,255,255,.72) 73px 75px, transparent 76px), repeating-linear-gradient(90deg, #0b8c45 0 12.5%, #0a7f3f 12.5% 25%); }
+    .pitch::before, .pitch::after { content: ""; position: absolute; left: 26%; width: 48%; height: 92px; border: 2px solid rgba(255,255,255,.65); pointer-events: none; }
+    .pitch::before { top: 0; border-top: 0; }
+    .pitch::after { bottom: 0; border-bottom: 0; }
+    .player { position: absolute; width: 118px; transform: translate(-50%, -50%); display: grid; justify-items: center; gap: 4px; text-align: center; }
+    .player-photo { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,.95); box-shadow: 0 4px 10px rgba(0,0,0,.28); background: #111827; color: #fff; display: grid; place-items: center; font-weight: 900; }
+    .name { max-width: 118px; border-radius: 10px; background: rgba(10,17,26,.84); color: #fff; padding: 3px 6px; font-size: 11px; font-weight: 800; white-space: nowrap; }
+    .player-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 3px; min-height: 18px; max-width: 118px; }
+    .action { width: 18px; height: 18px; font-size: 10px; }
+    .bench { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+    .list { border: 1px solid #dfe3e8; border-radius: 8px; overflow: hidden; background: #fff; }
+    .list-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; background: #f4f6f8; border-bottom: 1px solid #dfe3e8; padding: 9px 10px; font-weight: 900; text-transform: uppercase; font-size: 12px; }
+    .row { display: grid; grid-template-columns: 42px 1fr auto; align-items: center; gap: 8px; min-height: 50px; padding: 7px 10px; border-bottom: 1px solid #edf0f3; }
+    .row:last-child { border-bottom: 0; }
+    .row-photo { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; background: #111827; color: #fff; display: grid; place-items: center; font-weight: 900; }
+    .row strong { display: block; font-size: 13px; }
+    .row span { color: #75808c; font-size: 12px; }
+    .rating { border-radius: 9px; color: #fff; min-width: 34px; padding: 2px 7px; font-size: 11px; line-height: 16px; font-weight: 900; text-align: center; }
+    .rating-red { background: #dc2626; }
+    .rating-yellow { background: #f5c400; color: #111; }
+    .rating-light-green { background: #65a30d; }
+    .rating-dark-green { background: #15803d; }
+    .rating-blue { background: #2563eb; }
+    .mvp-star { display: inline-grid; place-items: center; width: 17px; height: 17px; margin-left: 4px; border-radius: 50%; background: #2563eb; color: #fff; font-size: 11px; font-weight: 900; vertical-align: middle; }
+    .stats { display: grid; gap: 16px; }
+    .stat { display: grid; grid-template-columns: 105px 1fr 105px; gap: 10px; align-items: center; font-weight: 900; }
+    .stat > span:first-child { text-align: left; }
+    .stat > span:nth-child(3) { text-align: right; }
+    .bar { height: 8px; border-radius: 999px; overflow: hidden; background: linear-gradient(90deg, #111827 0 50%, #ff0046 50% 100%); }
+    .stat-label { grid-column: 1 / -1; margin-top: -9px; color: #69727d; text-align: center; font-size: 12px; font-weight: 700; }
+    .info-row { display: flex; justify-content: space-between; gap: 14px; border-bottom: 1px solid #edf0f3; padding: 11px 0; }
+    .info-row span { color: #69727d; }
+    .info-row strong { text-align: right; }
+    .side-card { padding: 12px; border-bottom: 1px solid #dfe3e8; }
+    .side-card:last-child { border-bottom: 0; }
+    .side-card h3 { margin: 0 0 8px; font-size: 13px; text-transform: uppercase; }
+    .field-img { height: 140px; border-radius: 7px; margin-bottom: 10px; background: radial-gradient(circle at 48% 40%, #fff 0 22px, #111827 23px 32px, transparent 33px), repeating-linear-gradient(90deg, #117a3d 0 38px, #0e6c36 38px 76px); border: 1px solid #0c6835; }
+    .note { color: #69727d; line-height: 1.45; margin: 0; }
+    body.dark { background: #0f172a; color: #e5e7eb; }
+    body.dark .card, body.dark .list, body.dark .row, body.dark .back-button { background: #172033; border-color: #2c3a50; color: #e5e7eb; }
+    body.dark .panel-title, body.dark .match-state, body.dark .period, body.dark .list-head { background: #111827; border-color: #2c3a50; color: #e5e7eb; }
+    body.dark .team-meta, body.dark .score-sub, body.dark .event-time, body.dark .event-note, body.dark .score-tag, body.dark .row span, body.dark .info-row span, body.dark .note { color: #a8b3c3; }
+    .player, .row { cursor: pointer; }
+    .player:focus-visible, .row:focus-visible, .profile-close:focus-visible { outline: 3px solid #ff0046; outline-offset: 3px; }
+    .player-profile-backdrop { display: none; position: fixed; inset: 0; z-index: 30; padding: 20px; place-items: center; background: rgba(7,17,29,.64); }
+    .player-profile-backdrop.open { display: grid; }
+    .player-profile { width: min(100%, 480px); max-height: min(700px, calc(100vh - 40px)); overflow: auto; padding: 18px; border: 1px solid #dfe3e8; border-radius: 12px; background: #fff; box-shadow: 0 20px 60px rgba(0,0,0,.34); }
+    .profile-head { display: flex; align-items: center; gap: 13px; padding-bottom: 15px; border-bottom: 1px solid #edf0f3; }
+    .profile-photo { width: 68px; height: 68px; border: 3px solid #edf0f3; border-radius: 50%; object-fit: cover; background: #111827; }
+    .profile-kicker { margin: 0 0 3px; color: #69727d; font-size: 11px; font-weight: 900; text-transform: uppercase; }
+    .profile-name { margin: 0; font-size: 21px; }.profile-position { margin: 4px 0 0; color: #69727d; font-weight: 700; }
+    .profile-close { width: 34px; height: 34px; margin-left: auto; border: 1px solid #dfe3e8; border-radius: 50%; background: #fff; color: #38424f; cursor: pointer; font-size: 22px; line-height: 1; }
+    .profile-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 15px 0; }.profile-stat { padding: 10px 5px; border: 1px solid #dfe3e8; border-radius: 8px; text-align: center; }.profile-stat span { display: block; color: #69727d; font-size: 10px; font-weight: 900; text-transform: uppercase; }.profile-stat strong { display: block; margin-top: 4px; font-size: 18px; }
+    .profile-events { display: flex; justify-content: center; align-items: center; gap: 8px; min-height: 27px; margin-top: 4px; }.profile-event { display: inline-flex; align-items: center; gap: 3px; font-size: 17px; font-weight: 900; }.profile-event .action { width: 19px; height: 19px; font-size: 10px; }
+    .profile-rating { background: #15803d; border-color: #15803d; color: #fff; }.profile-rating span { color: rgba(255,255,255,.78); }.profile-rating.rating-red { background: #dc2626; border-color: #dc2626; }.profile-rating.rating-yellow { background: #f5c400; border-color: #f5c400; color: #111; }.profile-rating.rating-yellow span { color: rgba(17,17,17,.72); }.profile-rating.rating-light-green { background: #65a30d; border-color: #65a30d; }.profile-rating.rating-dark-green { background: #15803d; border-color: #15803d; }.profile-rating.rating-blue { background: #2563eb; border-color: #2563eb; }
+    .profile-list-title { margin: 15px 0 7px; font-size: 12px; text-transform: uppercase; }.profile-list { margin: 0; padding: 0; list-style: none; border: 1px solid #dfe3e8; border-radius: 8px; overflow: hidden; }.profile-list li { display: flex; align-items: center; gap: 8px; min-height: 38px; padding: 8px 10px; border-bottom: 1px solid #edf0f3; font-weight: 700; }.profile-list li:last-child { border-bottom: 0; }.profile-mark { width: 20px; height: 20px; display: grid; place-items: center; flex: 0 0 auto; border-radius: 50%; color: #fff; font-weight: 900; }.profile-plus { background: #08a045; }.profile-minus { background: #dc2626; }
+    body.dark .player-profile { background: #172033; border-color: #2c3a50; color: #e5e7eb; } body.dark .profile-head, body.dark .profile-list li { border-color: #2c3a50; } body.dark .profile-close, body.dark .profile-stat, body.dark .profile-list { background: #172033; border-color: #2c3a50; color: #e5e7eb; } body.dark .profile-kicker, body.dark .profile-position, body.dark .profile-stat span { color: #a8b3c3; }
+    @media (max-width: 860px) { .scoreboard, .layout, .bench, .lineups-header { grid-template-columns: 1fr; } .score { order: -1; } .pitch { min-height: 560px; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="logo"><span class="logo-mark"></span><span>Flashscore</span></div>
+      <nav class="nav"><a href="index.html">Wyniki</a><button id="themeToggle" class="theme-toggle" type="button">☾</button></nav>
+    </div>
+  </header>
+  <div class="page">
+    <a class="back-button" href="index.html">← Wszystkie mecze</a>
+    <section class="card">
+      <div class="match-state"><span>Stadion na ul. Stromej</span><span class="status">Koniec</span></div>
+      <div class="scoreboard">
+        <div class="team"><div class="crest home-crest">P x K</div><div><div class="team-name">Pero i Kreweda</div><div class="team-meta">Mecz towarzyski</div></div></div>
+        <div class="score"><div class="score-main">5-5</div><div class="score-sub">27.09.2026, 19:10</div></div>
+        <div class="team"><div class="crest away-crest">V x O</div><div><div class="team-name">Vienna i Ola</div><div class="team-meta">Mecz towarzyski</div></div></div>
+      </div>
+      <nav class="tabs">
+        <button class="tab active" type="button" data-tab="match">Mecz</button>
+        <button class="tab" type="button" data-tab="lineups">Składy</button>
+        <button class="tab" type="button" data-tab="stats">Statystyki</button>
+        <button class="tab" type="button" data-tab="report">Raport</button>
+      </nav>
+    </section>
+    <div class="layout">
+      <main class="card">
+        <section id="match" class="tab-view active"><h2 class="panel-title">Wydarzenia meczu</h2><div class="panel-body"><div class="period">Mecz</div>
+        <div class="event away">
+          <div class="event-time">2'</div>
+          <div class="event-main">
+            
+            <span class="event-text">Vienna<span class="event-note">Asysta: Ola</span></span>
+            <span class="icon goal">G</span>
+          </div>
+          <div class="score-tag">0-1</div>
+        </div>
+      
+        <div class="event ">
+          <div class="event-time">15'</div>
+          <div class="event-main">
+            <span class="icon goal">G</span>
+            <span class="event-text">Kreweda<span class="event-note">Asysta: Pero</span></span>
+            
+          </div>
+          <div class="score-tag">1-1</div>
+        </div>
+      
+        <div class="event ">
+          <div class="event-time">24'</div>
+          <div class="event-main">
+            <span class="icon goal">G</span>
+            <span class="event-text">Kreweda<span class="event-note">Asysta:Pero</span></span>
+            
+          </div>
+          <div class="score-tag">2-1</div>
+        </div>
+      
+        <div class="event away">
+          <div class="event-time">30'</div>
+          <div class="event-main">
+            
+            <span class="event-text">Vienna<span class="event-note">Asysta:Ola</span></span>
+            <span class="icon goal">G</span>
+          </div>
+          <div class="score-tag">2-2</div>
+        </div>
+      
+        <div class="event away">
+          <div class="event-time">45+1'</div>
+          <div class="event-main">
+            
+            <span class="event-text">Vienna<span class="event-note">Asysta:Ola</span></span>
+            <span class="icon goal">G</span>
+          </div>
+          <div class="score-tag">2-3</div>
+        </div>
+      
+        <div class="event ">
+          <div class="event-time">48'</div>
+          <div class="event-main">
+            <span class="icon goal">G</span>
+            <span class="event-text">Pero<span class="event-note">Asysta:Kreweda</span></span>
+            
+          </div>
+          <div class="score-tag">3-3</div>
+        </div>
+      
+        <div class="event ">
+          <div class="event-time">59'</div>
+          <div class="event-main">
+            <span class="icon goal">G</span>
+            <span class="event-text">Pero<span class="event-note">Asysta:Kreweda</span></span>
+            
+          </div>
+          <div class="score-tag">4-3</div>
+        </div>
+      
+        <div class="event ">
+          <div class="event-time">65'</div>
+          <div class="event-main">
+            <span class="icon goal">G</span>
+            <span class="event-text">Kreweda<span class="event-note">Asysta:Pero</span></span>
+            
+          </div>
+          <div class="score-tag">5-3</div>
+        </div>
+      
+        <div class="event ">
+          <div class="event-time">70'</div>
+          <div class="event-main">
+            <span class="icon miss">x</span>
+            <span class="event-text">Kreweda<span class="event-note">Gol Anulowany (VAR): Zagranie ręką</span></span>
+            
+          </div>
+          <div class="score-tag">5-3</div>
+        </div>
+      
+        <div class="event away">
+          <div class="event-time">81'</div>
+          <div class="event-main">
+            
+            <span class="event-text">Vienna<span class="event-note"></span></span>
+            <span class="icon goal">G</span>
+          </div>
+          <div class="score-tag">5-4</div>
+        </div>
+      
+        <div class="event away">
+          <div class="event-time">90+5'</div>
+          <div class="event-main">
+            
+            <span class="event-text">Vienna<span class="event-note">Rzut wolny</span></span>
+            <span class="icon goal">G</span>
+          </div>
+          <div class="score-tag">5-5</div>
+        </div>
+      </div></section>
+        <section id="lineups" class="tab-view">
+          <h2 class="panel-title">Składy</h2>
+          <div class="panel-body">
+            <div class="lineups-header">
+              <div class="line-team"><span class="mini-crest home-crest">P x K</span><span>Pero i Kreweda</span></div>
+              <span class="formation-badge">2 vs 2</span>
+              <div class="line-team away"><span>Vienna i Ola</span><span class="mini-crest away-crest">V x O</span></div>
+            </div>
+            <div class="pitch">
+          <div class="player" data-player="Vienna" style="left:22%;top:78%;">
+            <img class="player-photo" src="viena.jpeg" alt="Vienna" />
+            <span class="name">Vienna <span class="mvp-star">★</span></span>
+            <span class="player-actions"><span class="action goal">G</span><span class="action goal">G</span><span class="action goal">G</span><span class="action goal">G</span><span class="action goal">G</span><span class="mvp-star">★</span></span>
+            <span class="rating rating-blue">9.0</span>
+          </div>
+        
+          <div class="player" data-player="Ola" style="left:50%;top:80%;">
+            <img class="player-photo" src="ola.jpeg" alt="Ola" />
+            <span class="name">Ola </span>
+            <span class="player-actions"><span class="action sub-in">A</span><span class="action sub-in">A</span><span class="action sub-in">A</span><span class="action save">🧤 3/8</span></span>
+            <span class="rating rating-red">5.9</span>
+          </div>
+        
+          <div class="player" data-player="Kreweda" style="left:22%;top:22%;">
+            <img class="player-photo" src="kredken.png" alt="Kreweda" />
+            <span class="name">Kreweda </span>
+            <span class="player-actions"><span class="action goal">G</span><span class="action goal">G</span><span class="action goal">G</span><span class="action sub-in">A</span><span class="action sub-in">A</span></span>
+            <span class="rating rating-dark-green">8.6</span>
+          </div>
+        
+          <div class="player" data-player="Pero" style="left:50%;top:20%;">
+            <img class="player-photo" src="pero.jpeg" alt="Pero" />
+            <span class="name">Pero </span>
+            <span class="player-actions"><span class="action goal">G</span><span class="action goal">G</span><span class="action sub-in">A</span><span class="action sub-in">A</span><span class="action sub-in">A</span><span class="action save">🧤 5/10</span></span>
+            <span class="rating rating-dark-green">8.4</span>
+          </div>
+        </div>
+            <div class="bench"><div class="list"><div class="list-head"><span>Pero i Kreweda</span><span>Ocena</span></div>
+          <div class="row" data-player="Vienna">
+            <img class="row-photo" src="viena.jpeg" alt="Vienna" />
+            <div>
+              <strong>Vienna</strong>
+              <span>Napastnik <span class="action goal">G</span><span class="action goal">G</span><span class="action goal">G</span><span class="action goal">G</span><span class="action goal">G</span><span class="mvp-star">★</span></span>
+            </div>
+            <span class="rating rating-blue">9.0</span>
+          </div>
+        
+          <div class="row" data-player="Ola">
+            <img class="row-photo" src="ola.jpeg" alt="Ola" />
+            <div>
+              <strong>Ola</strong>
+              <span>Bramkarz <span class="action sub-in">A</span><span class="action sub-in">A</span><span class="action sub-in">A</span><span class="action save">🧤 3/8</span></span>
+            </div>
+            <span class="rating rating-red">5.9</span>
+          </div>
+        </div><div class="list"><div class="list-head"><span>Vienna i Ola</span><span>Ocena</span></div>
+          <div class="row" data-player="Kreweda">
+            <img class="row-photo" src="kredken.png" alt="Kreweda" />
+            <div>
+              <strong>Kreweda</strong>
+              <span>Napastnik <span class="action goal">G</span><span class="action goal">G</span><span class="action goal">G</span><span class="action sub-in">A</span><span class="action sub-in">A</span></span>
+            </div>
+            <span class="rating rating-dark-green">8.6</span>
+          </div>
+        
+          <div class="row" data-player="Pero">
+            <img class="row-photo" src="pero.jpeg" alt="Pero" />
+            <div>
+              <strong>Pero</strong>
+              <span>Bramkarz <span class="action goal">G</span><span class="action goal">G</span><span class="action sub-in">A</span><span class="action sub-in">A</span><span class="action sub-in">A</span><span class="action save">🧤 5/10</span></span>
+            </div>
+            <span class="rating rating-dark-green">8.4</span>
+          </div>
+        </div></div>
+          </div>
+        </section>
+        <section id="stats" class="tab-view"><h2 class="panel-title">Statystyki</h2><div class="panel-body stats">
+        <div class="stat">
+          <span>50%</span>
+          <span class="bar"></span>
+          <span>50%</span>
+          <div class="stat-label">Posiadanie piłki</div>
+        </div>
+      
+        <div class="stat">
+          <span>10</span>
+          <span class="bar"></span>
+          <span>10</span>
+          <div class="stat-label">Strzały</div>
+        </div>
+      
+        <div class="stat">
+          <span>8</span>
+          <span class="bar"></span>
+          <span>10</span>
+          <div class="stat-label">Strzały celne</div>
+        </div>
+      
+        <div class="stat">
+          <span>0</span>
+          <span class="bar"></span>
+          <span>0</span>
+          <div class="stat-label">Faule</div>
+        </div>
+      
+        <div class="stat">
+          <span>84%</span>
+          <span class="bar"></span>
+          <span>88%</span>
+          <div class="stat-label">Celność podań</div>
+        </div>
+      </div></section>
+        <section id="report" class="tab-view"><h2 class="panel-title">Raport</h2><div class="panel-body"><div class="info-row"><span>Rozgrywki</span><strong>Mecz towarzyski</strong></div><div class="info-row"><span>Stadion</span><strong>Stadion na ul. Stromej</strong></div><div class="info-row"><span>Sędzia</span><strong>-</strong></div><div class="info-row"><span>Data</span><strong>27.09.2026, 19:10</strong></div><div class="info-row"><span>Najlepszy zawodnik</span><strong>Vienna</strong></div></div></section>
+      </main>
+      <aside class="card side-panel"><div class="side-card"><h3>Najważniejsze</h3><div class="field-img"></div><p class="note">Krótki opis meczu, najważniejsze momenty i najlepszy zawodnik.</p></div><div class="side-card"><h3>Informacje</h3><div class="info-row"><span>Status</span><strong>Koniec</strong></div><div class="info-row"><span>Czas</span><strong>90 min</strong></div></div></aside>
+    </div>
+  </div>
+  <script>
+    const playerProfiles = {"Vienna":{"photo":"viena.jpeg","position":"Napastnik","minutes":90,"goals":5,"assists":0,"rating":"9.0","ratingClass":"rating-blue","pluses":["Gole (5)","Celność podań (97%)","Wykończenie (bez karnych)"],"minuses":["Częste straty piłki","błąd skutkujący golem (1)"]},"Ola":{"photo":"ola.jpeg","position":"Bramkarz","minutes":90,"goals":0,"assists":3,"rating":"5.9","ratingClass":"rating-red","pluses":["Asysta (3)","Celność podań (90%)","Obroniona stuprocentowa sytuacja"],"minuses":["Bramki stracone (5)","Obrona (bez karnych)","Błąd skutkujący golem"]},"Kreweda":{"photo":"kredken.png","position":"Napastnik","minutes":90,"goals":3,"assists":2,"rating":"8.6","ratingClass":"rating-dark-green","pluses":["Gole (3)","Celność podań (89%)","Wykończenie bez karnych","Przejęcia (3)","Asysty (2)"],"minuses":["Często mijany dryblingiem","Zagranie ręką","Zmarnowana stuprocentowa sytuacja (2)","Błąd skutkujący strzałem (1)"]},"Pero":{"photo":"pero.jpeg","position":"Bramkarz","minutes":90,"goals":2,"assists":3,"rating":"8.4","ratingClass":"rating-dark-green","pluses":["Gol (2)","Asysta (3)","Obroniona stuprocentowa sytuacja(2)"],"minuses":["Stracone bramki (5)","Sprowokowany rzut wolny"]}};
+    const tabs = document.querySelectorAll(".tab");
+    const tabViews = document.querySelectorAll(".tab-view");
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const target = tab.dataset.tab;
+        tabs.forEach((item) => item.classList.toggle("active", item === tab));
+        tabViews.forEach((view) => view.classList.toggle("active", view.id === target));
+      });
+    });
+    const themeToggle = document.getElementById("themeToggle");
+    function applyTheme(theme) {
+      document.body.classList.toggle("dark", theme === "dark");
+      themeToggle.textContent = theme === "dark" ? "☀" : "☾";
+      localStorage.setItem("flasstromaTheme", theme);
+    }
+    themeToggle.addEventListener("click", () => applyTheme(document.body.classList.contains("dark") ? "light" : "dark"));
+    applyTheme(localStorage.getItem("flasstromaTheme") || "light");
+
+    const profileBackdrop = document.createElement("div");
+    profileBackdrop.className = "player-profile-backdrop";
+    profileBackdrop.innerHTML = '<section class="player-profile" role="dialog" aria-modal="true" aria-label="Profil zawodnika"><div class="profile-head"><img class="profile-photo" alt="" /><div><p class="profile-kicker">Profil zawodnika</p><h2 class="profile-name"></h2><p class="profile-position"></p></div><button class="profile-close" type="button" aria-label="Zamknij">×</button></div><div class="profile-stats"><div class="profile-stat"><span>Min.</span><strong data-field="minutes"></strong></div><div class="profile-stat"><span>Top występy</span><div class="profile-events" data-field="top"></div></div><div class="profile-stat profile-rating"><span>Rating</span><strong data-field="rating"></strong></div></div><h3 class="profile-list-title">Plusy</h3><ul class="profile-list" data-field="pluses"></ul><h3 class="profile-list-title">Minusy</h3><ul class="profile-list" data-field="minuses"></ul></section>';
+    document.body.appendChild(profileBackdrop);
+    let lastProfileTrigger = null;
+    const profileList = (items, type) => (items.length ? items : ["Brak"]).map(item => '<li><span class="profile-mark profile-' + type + '">' + (type === "plus" ? "+" : "−") + '</span>' + item + '</li>').join("");
+    const openProfile = (name, trigger) => {
+      const data = playerProfiles[name]; if (!data) return;
+      lastProfileTrigger = trigger;
+      profileBackdrop.querySelector(".profile-photo").src = data.photo || "";
+      profileBackdrop.querySelector(".profile-photo").alt = name;
+      profileBackdrop.querySelector(".profile-name").textContent = name;
+      profileBackdrop.querySelector(".profile-position").textContent = data.position;
+      profileBackdrop.querySelector('[data-field="minutes"]').textContent = data.minutes;
+      profileBackdrop.querySelector('[data-field="top"]').innerHTML = [data.goals ? '<span class="profile-event">' + data.goals + '<span class="action goal">G</span></span>' : "", data.assists ? '<span class="profile-event">' + data.assists + '<span class="action sub-in">A</span></span>' : ""].join("") || "—";
+      profileBackdrop.querySelector('[data-field="rating"]').textContent = data.rating || "-";
+      profileBackdrop.querySelector('[data-field="pluses"]').innerHTML = profileList(data.pluses, "plus");
+      profileBackdrop.querySelector('[data-field="minuses"]').innerHTML = profileList(data.minuses, "minus");
+      profileBackdrop.querySelector(".profile-rating").className = "profile-stat profile-rating " + data.ratingClass;
+      profileBackdrop.classList.add("open"); profileBackdrop.querySelector(".profile-close").focus();
+    };
+    const closeProfile = () => { profileBackdrop.classList.remove("open"); if (lastProfileTrigger) lastProfileTrigger.focus(); };
+    document.querySelectorAll("[data-player]").forEach(element => { const name = element.dataset.player; element.tabIndex = 0; element.setAttribute("role", "button"); element.setAttribute("aria-label", "Pokaż profil: " + name); element.addEventListener("click", () => openProfile(name, element)); element.addEventListener("keydown", event => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openProfile(name, element); } }); });
+    profileBackdrop.querySelector(".profile-close").addEventListener("click", closeProfile);
+    profileBackdrop.addEventListener("click", event => { if (event.target === profileBackdrop) closeProfile(); });
+    document.addEventListener("keydown", event => { if (event.key === "Escape" && profileBackdrop.classList.contains("open")) closeProfile(); });
+  </script>
+</body>
+</html>

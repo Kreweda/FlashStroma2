@@ -1,0 +1,594 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transfery - Flashscore</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #eceff3;
+      color: #111827;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .topbar {
+      background: #07111d;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .topbar-inner {
+      width: min(1180px, calc(100% - 24px));
+      margin: 0 auto;
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: conic-gradient(#ff0046, #ff6b8a, #ff0046);
+      box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.18);
+    }
+
+    .nav {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .nav a {
+      color: #c5ced8;
+      padding: 20px 11px 17px;
+      border-bottom: 3px solid transparent;
+      font-weight: 700;
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .nav .active {
+      color: #fff;
+      border-color: #ff0046;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 24px));
+      margin: 14px auto 30px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #dfe3e8;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 26px rgba(15, 23, 42, 0.08);
+    }
+
+    .intro {
+      padding: 14px 16px;
+    }
+
+    .intro h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .intro p {
+      margin: 4px 0 0;
+      color: #69727d;
+      font-weight: 700;
+    }
+
+    .tabs {
+      display: flex;
+      overflow-x: auto;
+      border-top: 1px solid #dfe3e8;
+    }
+
+    .tab {
+      border: 0;
+      background: transparent;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      color: #53606d;
+      min-height: 44px;
+      padding: 0 14px;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .tab.active {
+      color: #d8003d;
+      border-color: #ff0046;
+    }
+
+    .panel-title {
+      margin: 0;
+      padding: 12px;
+      background: #f6f7f9;
+      border-bottom: 1px solid #dfe3e8;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .panel-body {
+      padding: 12px;
+    }
+
+    .view {
+      display: none;
+    }
+
+    .view.active {
+      display: block;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 10px;
+    }
+
+    .item {
+      border: 1px solid #dfe3e8;
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .item-top {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 12px;
+      border-bottom: 1px solid #edf0f3;
+    }
+
+    .person-photo,
+    .person-initials {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,.22);
+    }
+
+    .person-photo {
+      object-fit: cover;
+      border: 3px solid #fff;
+      background: #dfe3e8;
+    }
+
+    .person-initials {
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #111827, #ff0046);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .emoji {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #eef1f5;
+      font-size: 22px;
+      flex: 0 0 auto;
+    }
+
+    .item h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .item-sub {
+      margin: 3px 0 0;
+      color: #69727d;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .status {
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 11px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .status-transfer {
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
+
+    .status-free {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .status-loan {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .status-return {
+      background: #e0e7ff;
+      color: #4338ca;
+    }
+
+    .status-injury {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      padding: 12px;
+    }
+
+    .detail {
+      border: 1px solid #edf0f3;
+      border-radius: 8px;
+      padding: 9px;
+      background: #fbfcfd;
+      min-width: 0;
+    }
+
+    .detail span {
+      display: block;
+      color: #75808c;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .detail strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .route {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 0 12px 12px;
+      font-weight: 900;
+    }
+
+    .club {
+      border-radius: 999px;
+      background: #eef1f5;
+      color: #38424f;
+      padding: 7px 10px;
+    }
+
+    .arrow {
+      color: #ff0046;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .note {
+      margin: 0;
+      padding: 0 12px 12px;
+      color: #69727d;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 860px) {
+      .details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding-top: 10px;
+      }
+
+      .nav a {
+        padding: 14px 10px 11px;
+      }
+
+      .item-top {
+        grid-template-columns: auto 1fr;
+      }
+
+      .status {
+        grid-column: 1 / -1;
+        justify-self: start;
+      }
+
+      .details {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="logo">
+        <span class="logo-mark"></span>
+        <span>Flashscore</span>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Mecz</a>
+        <a href="wiadomosci.html">Wiadomosci</a>
+        <a href="zawodnicy.html">Zawodnicy</a>
+        <a href="konkursy.html">Konkursy</a>
+        <a class="active" href="transfery.html">Transfery</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="card intro">
+      <h1>Transfery i kontuzje</h1>
+      <p>Lista ruchow zawodnikow, wypozyczen, powrotow oraz raportow medycznych.</p>
+    </section>
+
+    <section class="card">
+      <nav class="tabs">
+        <button class="tab active" type="button" data-view="transfers">Transfery</button>
+        <button class="tab" type="button" data-view="injuries">Kontuzje</button>
+      </nav>
+
+      <section id="transfers" class="view active">
+        <h2 class="panel-title">Transfery</h2>
+        <div id="transferList" class="panel-body timeline"></div>
+      </section>
+
+      <section id="injuries" class="view">
+        <h2 class="panel-title">Kontuzje</h2>
+        <div id="injuryList" class="panel-body timeline"></div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const transfers = [
+       {
+        player: "Kreweda",
+        photo: "kredken.png",
+        type: "TRANSFER",
+        emoji: "🆓",
+        status: "Transfer ",
+        from: "Stromianka FC",
+        to: "Jugosławianka FC",
+        money: "110 mln €",
+        date: "01.9.2026",
+        loanLength: "-",
+        note: "Transfer  do klubu Jugosławianka."
+      },
+      {
+        player: "Luśken",
+        photo: "luske.png",
+        type: "TRANSFER",
+        emoji: "🆕",
+        status: "Transfer",
+        from: "Jugosławianka FC",
+        to: "Stromianka FC",
+        money: "35mln€",
+        date: "02.09.2026",
+        loanLength: "-",
+        note: "Transfer do klubu Stromianka FC."
+      },
+      // {
+      //   player: "Kreweda",
+      //   photo: "10203a2f-3b65-4df0-a5fb-15dbdc0024cf.jpg",
+      //   type: "return",
+      //   emoji: "↩️",
+      //   status: "Powrot z wypozyczenia",
+      //   from: "FC Nogger",
+      //   to: "FC Nooby",
+      //   money: "-",
+      //   date: "30.05.2026",
+      //   loanLength: "Koniec wypozyczenia",
+      //   note: "Zawodnik wrocil do FC Nooby po zakonczonym wypozyczeniu."
+      // },
+      // {
+      //   player: "UwU",
+      //   photo: "un.jpg",
+      //   type: "free",
+      //   emoji: "🆓",
+      //   status: "Wolny zawodnik",
+      //   from: "Bez klubu",
+      //   to: "Bez klubu",
+      //   money: "-",
+      //   date: "31.08.2025",
+      //   loanLength: "-",
+      //   note: "UwU jest bez klubu i pozostaje wolnym zawodnikiem od 31.08.2025."
+      // }
+    ];
+
+    const injuries = [
+      //  {
+      //   player: "Luśken",
+      //   photo: "117 (1).jpg",
+      //   injury: "Stłuczenie kostki oraz mięśni obok",
+      //   club:"Jugosławianka FC",
+      //   position: "Bramkarz",
+      //   returnDate: "01.08.2026",
+      //   status: "Kontuzja",
+      //   note: "Zawodnik jest poza gra do przewidywanego terminu powrotu. Długość powrotu może ulec przedłużeniu"
+      // },
+      // {
+      //   player: "Kreweda",
+      //   photo: "10203a2f-3b65-4df0-a5fb-15dbdc0024cf.jpg",
+      //   injury: "Naciągnięcie mięśnia czterogłowego uda",
+      //   club: "Stromianka FC",
+      //   position: "Prawy Obrońca",
+      //   returnDate: "16.07.2026",
+      //   status: "Kontuzja",
+      //   note: "Zawodnik jest poza gra do przewidywanego terminu powrotu."
+      // }
+    ];
+
+    const tabs = document.querySelectorAll(".tab");
+    const views = document.querySelectorAll(".view");
+    const transferList = document.getElementById("transferList");
+    const injuryList = document.getElementById("injuryList");
+
+    function transferStatusClass(type) {
+      if (type === "free") return "status-free";
+      if (type === "loan") return "status-loan";
+      if (type === "return") return "status-return";
+      return "status-transfer";
+    }
+
+    function initials(name) {
+      return name.slice(0, 2).toUpperCase();
+    }
+
+    function playerPhoto(item) {
+      if (item.photo) {
+        return `<img class="person-photo" src="${item.photo}" alt="${item.player}" />`;
+      }
+
+      return `<span class="person-initials">${initials(item.player)}</span>`;
+    }
+
+    function renderTransfers() {
+      transferList.innerHTML = transfers.map((item) => `
+        <article class="item">
+          <div class="item-top">
+            ${playerPhoto(item)}
+            <div>
+              <h3>${item.player}</h3>
+              <p class="item-sub">${item.date}</p>
+            </div>
+            <span class="status ${transferStatusClass(item.type)}">${item.emoji} ${item.status}</span>
+          </div>
+
+          <div class="details">
+            <div class="detail">
+              <span>Skad</span>
+              <strong>${item.from}</strong>
+            </div>
+            <div class="detail">
+              <span>Dokad</span>
+              <strong>${item.to}</strong>
+            </div>
+            <div class="detail">
+              <span>Kwota</span>
+              <strong>${item.money}</strong>
+            </div>
+            <div class="detail">
+              <span>Wypozyczenie</span>
+              <strong>${item.loanLength}</strong>
+            </div>
+          </div>
+
+          <div class="route">
+            <span class="club">${item.from}</span>
+            <span class="arrow">→</span>
+            <span class="club">${item.to}</span>
+          </div>
+
+          <p class="note">${item.note}</p>
+        </article>
+      `).join("");
+    }
+
+    function renderInjuries() {
+      injuryList.innerHTML = injuries.map((item) => `
+        <article class="item">
+          <div class="item-top">
+            ${playerPhoto(item)}
+            <div>
+              <h3>${item.player}</h3>
+              <p class="item-sub">${item.club} • ${item.position}</p>
+            </div>
+            <span class="status status-injury">${item.status}</span>
+          </div>
+
+          <div class="details">
+            <div class="detail">
+              <span>Kontuzja</span>
+              <strong>${item.injury}</strong>
+            </div>
+            <div class="detail">
+              <span>Klub</span>
+              <strong>${item.club}</strong>
+            </div>
+            <div class="detail">
+              <span>Pozycja</span>
+              <strong>${item.position}</strong>
+            </div>
+            <div class="detail">
+              <span>Termin powrotu</span>
+              <strong>${item.returnDate}</strong>
+            </div>
+          </div>
+
+          <p class="note">${item.note}</p>
+        </article>
+      `).join("");
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const target = tab.dataset.view;
+
+        tabs.forEach((item) => {
+          item.classList.toggle("active", item === tab);
+        });
+
+        views.forEach((view) => {
+          view.classList.toggle("active", view.id === target);
+        });
+      });
+    });
+
+    renderTransfers();
+    renderInjuries();
+  </script>
+</body>
+</html>
+

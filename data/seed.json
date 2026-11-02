@@ -1,0 +1,4691 @@
+{
+  "teams": [
+    {
+      "id": "jugoslawianka",
+      "name": "Klub Jugosławianka",
+      "short_name": "🛡️",
+      "crest": "🛡️",
+      "stadium": "Stadion imienia Piłki Koteua",
+      "capacity": 10,
+      "description": "Kadra zespołu",
+      "extras": {
+        "name": "Klub Jugosławianka",
+        "subtitle": "Kadra zespołu",
+        "crest": "🛡️",
+        "stadium": "Stadion imienia Piłki Koteua",
+        "capacity": "10",
+        "players": [
+          {
+            "name": "Kreweda",
+            "role": "Bramkarz",
+            "number": 25,
+            "photo": "kredken.png"
+          },
+          {
+            "name": "Vienna",
+            "role": "Napastnik",
+            "number": 7,
+            "photo": "viena.jpeg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "stromianka",
+      "name": "Stromianka FC",
+      "short_name": "⚡",
+      "crest": "⚡",
+      "stadium": "Stadion imienia Piłki Koteua",
+      "capacity": 10,
+      "description": "Kadra zespołu",
+      "extras": {
+        "name": "Stromianka FC",
+        "subtitle": "Kadra zespołu",
+        "crest": "⚡",
+        "stadium": "Stadion imienia Piłki Koteua",
+        "capacity": "10",
+        "players": [
+          {
+            "name": "Luśken",
+            "role": "Bramkarz",
+            "number": 1,
+            "photo": "luske.png"
+          },
+          {
+            "name": "Pero",
+            "role": "Napastnik",
+            "number": 9,
+            "photo": "pero.jpeg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "lammers",
+      "name": "FS Lammers",
+      "short_name": "🔥",
+      "crest": "🔥",
+      "stadium": "Stadion betonowy ulicy Stromej",
+      "capacity": 5,
+      "description": "Kadra zespołu",
+      "extras": {
+        "name": "FS Lammers",
+        "subtitle": "Kadra zespołu",
+        "crest": "🔥",
+        "stadium": "Stadion betonowy ulicy Stromej",
+        "capacity": "5",
+        "players": [
+          {
+            "name": "Serduszkowata",
+            "role": "Bramkarz",
+            "number": 1,
+            "photo": "ola.jpeg"
+          },
+          {
+            "name": "Koteu",
+            "role": "Napastnik",
+            "number": 19,
+            "photo": "https://kreweda.github.io/flasstroma/116.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reprezentacja",
+      "name": "Reprezentacja ul. Stromej",
+      "short_name": "🇵🇱",
+      "crest": "🇵🇱",
+      "stadium": "Stadion Ulicy Stromej",
+      "capacity": 10,
+      "description": "Kadra reprezentacji",
+      "extras": {
+        "name": "Reprezentacja ul. Stromej",
+        "subtitle": "Kadra reprezentacji",
+        "crest": "🇵🇱",
+        "stadium": "Stadion Ulicy Stromej",
+        "capacity": "10",
+        "fifaCards": [
+          {
+            "name": "Kreweda",
+            "image": "krd.png"
+          },
+          {
+            "name": "Vienna",
+            "image": "Viena.png"
+          },
+          {
+            "name": "Pero",
+            "image": "per.png"
+          },
+          {
+            "name": "Luśken",
+            "image": "llb.png"
+          },
+          {
+            "name": "Serduszkowata",
+            "image": "SR.png"
+          }
+        ],
+        "players": [
+          {
+            "name": "Kitkisana Lulusiowata",
+            "role": "Bramkarz",
+            "number": 1,
+            "photo": "luske.png"
+          },
+          {
+            "name": "Psiepauch Krewedkowski",
+            "role": "Obrońca",
+            "number": 5,
+            "photo": "kredken.png"
+          },
+          {
+            "name": "Vienna Wiedeński",
+            "role": "Pomocnik",
+            "number": 8,
+            "photo": "viena.jpeg"
+          },
+          {
+            "name": "Serduszkowata",
+            "role": "Pomocnik",
+            "number": 6,
+            "photo": "ola.jpeg"
+          },
+          {
+            "name": "Pero",
+            "role": "Napastnik",
+            "number": 9,
+            "photo": "pero.jpeg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ola-pero-koteu",
+      "name": "Ola / Pero / Koteu",
+      "short_name": "O/P/",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "kreweda-vienna",
+      "name": "Kreweda / Vienna",
+      "short_name": "K/V",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "jugos-awianka-fc",
+      "name": "Jugosławianka FC",
+      "short_name": "JF",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "vienna-i-lusken",
+      "name": "Vienna i Luśken",
+      "short_name": "VIL",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "koteu-i-serduszkowata",
+      "name": "Koteu i Serduszkowata",
+      "short_name": "KIS",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "kreweda-i-pero",
+      "name": "Kreweda i Pero",
+      "short_name": "KIP",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "lusken-i-serduszkowata",
+      "name": "Luśken i Serduszkowata",
+      "short_name": "LIS",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "kreweda",
+      "name": "Kreweda",
+      "short_name": "K",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "lusken",
+      "name": "Luśken",
+      "short_name": "L",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "vienna",
+      "name": "Vienna",
+      "short_name": "V",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "pero",
+      "name": "Pero",
+      "short_name": "P",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "ola",
+      "name": "Ola",
+      "short_name": "O",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "kreweda-i-lusken",
+      "name": "Kreweda i Luśken",
+      "short_name": "KIL",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "reprezentacja-stromej",
+      "name": "Reprezentacja Stromej",
+      "short_name": "RS",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "reprezentacja-ul-stromej-u16",
+      "name": "Reprezentacja ul. Stromej U16",
+      "short_name": "RUSU",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "ola-i-lusken",
+      "name": "Ola i Luśken",
+      "short_name": "OIL",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "kreweda-i-vienna",
+      "name": "Kreweda i Vienna",
+      "short_name": "KIV",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "vienna-i-ola",
+      "name": "Vienna i Ola",
+      "short_name": "VIO",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "kreweda-lusken-i-ola",
+      "name": "Kreweda, Luśken i Ola",
+      "short_name": "KLIO",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "vienna-i-pero",
+      "name": "Vienna i Pero",
+      "short_name": "VIP",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "pero-i-lusken",
+      "name": "Pero i Luśken",
+      "short_name": "PIL",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "vienna-ola-i-kreweda",
+      "name": "Vienna, Ola i Kreweda",
+      "short_name": "VOIK",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "pero-i-kreweda",
+      "name": "Pero i Kreweda",
+      "short_name": "PIK",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "vienna-i-kreweda",
+      "name": "Vienna i Kreweda",
+      "short_name": "VIK",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "lusken-i-ola",
+      "name": "Luśken i Ola",
+      "short_name": "LIO",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "lusken-i-kreweda",
+      "name": "Luśken i Kreweda",
+      "short_name": "LIK",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "ola-i-kreweda",
+      "name": "Ola i Kreweda",
+      "short_name": "OIK",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    },
+    {
+      "id": "lusken-i-vienna",
+      "name": "Luśken i Vienna",
+      "short_name": "LIV",
+      "crest": "",
+      "stadium": "",
+      "capacity": null,
+      "description": "",
+      "extras": {}
+    }
+  ],
+  "players": [
+    {
+      "id": "lusken",
+      "name": "Luśken",
+      "photo": "l.jpg",
+      "age": "16 lat",
+      "position": "Bramkarz",
+      "value": "20 mln",
+      "club": "Jugosławianka",
+      "season": "2026/2027",
+      "average_rating": 6.36,
+      "stats": [
+        {
+          "competition": "Liga Stromej",
+          "appearances": 2,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 1,
+          "rating": 6
+        },
+        {
+          "competition": "Mecze Towarzyskie",
+          "appearances": 6,
+          "goals": 0,
+          "assists": 12,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 1,
+          "rating": 7
+        },
+        {
+          "competition": "Liga Oguruw",
+          "appearances": null,
+          "goals": null,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        },
+        {
+          "competition": "Puchar Stromej",
+          "appearances": 2,
+          "goals": 6,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": 6.1
+        },
+        {
+          "competition": "Superpuchar Grahamki",
+          "appearances": 0,
+          "goals": 0,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        }
+      ],
+      "extras": {
+        "shirt_number": 1,
+        "team_id": "stromianka"
+      }
+    },
+    {
+      "id": "vienna",
+      "name": "Vienna",
+      "photo": "116 (2).jpg",
+      "age": "17 lat",
+      "position": "Środkowy Pomocnik/ Środkowy Pomocnik Defensywny/ Środkowy Obrońca",
+      "value": "80 mln",
+      "club": "Jugosławianka",
+      "season": "2026/2027",
+      "average_rating": 8.5,
+      "stats": [
+        {
+          "competition": "Liga Stromej",
+          "appearances": 2,
+          "goals": 5,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": 8.7
+        },
+        {
+          "competition": "Mecze Towarzyskie",
+          "appearances": 8,
+          "goals": 40,
+          "assists": 13,
+          "yellowCards": 1,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": 8.43
+        },
+        {
+          "competition": "Liga Oguruw",
+          "appearances": null,
+          "goals": null,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        },
+        {
+          "competition": "Puchar Stromej",
+          "appearances": 1,
+          "goals": 2,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": 6.9
+        },
+        {
+          "competition": "Reprezentacja ul.Stromej",
+          "appearances": 1,
+          "goals": 6,
+          "assists": 3,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": 10
+        },
+        {
+          "competition": "Superpuchar Grahamki",
+          "appearances": 0,
+          "goals": 0,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        }
+      ],
+      "extras": {
+        "shirt_number": 7,
+        "team_id": "jugoslawianka"
+      }
+    },
+    {
+      "id": "koteu",
+      "name": "Koteu",
+      "photo": "116.jpg",
+      "age": "20 lat",
+      "position": "Napastnik/ Środkowy Pomocnik Ofensywny",
+      "value": "100mln",
+      "club": "KTE x SER",
+      "season": "2026/2027",
+      "average_rating": 7.6,
+      "stats": [
+        {
+          "competition": "Liga Stromej",
+          "appearances": null,
+          "goals": null,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        },
+        {
+          "competition": "Mecze Towarzyskie",
+          "appearances": 2,
+          "goals": 4,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": 7.6
+        },
+        {
+          "competition": "Liga Oguruw",
+          "appearances": null,
+          "goals": null,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        },
+        {
+          "competition": "Puchar Stromej",
+          "appearances": null,
+          "goals": null,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        }
+      ],
+      "extras": {
+        "shirt_number": 19,
+        "team_id": "lammers"
+      }
+    },
+    {
+      "id": "kreweda",
+      "name": "Kreweda",
+      "photo": "10203a2f-3b65-4df0-a5fb-15dbdc0024cf.jpg",
+      "age": "19 lat",
+      "position": "Środkowy Obrońca/ Środkowy Pomocnik Defensywny",
+      "value": "49mln",
+      "club": "Stromianka FC",
+      "season": "2026/2027",
+      "average_rating": 8.21,
+      "stats": [
+        {
+          "competition": "Liga Stromej",
+          "appearances": 2,
+          "goals": 3,
+          "assists": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": 7.5
+        },
+        {
+          "competition": "Mecze Towarzyskie",
+          "appearances": 8,
+          "goals": 36,
+          "assists": 10,
+          "yellowCards": 2,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": 8.75
+        },
+        {
+          "competition": "Liga Oguruw",
+          "appearances": null,
+          "goals": null,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        },
+        {
+          "competition": "Puchar Stromej",
+          "appearances": 2,
+          "goals": 11,
+          "assists": null,
+          "yellowCards": 1,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": 9.6
+        },
+        {
+          "competition": "Reprezentacja ul.Stromej",
+          "appearances": 1,
+          "goals": 0,
+          "assists": 5,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": 7
+        },
+        {
+          "competition": "Superpuchar Grahamki",
+          "appearances": 0,
+          "goals": 0,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        }
+      ],
+      "extras": {
+        "shirt_number": 25,
+        "team_id": "jugoslawianka"
+      }
+    },
+    {
+      "id": "serduszkowata",
+      "name": "Serduszkowata",
+      "photo": "116 (1).jpg",
+      "age": "13 lat",
+      "position": "Środkowy Pomocnik Ofensywny/ Napastnik",
+      "value": "20 mln",
+      "club": "KTE x SER",
+      "season": "2026/2027",
+      "average_rating": 7,
+      "stats": [
+        {
+          "competition": "Liga Stromej",
+          "appearances": null,
+          "goals": null,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        },
+        {
+          "competition": "Mecze Towarzyskie",
+          "appearances": 7,
+          "goals": 14,
+          "assists": 6,
+          "yellowCards": 2,
+          "redCards": 1,
+          "cleanSheets": 0,
+          "rating": 7
+        },
+        {
+          "competition": "Liga Oguruw",
+          "appearances": null,
+          "goals": null,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        },
+        {
+          "competition": "Puchar Stromej",
+          "appearances": 2,
+          "goals": 7,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": 7
+        },
+        {
+          "competition": "Superpuchar Grahamki",
+          "appearances": 0,
+          "goals": 0,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        }
+      ],
+      "extras": {
+        "shirt_number": 6,
+        "team_id": "reprezentacja"
+      }
+    },
+    {
+      "id": "pero",
+      "name": "Pero",
+      "photo": "117.jpg",
+      "age": "15 lat",
+      "position": "Prawy Skrzydłowy/ Środkowy Pomocnik Ofensywny",
+      "value": "75 mln",
+      "club": "Stromianka",
+      "season": "2026/2027",
+      "average_rating": 8.06,
+      "stats": [
+        {
+          "competition": "Liga Stromej",
+          "appearances": 2,
+          "goals": 1,
+          "assists": 3,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 1,
+          "rating": 7
+        },
+        {
+          "competition": "Mecze Towarzyskie",
+          "appearances": 4,
+          "goals": 5,
+          "assists": 11,
+          "yellowCards": 1,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": 7.15
+        },
+        {
+          "competition": "Liga Oguruw",
+          "appearances": null,
+          "goals": null,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        },
+        {
+          "competition": "Puchar Stromej",
+          "appearances": 1,
+          "goals": 5,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": 9.1
+        },
+        {
+          "competition": "Reprezentacja ul.Stromej",
+          "appearances": 1,
+          "goals": 4,
+          "assists": 2,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": 9
+        },
+        {
+          "competition": "Superpuchar Grahamki",
+          "appearances": 0,
+          "goals": 0,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        }
+      ],
+      "extras": {
+        "shirt_number": 9,
+        "team_id": "reprezentacja"
+      }
+    },
+    {
+      "id": "uwu",
+      "name": "UwU",
+      "photo": "un.jpg",
+      "age": "14 lat",
+      "position": "Środkowy Pomocnik",
+      "value": "1,0 mln",
+      "club": "Stromianka",
+      "season": "2026/2027",
+      "average_rating": null,
+      "stats": [
+        {
+          "competition": "Liga Stromej",
+          "appearances": null,
+          "goals": null,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        },
+        {
+          "competition": "Mecze Towarzyskie",
+          "appearances": null,
+          "goals": null,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        },
+        {
+          "competition": "Liga Oguruw",
+          "appearances": null,
+          "goals": null,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        },
+        {
+          "competition": "Puchar Stromej",
+          "appearances": null,
+          "goals": null,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        }
+      ]
+    },
+    {
+      "id": "luki",
+      "name": "Luki",
+      "photo": "92a1363d-8754-43d0-b39c-ead62b8b9378.jpg",
+      "age": "19 lat",
+      "position": "Prawo skrzydłowy",
+      "value": "40,0 mln",
+      "club": "KTE x SER",
+      "season": "2026/2027",
+      "average_rating": null,
+      "stats": [
+        {
+          "competition": "Liga Stromej",
+          "appearances": null,
+          "goals": null,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        },
+        {
+          "competition": "Mecze Towarzyskie",
+          "appearances": null,
+          "goals": null,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        },
+        {
+          "competition": "Liga Oguruw",
+          "appearances": null,
+          "goals": null,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        },
+        {
+          "competition": "Puchar Stromej",
+          "appearances": null,
+          "goals": null,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        },
+        {
+          "competition": "Reprezentacja ul.Stromej",
+          "appearances": null,
+          "goals": null,
+          "assists": null,
+          "yellowCards": null,
+          "redCards": null,
+          "cleanSheets": null,
+          "rating": null
+        }
+      ]
+    },
+    {
+      "id": "kitkisana-lulusiowata",
+      "name": "Kitkisana Lulusiowata",
+      "photo": "luske.png",
+      "age": "",
+      "position": "Bramkarz",
+      "value": "",
+      "club": "Reprezentacja ul. Stromej",
+      "season": "2026/2027",
+      "average_rating": null,
+      "stats": [],
+      "extras": {
+        "shirt_number": 1,
+        "team_id": "reprezentacja"
+      }
+    },
+    {
+      "id": "psiepauch-krewedkowski",
+      "name": "Psiepauch Krewedkowski",
+      "photo": "kredken.png",
+      "age": "",
+      "position": "Obrońca",
+      "value": "",
+      "club": "Reprezentacja ul. Stromej",
+      "season": "2026/2027",
+      "average_rating": null,
+      "stats": [],
+      "extras": {
+        "shirt_number": 5,
+        "team_id": "reprezentacja"
+      }
+    },
+    {
+      "id": "vienna-wiedenski",
+      "name": "Vienna Wiedeński",
+      "photo": "viena.jpeg",
+      "age": "",
+      "position": "Pomocnik",
+      "value": "",
+      "club": "Reprezentacja ul. Stromej",
+      "season": "2026/2027",
+      "average_rating": null,
+      "stats": [],
+      "extras": {
+        "shirt_number": 8,
+        "team_id": "reprezentacja"
+      }
+    }
+  ],
+  "competitions": [
+    {
+      "id": "liga-stromej",
+      "name": "Liga Stromej",
+      "season": "2026/2027",
+      "kind": "competition",
+      "details": {
+        "id": "liga-stromej",
+        "name": "Liga Stromej",
+        "format": "Format ligowy",
+        "description": "Tabela ligowa z punktami, bramkami zdobytymi, straconymi i bilansem.",
+        "divisions": [
+          {
+            "name": "Tabela",
+            "teams": [
+              {
+                "name": "Jugoslawianka",
+                "goalsFor": 5,
+                "goalsAgainst": 3,
+                "points": 3
+              },
+              {
+                "name": "Stromianka",
+                "goalsFor": 4,
+                "goalsAgainst": 5,
+                "points": 3
+              },
+              {
+                "name": "KTE x SER",
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              }
+            ]
+          }
+        ],
+        "leaders": {
+          "scorers": [
+            {
+              "name": "Vienna",
+              "club": "Jugoslawianka",
+              "value": 4
+            },
+            {
+              "name": "Kreweda",
+              "club": "Stromianka",
+              "value": 3
+            },
+            {
+              "name": "Pero",
+              "club": "Stromianka",
+              "value": 1
+            }
+          ],
+          "assists": [
+            {
+              "name": "Pero",
+              "club": "Stromianka",
+              "value": 3
+            },
+            {
+              "name": "Luśken",
+              "club": "Stromianka",
+              "value": 2
+            },
+            {
+              "name": "Kreweda",
+              "club": "Stromianka",
+              "value": 1
+            }
+          ],
+          "cleanSheets": [],
+          "cards": [
+            {
+              "name": "Kreweda",
+              "club": "Stromianka",
+              "value": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "puchar-stromej",
+      "name": "Puchar Stromej",
+      "season": "2026/2027",
+      "kind": "competition",
+      "details": {
+        "id": "puchar-stromej",
+        "name": "Puchar Stromej",
+        "format": "Dwie grupy / dwie dywizje",
+        "description": "Dywizja A i Dywizja B z awansem oraz spadkiem.",
+        "divisions": [
+          {
+            "name": "Dywizja A",
+            "teams": [
+              {
+                "name": "Pero",
+                "goalsFor": 5,
+                "goalsAgainst": 2,
+                "points": 3
+              },
+              {
+                "name": "Koteu",
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "name": "Vienna",
+                "goalsFor": 2,
+                "goalsAgainst": 5,
+                "points": 0,
+                "status": "down"
+              }
+            ]
+          },
+          {
+            "name": "Dywizja B",
+            "teams": [
+              {
+                "name": "Kreweda",
+                "goalsFor": 11,
+                "goalsAgainst": 5,
+                "points": 6,
+                "status": "up"
+              },
+              {
+                "name": "Serduszkowata",
+                "goalsFor": 7,
+                "goalsAgainst": 6,
+                "points": 3
+              },
+              {
+                "name": "Luśken",
+                "goalsFor": 6,
+                "goalsAgainst": 12,
+                "points": 0
+              }
+            ]
+          }
+        ],
+        "leaders": {
+          "scorers": [
+            {
+              "name": "Kreweda",
+              "club": "Stromianka",
+              "value": 11
+            },
+            {
+              "name": "Serduszkowata",
+              "club": "KTE x SER",
+              "value": 7
+            },
+            {
+              "name": "Luśken",
+              "club": "Jugosławianka",
+              "value": 6
+            },
+            {
+              "name": "Pero",
+              "club": "Stromianka",
+              "value": 5
+            },
+            {
+              "name": "Vienna",
+              "club": "Jugoslawianka",
+              "value": 2
+            }
+          ],
+          "assists": [],
+          "cleanSheets": [],
+          "cards": [
+            {
+              "name": "Kreweda",
+              "club": "Stromianka",
+              "value": 1
+            },
+            {
+              "name": "Pero",
+              "club": "Stromianka",
+              "value": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "puchar-4-oguruw",
+      "name": "Puchar 4 Oguruw",
+      "season": "2026/2027",
+      "kind": "competition",
+      "details": {
+        "id": "puchar-4-oguruw",
+        "name": "Puchar 4 Oguruw",
+        "format": "Liga",
+        "description": "Liga czterech druzyn z jedna wspolna tabela.",
+        "divisions": [
+          {
+            "name": "Tabela",
+            "teams": [
+              {
+                "name": "Koteu",
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "name": "Vienna",
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "name": "Pero",
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "name": "Kreweda",
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              }
+            ]
+          }
+        ],
+        "leaders": {
+          "scorers": [],
+          "assists": [],
+          "cleanSheets": [],
+          "cards": []
+        }
+      }
+    },
+    {
+      "id": "superpuchar-grahamki",
+      "name": "Superpuchar Grahamki",
+      "season": "2026/2027",
+      "kind": "competition",
+      "details": {
+        "id": "superpuchar-grahamki",
+        "name": "Superpuchar Grahamki",
+        "format": "Faza pucharowa",
+        "description": "Pusta drabinka fazy pucharowej do uzupełnienia wyników w kodzie.",
+        "bracket": {
+          "quarterfinals": [
+            {
+              "playerA": "-",
+              "playerB": "Pero",
+              "scoreA": "",
+              "scoreB": "",
+              "winner": "Pero"
+            },
+            {
+              "playerA": "-",
+              "playerB": "Luśken",
+              "scoreA": "",
+              "scoreB": "",
+              "winner": "Luśken"
+            },
+            {
+              "playerA": "-",
+              "playerB": "Vienna",
+              "scoreA": "",
+              "scoreB": "",
+              "winner": "Vienna"
+            },
+            {
+              "playerA": "Kreweda",
+              "playerB": "Ola",
+              "scoreA": "",
+              "scoreB": "",
+              "winner": ""
+            }
+          ],
+          "semifinalOne": {
+            "playerA": "Pero",
+            "playerB": "Luśken",
+            "scoreA": "",
+            "scoreB": "",
+            "winner": ""
+          },
+          "semifinalTwo": {
+            "playerA": "Vienna",
+            "playerB": "Zwycięzca ćwierćfinału",
+            "scoreA": "",
+            "scoreB": "",
+            "winner": ""
+          },
+          "final": {
+            "playerA": "Zwycięzca półfinału I",
+            "playerB": "Zwycięzca półfinału II",
+            "scoreA": "",
+            "scoreB": "",
+            "winner": ""
+          }
+        },
+        "leaders": {
+          "scorers": [],
+          "assists": [],
+          "cleanSheets": [],
+          "cards": []
+        }
+      }
+    }
+  ],
+  "matches": [
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "season": "2026",
+      "kickoff": "20:55",
+      "competition": "Świat: mecze towarzyskie",
+      "home_team": "Ola / Pero / Koteu",
+      "home_score": 6,
+      "away_team": "Kreweda / Vienna",
+      "away_score": 9,
+      "page": "mecz-ola-pero-koteu-kreweda-vienna.html",
+      "note": "",
+      "status": "finished"
+    },
+    {
+      "id": "mecz2",
+      "season": "2026",
+      "kickoff": "21:40",
+      "competition": "Świat: Liga Stromej",
+      "home_team": "Jugosławianka FC",
+      "home_score": 2,
+      "away_team": "Stromianka FC",
+      "away_score": 3,
+      "page": "mecz2.html",
+      "note": "Kolejka I",
+      "status": "finished"
+    },
+    {
+      "id": "mecz3",
+      "season": "2026",
+      "kickoff": "20:30",
+      "competition": "Świat: mecze towarzyskie",
+      "home_team": "Vienna i Luśken",
+      "home_score": 3,
+      "away_team": "Koteu i Serduszkowata",
+      "away_score": 0,
+      "page": "mecz3.html",
+      "note": "",
+      "status": "finished"
+    },
+    {
+      "id": "mecz5",
+      "season": "2026",
+      "kickoff": "20:30",
+      "competition": "Świat: mecze towarzyskie",
+      "home_team": "Kreweda i Pero",
+      "home_score": 1,
+      "away_team": "Luśken i Serduszkowata",
+      "away_score": 1,
+      "page": "mecz5.html",
+      "note": "Karne 1:0",
+      "status": "finished"
+    },
+    {
+      "id": "mecz4",
+      "season": "2026",
+      "kickoff": "18:40",
+      "competition": "Świat: Liga Stromej",
+      "home_team": "Stromianka FC",
+      "home_score": 1,
+      "away_team": "Jugosławianka FC",
+      "away_score": 3,
+      "page": "mecz4.html",
+      "note": "Kolejka II",
+      "status": "finished"
+    },
+    {
+      "id": "mecz7",
+      "season": "2026",
+      "kickoff": "19:30",
+      "competition": "Świat: Puchar Stromej Dywizja B",
+      "home_team": "Kreweda",
+      "home_score": 7,
+      "away_team": "Luśken",
+      "away_score": 4,
+      "page": "mecz7.html",
+      "note": "",
+      "status": "finished"
+    },
+    {
+      "id": "mecz6",
+      "season": "2026",
+      "kickoff": "20:00",
+      "competition": "Świat: Puchar Stromej Dywizja A",
+      "home_team": "Vienna",
+      "home_score": 2,
+      "away_team": "Pero",
+      "away_score": 5,
+      "page": "mecz6.html",
+      "note": "",
+      "status": "finished"
+    },
+    {
+      "id": "mecz8",
+      "season": "2026",
+      "kickoff": "20:30",
+      "competition": "Świat: Puchar Stromej Dywizja B",
+      "home_team": "Kreweda",
+      "home_score": 4,
+      "away_team": "Ola",
+      "away_score": 1,
+      "page": "mecz8.html",
+      "note": "",
+      "status": "finished"
+    },
+    {
+      "id": "mecz9",
+      "season": "2026",
+      "kickoff": "18:45",
+      "competition": "Świat: mecze towarzyskie",
+      "home_team": "Kreweda i Luśken",
+      "home_score": 4,
+      "away_team": "Vienna",
+      "away_score": 3,
+      "page": "mecz9.html",
+      "note": "",
+      "status": "finished"
+    },
+    {
+      "id": "mecz12",
+      "season": "2026",
+      "kickoff": "18:20",
+      "competition": "Świat: mecze towarzyskie",
+      "home_team": "Reprezentacja Stromej",
+      "home_score": 10,
+      "away_team": "Reprezentacja ul. Stromej U16",
+      "away_score": 8,
+      "page": "mecz12.html",
+      "note": "",
+      "status": "finished"
+    },
+    {
+      "id": "mecz14",
+      "season": "2026",
+      "kickoff": "19:20",
+      "competition": "Świat: Puchar Stromej Dywizja B",
+      "home_team": "Ola",
+      "home_score": 5,
+      "away_team": "Luśken",
+      "away_score": 2,
+      "page": "mecz14.html",
+      "note": "",
+      "status": "finished"
+    },
+    {
+      "id": "mecz15",
+      "season": "2026",
+      "kickoff": "20:30",
+      "competition": "Mecz Towarzyski",
+      "home_team": "Ola i Luśken",
+      "home_score": 10,
+      "away_team": "Kreweda i Vienna",
+      "away_score": 12,
+      "page": "mecz15.html",
+      "note": "",
+      "status": "finished"
+    },
+    {
+      "id": "mecz16",
+      "season": "2026",
+      "kickoff": "20:00",
+      "competition": "Mecz Towarzyski",
+      "home_team": "Kreweda i Pero",
+      "home_score": 13,
+      "away_team": "Vienna",
+      "away_score": 15,
+      "page": "mecz16.html",
+      "note": "",
+      "status": "finished"
+    },
+    {
+      "id": "mecz17",
+      "season": "2026",
+      "kickoff": "21:00",
+      "competition": "Mecz Towarzyski",
+      "home_team": "Kreweda i Luśken",
+      "home_score": 3,
+      "away_team": "Vienna i Ola",
+      "away_score": 6,
+      "page": "mecz17.html",
+      "note": "",
+      "status": "finished"
+    },
+    {
+      "id": "mecz18",
+      "season": "2026",
+      "kickoff": "20:40",
+      "competition": "Mecz Towarzyski",
+      "home_team": "Kreweda, Luśken i Ola",
+      "home_score": 5,
+      "away_team": "Vienna i Pero",
+      "away_score": 5,
+      "page": "mecz18.html",
+      "note": "",
+      "status": "finished"
+    },
+    {
+      "id": "mecz19",
+      "season": "2026",
+      "kickoff": "20:30",
+      "competition": "Mecz Towarzyski",
+      "home_team": "Kreweda, Luśken i Ola",
+      "home_score": 6,
+      "away_team": "Vienna",
+      "away_score": 4,
+      "page": "mecz19.html",
+      "note": "",
+      "status": "finished"
+    },
+    {
+      "id": "mecz271",
+      "season": "2026/2027",
+      "kickoff": "19:30",
+      "competition": "Mecz Towarzyski",
+      "home_team": "Pero i Luśken",
+      "home_score": 5,
+      "away_team": "Vienna, Ola i Kreweda",
+      "away_score": 4,
+      "page": "mecz271.html",
+      "note": "",
+      "status": "finished"
+    },
+    {
+      "id": "mecz272",
+      "season": "2026/2027",
+      "kickoff": "19:30",
+      "competition": "Mecz Towarzyski",
+      "home_team": "Ola i Luśken",
+      "home_score": 0,
+      "away_team": "Kreweda",
+      "away_score": 1,
+      "page": "mecz272.html",
+      "note": "",
+      "status": "finished"
+    },
+    {
+      "id": "mecz273",
+      "season": "2026/2027",
+      "kickoff": "19:10",
+      "competition": "Mecz Towarzyski",
+      "home_team": "Pero i Kreweda",
+      "home_score": 5,
+      "away_team": "Vienna i Ola",
+      "away_score": 5,
+      "page": "mecz273.html",
+      "note": "",
+      "status": "finished"
+    },
+    {
+      "id": "mecz274",
+      "season": "2026/2027",
+      "kickoff": "19:00",
+      "competition": "Mecz Towarzyski",
+      "home_team": "Vienna i Kreweda",
+      "home_score": 8,
+      "away_team": "Luśken i Ola",
+      "away_score": 3,
+      "page": "mecz274.html",
+      "note": "",
+      "status": "finished"
+    },
+    {
+      "id": "mecz275",
+      "season": "2026/2027",
+      "kickoff": "19:00",
+      "competition": "Mecz Towarzyski",
+      "home_team": "Luśken i Kreweda",
+      "home_score": 5,
+      "away_team": "Vienna i Ola",
+      "away_score": 8,
+      "page": "mecz275.html",
+      "note": "",
+      "status": "finished"
+    },
+    {
+      "id": "mecz276",
+      "season": "2026/2027",
+      "kickoff": "19:30",
+      "competition": "Mecz Towarzyski",
+      "home_team": "Ola i Kreweda",
+      "home_score": 5,
+      "away_team": "Luśken i Vienna",
+      "away_score": 7,
+      "page": "mecz276.html",
+      "note": "",
+      "status": "finished"
+    }
+  ],
+  "news": [
+    {
+      "id": "powolania",
+      "title": "Reprezentacja Stromej na nowy sezon - Brak wielkiego nazwiska!",
+      "category": "Reprezentacja",
+      "summary": "FlashStroma Wiadomości › Polska Polska Reprezentacja Stromej na nowy sezon - Brak wielkiego nazwiska! Flashscore Wiadomości · 04.10.2026 Selekcjoner Kadry ulicy Stromej ogłosił nową kadrę na sezon 2026/2027. Znalazły się",
+      "image": "rep.jpeg",
+      "page": "powolania.html",
+      "published_at": "04.10.2026",
+      "body": "FlashStroma Wiadomości › Polska Polska Reprezentacja Stromej na nowy sezon - Brak wielkiego nazwiska! Flashscore Wiadomości · 04.10.2026 Selekcjoner Kadry ulicy Stromej ogłosił nową kadrę na sezon 2026/2027. Znalazły się tam zarówno znane już nazwiska, jak i te nowe. Szokuje jednak brak kluczowego zawodnika Psiepauch Krewedkowski ogłosił powołania na nowy sezon do Reprezentacji Ulicy Stromej. Oto jak prezentuje się kadra: Bramkarze: Kitkisana Lulusiowata (1) - Stromianka FC Obrońcy: Psiepauch Krewedkowski (5) - Jugosławianka FC Pomocnicy: Vienna Wiedeński (8) - Jugosławianka FC Serduszkowata (6) - FS Lammers Napastnicy: Pero Perowski (9) - Stromianka FC Publiczności nie umknął fakt braku powołania Koteua Koteuowskiego - napastnika FS Lammers, selekcjoner jednak zaznacza że brak takowego powołania wynika z braku regularnej gry, lecz w przypadku niespodziewanej potrzeby Koteuowski zostanie dowołany ← Wróć do wiadomości Wiadomości FlashStroma Najważniejsze informacje, wyniki i historie ze świata futbolu."
+    },
+    {
+      "id": "kredken",
+      "title": "Kontuzja Krewedy. Czy Klub ma powody do obaw?",
+      "category": "Kluby",
+      "summary": "FlashStroma Wiadomości › Świat Świat Kontuzja Krewedy. Czy Klub ma powody do obaw? Flashscore Wiadomości · 01.10.2026 Psiepauch Krewedkowski podczas treningu doznał kontuzji. Czy historia Rodriego powtórzy się na Stromej",
+      "image": "kreko.jpg",
+      "page": "kredken.html",
+      "published_at": "01.10.2026",
+      "body": "FlashStroma Wiadomości › Świat Świat Kontuzja Krewedy. Czy Klub ma powody do obaw? Flashscore Wiadomości · 01.10.2026 Psiepauch Krewedkowski podczas treningu doznał kontuzji. Czy historia Rodriego powtórzy się na Stromej? Zdobywca Złotego Koteua za rok 2026, został w dniu wczorajszym kontuzjowany podczas treningu. Jak jednak zapewnia sztab medyczny Jugosławianki, obrońca naciągnął mięsień piszczelowy, a zdatny do gry ma być w okolicach niedzieli. Możemy być spokojni że historia Rodriego (który po wygraniu Złotej Piłki wypadł z powodu kontuzji na cały sezon) nie powtórzy się na Stromej ← Wróć do wiadomości Wiadomości FlashStroma Najważniejsze informacje, wyniki i historie ze świata futbolu."
+    },
+    {
+      "id": "zabawa",
+      "title": "LA ZABAWA NA STROMEJ. Luśken z Olą rozbite aż 3-8!",
+      "category": "Reprezentacja",
+      "summary": "FlashStroma Wiadomości › Polska Polska LA ZABAWA NA STROMEJ. Luśken z Olą rozbite aż 3-8! Flashscore Wiadomości · 04.10.2026 Jedni strzelają podwójne hat-tricki, a drudzy? Chyba się nawet nie orientują że tracą bramki. S",
+      "image": "ben.jpg",
+      "page": "zabawa.html",
+      "published_at": "04.10.2026",
+      "body": "FlashStroma Wiadomości › Polska Polska LA ZABAWA NA STROMEJ. Luśken z Olą rozbite aż 3-8! Flashscore Wiadomości · 04.10.2026 Jedni strzelają podwójne hat-tricki, a drudzy? Chyba się nawet nie orientują że tracą bramki. Szalony mecz na Stromej! W sobotę 3.10 w towarzyskim starciu zmierzyli się Vienna z Krewedą vs Luśken z Olą. W trakcie meczu Vienna zdobył 6 goli (oraz dwa samobójcze), Kreweda 2 gole, Luśken 1, a Ola, no cóż... grała. Pojawia się pytanie czy Luśken z Olą mają szanse na cokolwiek w tym sezonie, a może to kwestia złego przygotowania...? W każdym razie wynik jaki jest każdy widzi, a co przyniesie dalsza część sezonu. No... to się okaże Vienna i Kreweda 8 - 3 Luśken i Ola nasza redakcja przygotowała także podsumowanie szczegółowe meczu pod linkiem: Vienna x Kreweda 8 - 3 Luśken i Ola > ← Wróć do wiadomości Wiadomości FlashStroma Najważniejsze informacje, wyniki i historie ze świata futbolu."
+    },
+    {
+      "id": "kont",
+      "title": "Kreweda ponownie kontuzjowany! ,,To nic poważnego, ale lepiej zachować ostrożność\"",
+      "category": "Kluby",
+      "summary": "FlashStroma Wiadomości › Świat Świat Kreweda ponownie kontuzjowany! ,,To nic poważnego, ale lepiej zachować ostrożność\" Flashscore Wiadomości · Dzisiaj Przed meczowy trening, taki jak ostatnio, i tak jak ostatnio Kreweda",
+      "image": "kont.png",
+      "page": "kont.html",
+      "published_at": "Dzisiaj",
+      "body": "FlashStroma Wiadomości › Świat Świat Kreweda ponownie kontuzjowany! ,,To nic poważnego, ale lepiej zachować ostrożność\" Flashscore Wiadomości · Dzisiaj Przed meczowy trening, taki jak ostatnio, i tak jak ostatnio Kreweda z kontuzją... Jak informuje sztab medyczny Jugosławianki Psiepauch Krewedkowski podczas ostatniego treningu poczuł dyskomfort w mięśniu piszczelowym prawej nogi, który ustąpił. Zawodnik zdecydował się zagrać w meczu, w którym na boisku spędził 90 minut. Po zejściu z boiska okazało się że niedawny uraz powrócił. Klub jednak uspokaja że było to lekkie przeciążenie i po odpowiednim skonsultowaniu zawodnik będzie dostępny do gry na najbliższym spotkaniu. Klub nie zapewnia jednak gwarancji że zawodnik zagra od pierwszej minuty, lub że zagra w ogóle. ← Wróć do wiadomości Wiadomości FlashStroma Najważniejsze informacje, wyniki i historie ze świata futbolu."
+    },
+    {
+      "id": "czolg",
+      "title": "Kreweda w dwóch meczach strzela łącznie 8 goli, ale to nic nie daje! Czy czołg Vienny jest nie do zatrzymania?",
+      "category": "Kluby",
+      "summary": "FlashStroma Wiadomości › Świat Świat Kreweda w dwóch meczach strzela łącznie 8 goli, ale to nic nie daje! Czy czołg Vienny jest nie do zatrzymania? Flashscore Wiadomości · Dzisiaj Dwa mecze pod rząd. Dwóch kapitanów, w f",
+      "image": "bosnia.jpg",
+      "page": "czolg.html",
+      "published_at": "Dzisiaj",
+      "body": "FlashStroma Wiadomości › Świat Świat Kreweda w dwóch meczach strzela łącznie 8 goli, ale to nic nie daje! Czy czołg Vienny jest nie do zatrzymania? Flashscore Wiadomości · Dzisiaj Dwa mecze pod rząd. Dwóch kapitanów, w fenomenalnej formie. Ale i tak przegrywa ten sam! W niedzielnym meczu drużyna Krewedy i Luśken zmierzyła się z Vienną i Olą, spotkanie zakończyło się wynikiem 5-8, Vienna zdobył 7 goli, a Kreweda 4. W środę nastąpiło kolejne spotkanie w którym na przeciw siebie stanęli dwaj ostatni zdobywcy Złotego Koteua, jednak zamienili się zawodnikami. Kreweda z Olą przegrali 5-7 z Vienną i Luśken. Vienna strzelił 6 goli a Kreweda 4. Widzimy w jakiej formie jest Vienna który ciągnie swoje drużyny. Czy może pojawić się jednak ktoś kto to zmieni? ← Wróć do wiadomości Wiadomości FlashStroma Najważniejsze informacje, wyniki i historie ze świata futbolu."
+    },
+    {
+      "id": "podsumowanie",
+      "title": "Co wiemy po rundzie jesiennej na ul.Stromej?",
+      "category": "Ligi",
+      "summary": "FlashStroma Wiadomości › Ligi Ligi Co wiemy po rundzie jesiennej na ul.Stromej? Flashscore Wiadomości · 14.10.2026 Podsumowanie rundy jesiennej na ulicy Stromej i przewidywania na wiosnę razem z Psiepauchem Krewedkowskim",
+      "image": "rep.jpeg",
+      "page": "podsumowanie.html",
+      "published_at": "14.10.2026",
+      "body": "FlashStroma Wiadomości › Ligi Ligi Co wiemy po rundzie jesiennej na ul.Stromej? Flashscore Wiadomości · 14.10.2026 Podsumowanie rundy jesiennej na ulicy Stromej i przewidywania na wiosnę razem z Psiepauchem Krewedkowskim Zdaje się że I część sezonu 2026/2027 - tj. runda jesienna dobiegła końca! Zapraszamy na podsumowanie po 6 pierwszych meczach sezonu oraz na przewidywania na rundę wiosenną! W trakcie rundy jesiennej rozegranych zostało 6 meczów, a klasyfikacja strzelców wygląda następująco: 1) Vienna - 25 goli 2) Kreweda - 16 goli 3) Pero- 6 goli 4) Luśken - 4 gole 5) Ola - 1 gol Wyglada na to że walka o złotego buta znów będzie się rozstrzygać między Krewedą a Vienną, obaj w bardzo dobrej predyspozycji, jednak Vienna wykazał się lepszym instynktem strzeleckim w rundzie jesiennej. Klasyfikacja kanadyjska pokazuje także ze to Vienna ma najwięcej G/A (33), Dalej Kreweda (25), Luśken (13), Ola (12) i Pero (9) Wszystkie mecze były rozegrane co prawda towarzysko mieszanymi składami, dlatego ciężko mówić o formie ligowej. Jugosławianka grała w podstawowym składzie przeciw Luśken i Oli wygrywając aż 8 do 3, tym samym pokazując że chcą obronić tytuł w lidze.W tym sezonie rozegraliśmy już 6 spotkań w samej rundzie jesiennej, co zaczyna zrównywać się z liczbą meczy towarzyskich w CAŁYM poprzednim sezonie (8) co pokazuje że są szansę na zwiększenie liczby spotkań w przyszłym sezonie! 31 sierpnia padło słynne Here We Go! Zdobywca Złotego Koteua - Kreweda po zaledwie sezonie w Stromiance (2 mecze, 3g, 1a) przeniósł się za kwotę 110 mln euro do mistrza Stromej Jugosławianki, gdzie zbuduje drużynę razem z Vienną, najlepszym strzelcem oraz Zdobywcom Złotego Koteua 2025. Łączna wartość drużyny w tym sezonie wynosi 265 mln euro. Stromianka w wyniku transferu musiała poszukać wzmocnienia, zwłaszcza jeśli chodzi o grę defensywną. Zdecydowała się na zakup Luśken z Jugosławianki za kwotę 35 mln euro, Luśken miała jeden z największych procent obronionych strzałów w zeszłym sezonie. Łączna wartość drużyny to 137 mln euro. W klubie FS Lammers bez zmian, chodź klub walczy o zdobycie w zimowym okienku wychowanka akademii Stromianki - Kepapa. A co przyniesie runda wiosenna? Na pewno będzie grad bramek oraz walka o króla strzelców między Vienną a Krewedą, którzy jednak będą musieli uważać na wchodzącego w szczytową formę Pera. Zdaje się że Luśken po kontuzji wraca do formy, ponieważ zaczyna już bić swoje rekordy strzeleckie z poprzednich sezonów i coraz pewniej czuje się w środku pola, aniżeli między słupkami. Forma Serduszkowatej pozostawia po rundzie jesiennej wiele do życzenia, ponieważ jest bardzo niestabilna, być może częstsze spotkania poprawią formę. Wśród kursów bukhmaherów pewniakiem do zdobycia Ligi Stromej jest Jugosławianka, jednak Stromianka już nie raz pokazała pazura. FS Lammers cały czas ubiega się o zawodnika z akademi Stromianki, który byłby dla nich poważnym wzmocnieniem. W Pucharze Stromej w Dywizji A debiutować będzie Kreweda, który będzie chciał pokazać że nie przyszedł tutaj jako chłopiec do bicia, zaś po raz pierwszy do dywizji B spadł Koteu! O Awans z dywizji juniorów do dywizji B będzie walczył perspektywiczny Kepap! W superpucharze stromej i grahamki będziemy ostrożni z przewidywaniami, ponieważ często jesteśmy świadkami wielkich zaskoczeń. O mówieniu nt nagród za sezon jeszcze za wcześnie, ale pojawiają się już pierwsze pogłoski wśród piłkarzy. Koniec roku oznacza także wybory do ZPNUS, czy zmieni się zarząd, czy dawny beton pozostanie? Oczywiście zgłaszanie kandydatów trwa do końca października. Aktualnie Vienna jest w świetnej formie, biegnie jak po swoje w wyścigu o Króla Strzelców i Złotego Fryderyka (nowa alternatywa dla Złotego Koteua). Błyszczy grą zarówno w ofensywie jak i w defensywie. Nie wyklucza że to jego ostatni sezon, jednak aktualnie nie myśli o piłkarskiej emeryturze jako konieczności w niedalekiej przyszłości Kreweda w swoim ostatnim sezonie przed kontuzją błyszczał formą, zdobywając grad bramek i grając świetnie jako boczny obrońca. Podczas treningu nabawił się jednak kontuzji mięśni piszczelowej, po odpoczynku wrócił do treningów, zagrał dwa mecze jednak kontuzja się wznowiła, i trwa nadal. Zawodnik mówi że jeśli sytuacja nie zostanie opanowana do końca roku, zakończy karierę już w grudniu. Pero, po całkiem dobrym sezonie, uważa że stać go na więcej, zamierza wrócić do walki o chwałę na salonach. W zeszłym sezonie główną przeszkodą była niemożność strzelecka (miał najwięcej zmarnowanych 100% szans), jednak uważa że przyszło przełamanie. Jeśli utrzyma formę z rundy jesiennej, będzie poważnym kandydatem o Złotego Fryderyka Luśken - po fatalnej kontuzji w zeszłym roku, wydawało się że piłkarska kariera zmierza w dół po równi pochyłej, jednak dzięki nowemu planowi treningowemu i jakiemuś większemu zaangażowaniu zaczyna grać dobrą piłkę. Jeśli jej forma dalej będzie się rozwijała może poważnie namieszać w rundzie wiosennej. Ola- Wydaje się że siła na przyszłość stromej, jednak jej niestabilna forma utrudnia przedostaniu się do czołówki. Końcówkę poprzedniego sezonu zagrała w całkiem ok formie, to jednak runda jesienna to była masa błędów i porażek. Jeśli nie zmieni nastawienia, niestety ale nie osiągnie szczytów Kadra - Selekcjoner ogłosił powołania. Znaleźli się tam prawie wszyscy , aby wspomóc drużynę w zmaganiach na arenie. W kadrze znalazł się także Kreweda, który zagra swój ostatni mecz w Reprezentacji. Drużyna młodzieżowa - wykazuje wielki potencjał i przyszłość. Jeszcze za wcześnie na wielkie wnioski, ale wydaje się że są wielką nadzieją na piłkę na stromej. Runda Jesienna dobiegła końca, teraz czas na zasłużony odpoczynek. A co przyniesie wiosna? Się okaże.... ← Wróć do wiadomości Wiadomości FlashStroma Najważniejsze informacje, wyniki i historie ze świata futbolu."
+    }
+  ],
+  "transfers": [
+    {
+      "id": "transfer-1",
+      "player": "Kreweda",
+      "photo": "kredken.png",
+      "type": "TRANSFER",
+      "status": "Transfer ",
+      "from_club": "Stromianka FC",
+      "to_club": "Jugosławianka FC",
+      "fee": "110 mln €",
+      "date": "01.9.2026",
+      "note": "Transfer  do klubu Jugosławianka.",
+      "details": {
+        "player": "Kreweda",
+        "photo": "kredken.png",
+        "type": "TRANSFER",
+        "emoji": "🆓",
+        "status": "Transfer ",
+        "from": "Stromianka FC",
+        "to": "Jugosławianka FC",
+        "money": "110 mln €",
+        "date": "01.9.2026",
+        "loanLength": "-",
+        "note": "Transfer  do klubu Jugosławianka."
+      }
+    },
+    {
+      "id": "transfer-2",
+      "player": "Luśken",
+      "photo": "luske.png",
+      "type": "TRANSFER",
+      "status": "Transfer",
+      "from_club": "Jugosławianka FC",
+      "to_club": "Stromianka FC",
+      "fee": "35mln€",
+      "date": "02.09.2026",
+      "note": "Transfer do klubu Stromianka FC.",
+      "details": {
+        "player": "Luśken",
+        "photo": "luske.png",
+        "type": "TRANSFER",
+        "emoji": "🆕",
+        "status": "Transfer",
+        "from": "Jugosławianka FC",
+        "to": "Stromianka FC",
+        "money": "35mln€",
+        "date": "02.09.2026",
+        "loanLength": "-",
+        "note": "Transfer do klubu Stromianka FC."
+      }
+    }
+  ],
+  "injuries": [],
+  "events": [
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-1",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "10",
+      "team": "Kreweda / Vienna",
+      "type": "goal",
+      "player": "Vienna pierwszy gol meczu",
+      "note": "pierwszy gol meczu",
+      "score": "0-1"
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-2",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "16",
+      "team": "Kreweda / Vienna",
+      "type": "goal",
+      "player": "Vienna drugi gol gości",
+      "note": "drugi gol gości",
+      "score": "0-2"
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-3",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "22",
+      "team": "Kreweda / Vienna",
+      "type": "goal",
+      "player": "Vienna trzeci gol gości",
+      "note": "trzeci gol gości",
+      "score": "0-3"
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-4",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "28",
+      "team": "Kreweda / Vienna",
+      "type": "goal",
+      "player": "Vienna czwarty gol gości",
+      "note": "czwarty gol gości",
+      "score": "0-4"
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-5",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "33",
+      "team": "Ola / Pero / Koteu",
+      "type": "yellow-card",
+      "player": "Ola żółta kartka",
+      "note": "żółta kartka",
+      "score": ""
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-6",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "38",
+      "team": "Ola / Pero / Koteu",
+      "type": "goal",
+      "player": "Pero pierwszy gol gospodarzy",
+      "note": "pierwszy gol gospodarzy",
+      "score": "1-4"
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-7",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "43",
+      "team": "Ola / Pero / Koteu",
+      "type": "goal",
+      "player": "Pero drugi gol gospodarzy",
+      "note": "drugi gol gospodarzy",
+      "score": "2-4"
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-8",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "47",
+      "team": "Ola / Pero / Koteu",
+      "type": "substitution",
+      "player": "Pero → Koteu zmiana",
+      "note": "zmiana",
+      "score": ""
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-9",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "52",
+      "team": "Kreweda / Vienna",
+      "type": "goal",
+      "player": "Vienna piąty gol gości",
+      "note": "piąty gol gości",
+      "score": "2-5"
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-10",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "57",
+      "team": "Kreweda / Vienna",
+      "type": "goal",
+      "player": "Vienna szósty gol gości",
+      "note": "szósty gol gości",
+      "score": "2-6"
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-11",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "62",
+      "team": "Kreweda / Vienna",
+      "type": "goal",
+      "player": "Kreweda gol i żółta kartka",
+      "note": "gol i żółta kartka",
+      "score": "2-7"
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-12",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "68",
+      "team": "Ola / Pero / Koteu",
+      "type": "missed-penalty",
+      "player": "Koteu niewykorzystany rzut karny",
+      "note": "niewykorzystany rzut karny",
+      "score": ""
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-13",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "73",
+      "team": "Ola / Pero / Koteu",
+      "type": "missed-penalty",
+      "player": "Koteu drugi niewykorzystany rzut karny",
+      "note": "drugi niewykorzystany rzut karny",
+      "score": ""
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-14",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "76",
+      "team": "Ola / Pero / Koteu",
+      "type": "goal",
+      "player": "Koteu pierwszy gol po wejściu",
+      "note": "pierwszy gol po wejściu",
+      "score": "3-7"
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-15",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "79",
+      "team": "Ola / Pero / Koteu",
+      "type": "goal",
+      "player": "Koteu drugi gol Koteu",
+      "note": "drugi gol Koteu",
+      "score": "4-7"
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-16",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "82",
+      "team": "Ola / Pero / Koteu",
+      "type": "goal",
+      "player": "Koteu trzeci gol Koteu",
+      "note": "trzeci gol Koteu",
+      "score": "5-7"
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-17",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "85",
+      "team": "Ola / Pero / Koteu",
+      "type": "goal",
+      "player": "Koteu czwarty gol Koteu",
+      "note": "czwarty gol Koteu",
+      "score": "6-7"
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-18",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "88",
+      "team": "Kreweda / Vienna",
+      "type": "goal",
+      "player": "Vienna ósmy gol i MVP meczu",
+      "note": "ósmy gol i MVP meczu",
+      "score": "6-8"
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-event-19",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "minute": "90+2",
+      "team": "Kreweda / Vienna",
+      "type": "goal",
+      "player": "Vienna zamknięcie wyniku",
+      "note": "zamknięcie wyniku",
+      "score": "6-9"
+    },
+    {
+      "id": "mecz2-event-1",
+      "match_id": "mecz2",
+      "minute": "10",
+      "team": "Jugosławianka FC",
+      "type": "goal",
+      "player": "Vienna",
+      "note": "",
+      "score": "1-0"
+    },
+    {
+      "id": "mecz2-event-2",
+      "match_id": "mecz2",
+      "minute": "29",
+      "team": "Stromianka FC",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "1-1"
+    },
+    {
+      "id": "mecz2-event-3",
+      "match_id": "mecz2",
+      "minute": "52",
+      "team": "Jugosławianka FC",
+      "type": "goal",
+      "player": "Vienna",
+      "note": "",
+      "score": "2-1"
+    },
+    {
+      "id": "mecz2-event-4",
+      "match_id": "mecz2",
+      "minute": "57",
+      "team": "Stromianka FC",
+      "type": "goal",
+      "player": "Pero",
+      "note": "",
+      "score": "2-2"
+    },
+    {
+      "id": "mecz2-event-5",
+      "match_id": "mecz2",
+      "minute": "72",
+      "team": "Stromianka FC",
+      "type": "yellow-card",
+      "player": "Kreweda żółta kartka",
+      "note": "żółta kartka",
+      "score": "2-2"
+    },
+    {
+      "id": "mecz2-event-6",
+      "match_id": "mecz2",
+      "minute": "88",
+      "team": "Stromianka FC",
+      "type": "goal",
+      "player": "Kreweda Gol po wyrzucie z autu",
+      "note": "Gol po wyrzucie z autu",
+      "score": "2-3"
+    },
+    {
+      "id": "mecz3-event-1",
+      "match_id": "mecz3",
+      "minute": "10",
+      "team": "Vienna i Luśken",
+      "type": "goal",
+      "player": "Vienna",
+      "note": "",
+      "score": "1-0"
+    },
+    {
+      "id": "mecz3-event-2",
+      "match_id": "mecz3",
+      "minute": "29",
+      "team": "Vienna i Luśken",
+      "type": "goal",
+      "player": "Vienna",
+      "note": "",
+      "score": "2-0"
+    },
+    {
+      "id": "mecz3-event-3",
+      "match_id": "mecz3",
+      "minute": "52",
+      "team": "Vienna i Luśken",
+      "type": "goal",
+      "player": "Vienna",
+      "note": "",
+      "score": "3-0"
+    },
+    {
+      "id": "mecz3-event-4",
+      "match_id": "mecz3",
+      "minute": "72",
+      "team": "Koteu i Serduszkowata",
+      "type": "yellow-card",
+      "player": "Serduszkowata żółta kartka",
+      "note": "żółta kartka",
+      "score": "3-0"
+    },
+    {
+      "id": "mecz5-event-1",
+      "match_id": "mecz5",
+      "minute": "35",
+      "team": "Kreweda i Pero",
+      "type": "goal",
+      "player": "Pero",
+      "note": "",
+      "score": "1-0"
+    },
+    {
+      "id": "mecz5-event-2",
+      "match_id": "mecz5",
+      "minute": "71",
+      "team": "Luśken i Serduszkowata",
+      "type": "goal",
+      "player": "Ola",
+      "note": "",
+      "score": "1-1"
+    },
+    {
+      "id": "mecz5-event-3",
+      "match_id": "mecz5",
+      "minute": "89",
+      "team": "Luśken i Serduszkowata",
+      "type": "red-card",
+      "player": "Ola",
+      "note": "",
+      "score": "1-1"
+    },
+    {
+      "id": "mecz5-event-4",
+      "match_id": "mecz5",
+      "minute": "1",
+      "team": "Luśken i Serduszkowata",
+      "type": "missed-penalty",
+      "player": "Luśken",
+      "note": "",
+      "score": "0-0"
+    },
+    {
+      "id": "mecz5-event-5",
+      "match_id": "mecz5",
+      "minute": "1",
+      "team": "Kreweda i Pero",
+      "type": "missed-penalty",
+      "player": "Kreweda",
+      "note": "",
+      "score": "0-0"
+    },
+    {
+      "id": "mecz5-event-6",
+      "match_id": "mecz5",
+      "minute": "2",
+      "team": "Luśken i Serduszkowata",
+      "type": "missed-penalty",
+      "player": "Luśken",
+      "note": "",
+      "score": "0-0"
+    },
+    {
+      "id": "mecz5-event-7",
+      "match_id": "mecz5",
+      "minute": "2",
+      "team": "Kreweda i Pero",
+      "type": "missed-penalty",
+      "player": "Pero",
+      "note": "",
+      "score": "0-0"
+    },
+    {
+      "id": "mecz5-event-8",
+      "match_id": "mecz5",
+      "minute": "3",
+      "team": "Luśken i Serduszkowata",
+      "type": "missed-penalty",
+      "player": "Luśken",
+      "note": "",
+      "score": "0-0"
+    },
+    {
+      "id": "mecz5-event-9",
+      "match_id": "mecz5",
+      "minute": "3",
+      "team": "Kreweda i Pero",
+      "type": "missed-penalty",
+      "player": "Kreweda",
+      "note": "",
+      "score": "0-0"
+    },
+    {
+      "id": "mecz5-event-10",
+      "match_id": "mecz5",
+      "minute": "4",
+      "team": "Luśken i Serduszkowata",
+      "type": "missed-penalty",
+      "player": "Luśken",
+      "note": "",
+      "score": "0-0"
+    },
+    {
+      "id": "mecz5-event-11",
+      "match_id": "mecz5",
+      "minute": "4",
+      "team": "Kreweda i Pero",
+      "type": "goal",
+      "player": "Pero",
+      "note": "",
+      "score": "1-0"
+    },
+    {
+      "id": "mecz4-event-1",
+      "match_id": "mecz4",
+      "minute": "10",
+      "team": "Jugosławianka FC",
+      "type": "goal",
+      "player": "Vienna",
+      "note": "",
+      "score": "0-1"
+    },
+    {
+      "id": "mecz4-event-2",
+      "match_id": "mecz4",
+      "minute": "29",
+      "team": "Jugosławianka FC",
+      "type": "goal",
+      "player": "Pero (OG)",
+      "note": "",
+      "score": "0-2"
+    },
+    {
+      "id": "mecz4-event-3",
+      "match_id": "mecz4",
+      "minute": "42",
+      "team": "Jugosławianka FC",
+      "type": "goal",
+      "player": "Vienna",
+      "note": "",
+      "score": "0-3"
+    },
+    {
+      "id": "mecz4-event-4",
+      "match_id": "mecz4",
+      "minute": "87",
+      "team": "Stromianka FC",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "1-3"
+    },
+    {
+      "id": "mecz7-event-1",
+      "match_id": "mecz7",
+      "minute": "1",
+      "team": "Kreweda",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "1-0"
+    },
+    {
+      "id": "mecz7-event-2",
+      "match_id": "mecz7",
+      "minute": "15",
+      "team": "Luśken",
+      "type": "goal",
+      "player": "Luśken",
+      "note": "",
+      "score": "1-1"
+    },
+    {
+      "id": "mecz7-event-3",
+      "match_id": "mecz7",
+      "minute": "37",
+      "team": "Kreweda",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "2-1"
+    },
+    {
+      "id": "mecz7-event-4",
+      "match_id": "mecz7",
+      "minute": "44",
+      "team": "Luśken",
+      "type": "goal",
+      "player": "Luśken",
+      "note": "",
+      "score": "2-2"
+    },
+    {
+      "id": "mecz7-event-5",
+      "match_id": "mecz7",
+      "minute": "44",
+      "team": "Kreweda",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "3-2"
+    },
+    {
+      "id": "mecz7-event-6",
+      "match_id": "mecz7",
+      "minute": "48",
+      "team": "Kreweda",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "4-2"
+    },
+    {
+      "id": "mecz7-event-7",
+      "match_id": "mecz7",
+      "minute": "62",
+      "team": "Kreweda",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "5-2"
+    },
+    {
+      "id": "mecz7-event-8",
+      "match_id": "mecz7",
+      "minute": "80",
+      "team": "Luśken",
+      "type": "goal",
+      "player": "Luśken",
+      "note": "",
+      "score": "5-3"
+    },
+    {
+      "id": "mecz7-event-9",
+      "match_id": "mecz7",
+      "minute": "82",
+      "team": "Kreweda",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "6-3"
+    },
+    {
+      "id": "mecz7-event-10",
+      "match_id": "mecz7",
+      "minute": "85",
+      "team": "Kreweda",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "7-3"
+    },
+    {
+      "id": "mecz7-event-11",
+      "match_id": "mecz7",
+      "minute": "90+1",
+      "team": "Luśken",
+      "type": "goal",
+      "player": "Luśken",
+      "note": "",
+      "score": "7-4"
+    },
+    {
+      "id": "mecz6-event-1",
+      "match_id": "mecz6",
+      "minute": "25",
+      "team": "Pero",
+      "type": "goal",
+      "player": "Pero",
+      "note": "",
+      "score": "0-1"
+    },
+    {
+      "id": "mecz6-event-2",
+      "match_id": "mecz6",
+      "minute": "35",
+      "team": "Pero",
+      "type": "goal",
+      "player": "Pero",
+      "note": "",
+      "score": "0-2"
+    },
+    {
+      "id": "mecz6-event-3",
+      "match_id": "mecz6",
+      "minute": "37",
+      "team": "Vienna",
+      "type": "goal",
+      "player": "Vienna",
+      "note": "",
+      "score": "1-2"
+    },
+    {
+      "id": "mecz6-event-4",
+      "match_id": "mecz6",
+      "minute": "44",
+      "team": "Pero",
+      "type": "yellow-card",
+      "player": "Pero",
+      "note": "",
+      "score": "1-2"
+    },
+    {
+      "id": "mecz6-event-5",
+      "match_id": "mecz6",
+      "minute": "44",
+      "team": "Vienna",
+      "type": "goal",
+      "player": "Vienna (P)",
+      "note": "",
+      "score": "2-2"
+    },
+    {
+      "id": "mecz6-event-6",
+      "match_id": "mecz6",
+      "minute": "59",
+      "team": "Pero",
+      "type": "goal",
+      "player": "Pero",
+      "note": "",
+      "score": "2-3"
+    },
+    {
+      "id": "mecz6-event-7",
+      "match_id": "mecz6",
+      "minute": "72",
+      "team": "Pero",
+      "type": "goal",
+      "player": "Pero",
+      "note": "",
+      "score": "2-4"
+    },
+    {
+      "id": "mecz6-event-8",
+      "match_id": "mecz6",
+      "minute": "90+1",
+      "team": "Pero",
+      "type": "goal",
+      "player": "Pero",
+      "note": "",
+      "score": "2-5"
+    },
+    {
+      "id": "mecz8-event-1",
+      "match_id": "mecz8",
+      "minute": "4",
+      "team": "Kreweda",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "1-0"
+    },
+    {
+      "id": "mecz8-event-2",
+      "match_id": "mecz8",
+      "minute": "37",
+      "team": "Kreweda",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "2-0"
+    },
+    {
+      "id": "mecz8-event-3",
+      "match_id": "mecz8",
+      "minute": "44",
+      "team": "Kreweda",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "3-0"
+    },
+    {
+      "id": "mecz8-event-4",
+      "match_id": "mecz8",
+      "minute": "48",
+      "team": "Kreweda",
+      "type": "yellow-card",
+      "player": "Kreweda",
+      "note": "",
+      "score": "3-0"
+    },
+    {
+      "id": "mecz8-event-5",
+      "match_id": "mecz8",
+      "minute": "48",
+      "team": "Ola",
+      "type": "goal",
+      "player": "OLA (P)",
+      "note": "",
+      "score": "3-1"
+    },
+    {
+      "id": "mecz8-event-6",
+      "match_id": "mecz8",
+      "minute": "90",
+      "team": "Kreweda",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "4-1"
+    },
+    {
+      "id": "mecz9-event-1",
+      "match_id": "mecz9",
+      "minute": "10",
+      "team": "Kreweda i Luśken",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "1-0"
+    },
+    {
+      "id": "mecz9-event-2",
+      "match_id": "mecz9",
+      "minute": "29",
+      "team": "Vienna",
+      "type": "goal",
+      "player": "Vienna",
+      "note": "",
+      "score": "1-1"
+    },
+    {
+      "id": "mecz9-event-3",
+      "match_id": "mecz9",
+      "minute": "42",
+      "team": "Vienna",
+      "type": "goal",
+      "player": "Vienna",
+      "note": "",
+      "score": "1-2"
+    },
+    {
+      "id": "mecz9-event-4",
+      "match_id": "mecz9",
+      "minute": "48",
+      "team": "Vienna",
+      "type": "goal",
+      "player": "Kreweda (OG)",
+      "note": "",
+      "score": "1-3"
+    },
+    {
+      "id": "mecz9-event-5",
+      "match_id": "mecz9",
+      "minute": "59",
+      "team": "Kreweda i Luśken",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "2-3"
+    },
+    {
+      "id": "mecz9-event-6",
+      "match_id": "mecz9",
+      "minute": "78",
+      "team": "Kreweda i Luśken",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "3-3"
+    },
+    {
+      "id": "mecz9-event-7",
+      "match_id": "mecz9",
+      "minute": "90",
+      "team": "Kreweda i Luśken",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "4-3"
+    },
+    {
+      "id": "mecz12-event-1",
+      "match_id": "mecz12",
+      "minute": "1090",
+      "team": "Reprezentacja Stromej",
+      "type": "goal",
+      "player": "Vienna i Pero 10 goli",
+      "note": "10 goli",
+      "score": "10-8"
+    },
+    {
+      "id": "mecz12-event-2",
+      "match_id": "mecz12",
+      "minute": "190",
+      "team": "Reprezentacja ul. Stromej U16",
+      "type": "goal",
+      "player": "Dzieciaki I, II, III 8 goli",
+      "note": "8 goli",
+      "score": "10-8"
+    },
+    {
+      "id": "mecz14-event-1",
+      "match_id": "mecz14",
+      "minute": "9",
+      "team": "Ola",
+      "type": "goal",
+      "player": "Ola Gol otwierający wynik",
+      "note": "Gol otwierający wynik",
+      "score": "1-0"
+    },
+    {
+      "id": "mecz14-event-2",
+      "match_id": "mecz14",
+      "minute": "21",
+      "team": "Luśken",
+      "type": "goal",
+      "player": "Luśken Gol",
+      "note": "Gol",
+      "score": "1-1"
+    },
+    {
+      "id": "mecz14-event-3",
+      "match_id": "mecz14",
+      "minute": "34",
+      "team": "Ola",
+      "type": "goal",
+      "player": "Ola Gol",
+      "note": "Gol",
+      "score": "2-1"
+    },
+    {
+      "id": "mecz14-event-4",
+      "match_id": "mecz14",
+      "minute": "44",
+      "team": "Luśken",
+      "type": "goal",
+      "player": "Luśken Gol",
+      "note": "Gol",
+      "score": "2-2"
+    },
+    {
+      "id": "mecz14-event-5",
+      "match_id": "mecz14",
+      "minute": "52",
+      "team": "Ola",
+      "type": "goal",
+      "player": "Ola Gol",
+      "note": "Gol",
+      "score": "3-2"
+    },
+    {
+      "id": "mecz14-event-6",
+      "match_id": "mecz14",
+      "minute": "79",
+      "team": "Ola",
+      "type": "goal",
+      "player": "Ola Gol",
+      "note": "Gol",
+      "score": "4-2"
+    },
+    {
+      "id": "mecz14-event-7",
+      "match_id": "mecz14",
+      "minute": "90+2",
+      "team": "Ola",
+      "type": "goal",
+      "player": "Ola Gol zamykający wynik",
+      "note": "Gol zamykający wynik",
+      "score": "5-2"
+    },
+    {
+      "id": "mecz15-event-1",
+      "match_id": "mecz15",
+      "minute": "7",
+      "team": "Ola i Luśken",
+      "type": "goal",
+      "player": "Ola Gol otwierający wynik",
+      "note": "Gol otwierający wynik",
+      "score": "1-0"
+    },
+    {
+      "id": "mecz15-event-2",
+      "match_id": "mecz15",
+      "minute": "16",
+      "team": "Ola i Luśken",
+      "type": "goal",
+      "player": "Ola Gol",
+      "note": "Gol",
+      "score": "2-"
+    },
+    {
+      "id": "mecz15-event-3",
+      "match_id": "mecz15",
+      "minute": "24",
+      "team": "Ola i Luśken",
+      "type": "goal",
+      "player": "Ola Gol",
+      "note": "Gol",
+      "score": "3-0"
+    },
+    {
+      "id": "mecz15-event-4",
+      "match_id": "mecz15",
+      "minute": "30",
+      "team": "Ola i Luśken",
+      "type": "goal",
+      "player": "Ola",
+      "note": "",
+      "score": "4-0"
+    },
+    {
+      "id": "mecz15-event-5",
+      "match_id": "mecz15",
+      "minute": "44",
+      "team": "Ola i Luśken",
+      "type": "goal",
+      "player": "Ola",
+      "note": "",
+      "score": "5-0"
+    },
+    {
+      "id": "mecz15-event-6",
+      "match_id": "mecz15",
+      "minute": "45",
+      "team": "Kreweda i Vienna",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "5-1"
+    },
+    {
+      "id": "mecz15-event-7",
+      "match_id": "mecz15",
+      "minute": "46",
+      "team": "Kreweda i Vienna",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "5-2"
+    },
+    {
+      "id": "mecz15-event-8",
+      "match_id": "mecz15",
+      "minute": "50",
+      "team": "Kreweda i Vienna",
+      "type": "goal",
+      "player": "Vienna",
+      "note": "",
+      "score": "5-3"
+    },
+    {
+      "id": "mecz15-event-9",
+      "match_id": "mecz15",
+      "minute": "54",
+      "team": "Ola i Luśken",
+      "type": "goal",
+      "player": "Ola",
+      "note": "",
+      "score": "6-3"
+    },
+    {
+      "id": "mecz15-event-10",
+      "match_id": "mecz15",
+      "minute": "59",
+      "team": "Kreweda i Vienna",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "6-4"
+    },
+    {
+      "id": "mecz15-event-11",
+      "match_id": "mecz15",
+      "minute": "66",
+      "team": "Kreweda i Vienna",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "6-5"
+    },
+    {
+      "id": "mecz15-event-12",
+      "match_id": "mecz15",
+      "minute": "68",
+      "team": "Ola i Luśken",
+      "type": "goal",
+      "player": "Ola",
+      "note": "",
+      "score": "7-5"
+    },
+    {
+      "id": "mecz15-event-13",
+      "match_id": "mecz15",
+      "minute": "74",
+      "team": "Ola i Luśken",
+      "type": "goal",
+      "player": "Luśken",
+      "note": "",
+      "score": "8-5"
+    },
+    {
+      "id": "mecz15-event-14",
+      "match_id": "mecz15",
+      "minute": "75",
+      "team": "Kreweda i Vienna",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "8-6"
+    },
+    {
+      "id": "mecz15-event-15",
+      "match_id": "mecz15",
+      "minute": "77",
+      "team": "Kreweda i Vienna",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "8-7"
+    },
+    {
+      "id": "mecz15-event-16",
+      "match_id": "mecz15",
+      "minute": "80",
+      "team": "Kreweda i Vienna",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "8-8"
+    },
+    {
+      "id": "mecz15-event-17",
+      "match_id": "mecz15",
+      "minute": "82",
+      "team": "Kreweda i Vienna",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "9-8"
+    },
+    {
+      "id": "mecz15-event-18",
+      "match_id": "mecz15",
+      "minute": "85",
+      "team": "Ola i Luśken",
+      "type": "goal",
+      "player": "Ola",
+      "note": "",
+      "score": "9-9"
+    },
+    {
+      "id": "mecz15-event-19",
+      "match_id": "mecz15",
+      "minute": "86",
+      "team": "Kreweda i Vienna",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "10-9"
+    },
+    {
+      "id": "mecz15-event-20",
+      "match_id": "mecz15",
+      "minute": "88",
+      "team": "Ola i Luśken",
+      "type": "goal",
+      "player": "Ola",
+      "note": "",
+      "score": "10-10"
+    },
+    {
+      "id": "mecz15-event-21",
+      "match_id": "mecz15",
+      "minute": "90",
+      "team": "Kreweda i Vienna",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "11-10"
+    },
+    {
+      "id": "mecz15-event-22",
+      "match_id": "mecz15",
+      "minute": "90+5",
+      "team": "Kreweda i Vienna",
+      "type": "goal",
+      "player": "Vienna",
+      "note": "",
+      "score": "12-10"
+    },
+    {
+      "id": "mecz16-event-1",
+      "match_id": "mecz16",
+      "minute": "090",
+      "team": "Kreweda i Pero",
+      "type": "goal",
+      "player": "Kreweda 11 goli",
+      "note": "11 goli",
+      "score": "11-15"
+    },
+    {
+      "id": "mecz16-event-2",
+      "match_id": "mecz16",
+      "minute": "090",
+      "team": "Vienna",
+      "type": "goal",
+      "player": "Vienna 12 goli",
+      "note": "12 goli",
+      "score": "13-12"
+    },
+    {
+      "id": "mecz16-event-3",
+      "match_id": "mecz16",
+      "minute": "090",
+      "team": "Kreweda i Pero",
+      "type": "goal",
+      "player": "Pero 2 gole",
+      "note": "2 gole",
+      "score": "13-15"
+    },
+    {
+      "id": "mecz16-event-4",
+      "match_id": "mecz16",
+      "minute": "090",
+      "team": "Kreweda i Pero",
+      "type": "goal",
+      "player": "Kreweda 3 gole samobójcze",
+      "note": "3 gole samobójcze",
+      "score": "13-15"
+    },
+    {
+      "id": "mecz16-event-5",
+      "match_id": "mecz16",
+      "minute": "55",
+      "team": "Kreweda i Pero",
+      "type": "yellow-card",
+      "player": "Pero Zagranie ręką",
+      "note": "Zagranie ręką",
+      "score": "13-15"
+    },
+    {
+      "id": "mecz16-event-6",
+      "match_id": "mecz16",
+      "minute": "57",
+      "team": "Vienna",
+      "type": "missed-penalty",
+      "player": "Vienna",
+      "note": "",
+      "score": "13-15"
+    },
+    {
+      "id": "mecz16-event-7",
+      "match_id": "mecz16",
+      "minute": "74",
+      "team": "Vienna",
+      "type": "yellow-card",
+      "player": "Vienna Zagranie ręką",
+      "note": "Zagranie ręką",
+      "score": "13-15"
+    },
+    {
+      "id": "mecz16-event-8",
+      "match_id": "mecz16",
+      "minute": "76",
+      "team": "Kreweda i Pero",
+      "type": "missed-penalty",
+      "player": "Pero",
+      "note": "",
+      "score": "13-15"
+    },
+    {
+      "id": "mecz17-event-1",
+      "match_id": "mecz17",
+      "minute": "10",
+      "team": "Vienna i Ola",
+      "type": "goal",
+      "player": "Vienna Gol otwierający wynik",
+      "note": "Gol otwierający wynik",
+      "score": "0-1"
+    },
+    {
+      "id": "mecz17-event-2",
+      "match_id": "mecz17",
+      "minute": "24",
+      "team": "Kreweda i Luśken",
+      "type": "goal",
+      "player": "Kreweda Gol wyrównujący",
+      "note": "Gol wyrównujący",
+      "score": "1-1"
+    },
+    {
+      "id": "mecz17-event-3",
+      "match_id": "mecz17",
+      "minute": "43",
+      "team": "Vienna i Ola",
+      "type": "goal",
+      "player": "Vienna Gol",
+      "note": "Gol",
+      "score": "1-2"
+    },
+    {
+      "id": "mecz17-event-4",
+      "match_id": "mecz17",
+      "minute": "55",
+      "team": "Vienna i Ola",
+      "type": "goal",
+      "player": "Vienna Gol po błędzie Bramkarza",
+      "note": "Gol po błędzie Bramkarza",
+      "score": "1-3"
+    },
+    {
+      "id": "mecz17-event-5",
+      "match_id": "mecz17",
+      "minute": "62",
+      "team": "Vienna i Ola",
+      "type": "goal",
+      "player": "Vienna Gol po błędzie Bramkarza",
+      "note": "Gol po błędzie Bramkarza",
+      "score": "1-4"
+    },
+    {
+      "id": "mecz17-event-6",
+      "match_id": "mecz17",
+      "minute": "67",
+      "team": "Vienna i Ola",
+      "type": "goal",
+      "player": "Vienna Gol",
+      "note": "Gol",
+      "score": "1-5"
+    },
+    {
+      "id": "mecz17-event-7",
+      "match_id": "mecz17",
+      "minute": "75",
+      "team": "Kreweda i Luśken",
+      "type": "goal",
+      "player": "Kreweda Gol",
+      "note": "Gol",
+      "score": "2-5"
+    },
+    {
+      "id": "mecz17-event-8",
+      "match_id": "mecz17",
+      "minute": "78",
+      "team": "Kreweda i Luśken",
+      "type": "goal",
+      "player": "Kreweda Gol",
+      "note": "Gol",
+      "score": "3-5"
+    },
+    {
+      "id": "mecz17-event-9",
+      "match_id": "mecz17",
+      "minute": "89",
+      "team": "Vienna i Ola",
+      "type": "goal",
+      "player": "Vienna GOl",
+      "note": "GOl",
+      "score": "3-6"
+    },
+    {
+      "id": "mecz18-event-1",
+      "match_id": "mecz18",
+      "minute": "10",
+      "team": "Vienna i Pero",
+      "type": "goal",
+      "player": "Vienna Gol otwierający wynik",
+      "note": "Gol otwierający wynik",
+      "score": "0-1"
+    },
+    {
+      "id": "mecz18-event-2",
+      "match_id": "mecz18",
+      "minute": "22",
+      "team": "Vienna i Pero",
+      "type": "goal",
+      "player": "Vienna Gol",
+      "note": "Gol",
+      "score": "0-2"
+    },
+    {
+      "id": "mecz18-event-3",
+      "match_id": "mecz18",
+      "minute": "33",
+      "team": "Kreweda, Luśken i Ola",
+      "type": "goal",
+      "player": "Ola Gol",
+      "note": "Gol",
+      "score": "1-2"
+    },
+    {
+      "id": "mecz18-event-4",
+      "match_id": "mecz18",
+      "minute": "40",
+      "team": "Kreweda, Luśken i Ola",
+      "type": "goal",
+      "player": "Ola Gol",
+      "note": "Gol",
+      "score": "2-2"
+    },
+    {
+      "id": "mecz18-event-5",
+      "match_id": "mecz18",
+      "minute": "45",
+      "team": "Kreweda, Luśken i Ola",
+      "type": "goal",
+      "player": "Kreweda Gol",
+      "note": "Gol",
+      "score": "3-2"
+    },
+    {
+      "id": "mecz18-event-6",
+      "match_id": "mecz18",
+      "minute": "54",
+      "team": "Kreweda, Luśken i Ola",
+      "type": "goal",
+      "player": "Ola Gol",
+      "note": "Gol",
+      "score": "4-2"
+    },
+    {
+      "id": "mecz18-event-7",
+      "match_id": "mecz18",
+      "minute": "61",
+      "team": "Kreweda, Luśken i Ola",
+      "type": "goal",
+      "player": "Ola Gol",
+      "note": "Gol",
+      "score": "5-2"
+    },
+    {
+      "id": "mecz18-event-8",
+      "match_id": "mecz18",
+      "minute": "70",
+      "team": "Vienna i Pero",
+      "type": "goal",
+      "player": "Vienna Gol",
+      "note": "Gol",
+      "score": "5-3"
+    },
+    {
+      "id": "mecz18-event-9",
+      "match_id": "mecz18",
+      "minute": "81",
+      "team": "Vienna i Pero",
+      "type": "goal",
+      "player": "Vienna Gol",
+      "note": "Gol",
+      "score": "5-4"
+    },
+    {
+      "id": "mecz18-event-10",
+      "match_id": "mecz18",
+      "minute": "90",
+      "team": "Vienna i Pero",
+      "type": "goal",
+      "player": "Kreweda (OG) Gol samobójczy",
+      "note": "Gol samobójczy",
+      "score": "5-5"
+    },
+    {
+      "id": "mecz19-event-1",
+      "match_id": "mecz19",
+      "minute": "10",
+      "team": "Vienna",
+      "type": "goal",
+      "player": "Vienna Gol otwierający wynik",
+      "note": "Gol otwierający wynik",
+      "score": "0-1"
+    },
+    {
+      "id": "mecz19-event-2",
+      "match_id": "mecz19",
+      "minute": "12",
+      "team": "Kreweda, Luśken i Ola",
+      "type": "goal",
+      "player": "Vienna (OG) Gol Samobójczy",
+      "note": "Gol Samobójczy",
+      "score": "1-1"
+    },
+    {
+      "id": "mecz19-event-3",
+      "match_id": "mecz19",
+      "minute": "34",
+      "team": "Kreweda, Luśken i Ola",
+      "type": "goal",
+      "player": "Kreweda Gol",
+      "note": "Gol",
+      "score": "2-1"
+    },
+    {
+      "id": "mecz19-event-4",
+      "match_id": "mecz19",
+      "minute": "40",
+      "team": "Vienna",
+      "type": "goal",
+      "player": "Kreweda (OG) Gol Samobójczy",
+      "note": "Gol Samobójczy",
+      "score": "2-2"
+    },
+    {
+      "id": "mecz19-event-5",
+      "match_id": "mecz19",
+      "minute": "47",
+      "team": "Kreweda, Luśken i Ola",
+      "type": "goal",
+      "player": "Kreweda Gol",
+      "note": "Gol",
+      "score": "3-2"
+    },
+    {
+      "id": "mecz19-event-6",
+      "match_id": "mecz19",
+      "minute": "54",
+      "team": "Kreweda, Luśken i Ola",
+      "type": "goal",
+      "player": "Kreweda Gol",
+      "note": "Gol",
+      "score": "4-2"
+    },
+    {
+      "id": "mecz19-event-7",
+      "match_id": "mecz19",
+      "minute": "62",
+      "team": "Vienna",
+      "type": "goal",
+      "player": "Vienna Gol",
+      "note": "Gol",
+      "score": "4-3"
+    },
+    {
+      "id": "mecz19-event-8",
+      "match_id": "mecz19",
+      "minute": "78",
+      "team": "Kreweda, Luśken i Ola",
+      "type": "goal",
+      "player": "Kreweda Gol",
+      "note": "Gol",
+      "score": "5-3"
+    },
+    {
+      "id": "mecz19-event-9",
+      "match_id": "mecz19",
+      "minute": "84",
+      "team": "Vienna",
+      "type": "goal",
+      "player": "Vienna Gol",
+      "note": "Gol",
+      "score": "5-4"
+    },
+    {
+      "id": "mecz19-event-10",
+      "match_id": "mecz19",
+      "minute": "90+2",
+      "team": "Kreweda, Luśken i Ola",
+      "type": "goal",
+      "player": "Kreweda Gol",
+      "note": "Gol",
+      "score": "6-4"
+    },
+    {
+      "id": "mecz19-event-11",
+      "match_id": "mecz19",
+      "minute": "50",
+      "team": "Kreweda, Luśken i Ola",
+      "type": "substitution",
+      "player": "Luśken -&gt; Serduszkowata Kontuzja Luśken",
+      "note": "Kontuzja Luśken",
+      "score": "3-2"
+    },
+    {
+      "id": "mecz19-event-12",
+      "match_id": "mecz19",
+      "minute": "38",
+      "team": "Kreweda, Luśken i Ola",
+      "type": "yellow-card",
+      "player": "Kreweda Ręka w okolicy Pola Karnego",
+      "note": "Ręka w okolicy Pola Karnego",
+      "score": "2-1"
+    },
+    {
+      "id": "mecz19-event-13",
+      "match_id": "mecz19",
+      "minute": "39",
+      "team": "Vienna",
+      "type": "missed-penalty",
+      "player": "Vienna Zmarnowany rzut karny",
+      "note": "Zmarnowany rzut karny",
+      "score": "2-1"
+    },
+    {
+      "id": "mecz271-event-1",
+      "match_id": "mecz271",
+      "minute": "3",
+      "team": "Vienna, Ola i Kreweda",
+      "type": "goal",
+      "player": "Kreweda (Asysta: Vienna)",
+      "note": "(Asysta: Vienna)",
+      "score": "0-1"
+    },
+    {
+      "id": "mecz271-event-2",
+      "match_id": "mecz271",
+      "minute": "15",
+      "team": "Pero i Luśken",
+      "type": "goal",
+      "player": "Pero",
+      "note": "",
+      "score": "1-1"
+    },
+    {
+      "id": "mecz271-event-3",
+      "match_id": "mecz271",
+      "minute": "27",
+      "team": "Vienna, Ola i Kreweda",
+      "type": "goal",
+      "player": "Pero (OG) (Asysta: Vienna)",
+      "note": "(Asysta: Vienna)",
+      "score": "1-2"
+    },
+    {
+      "id": "mecz271-event-4",
+      "match_id": "mecz271",
+      "minute": "34",
+      "team": "Pero i Luśken",
+      "type": "goal",
+      "player": "Luśken",
+      "note": "",
+      "score": "2-2"
+    },
+    {
+      "id": "mecz271-event-5",
+      "match_id": "mecz271",
+      "minute": "49",
+      "team": "Pero i Luśken",
+      "type": "goal",
+      "player": "Pero (Asysta:Luśken)",
+      "note": "(Asysta:Luśken)",
+      "score": "3-2"
+    },
+    {
+      "id": "mecz271-event-6",
+      "match_id": "mecz271",
+      "minute": "57",
+      "team": "Pero i Luśken",
+      "type": "goal",
+      "player": "Pero",
+      "note": "",
+      "score": "4-2"
+    },
+    {
+      "id": "mecz271-event-7",
+      "match_id": "mecz271",
+      "minute": "70",
+      "team": "Vienna, Ola i Kreweda",
+      "type": "goal",
+      "player": "Kreweda (Asysta:Vienna)",
+      "note": "(Asysta:Vienna)",
+      "score": "4-3"
+    },
+    {
+      "id": "mecz271-event-8",
+      "match_id": "mecz271",
+      "minute": "84",
+      "team": "Pero i Luśken",
+      "type": "goal",
+      "player": "Pero (Asysta:Luśken)",
+      "note": "(Asysta:Luśken)",
+      "score": "5-3"
+    },
+    {
+      "id": "mecz271-event-9",
+      "match_id": "mecz271",
+      "minute": "89",
+      "team": "Vienna, Ola i Kreweda",
+      "type": "goal",
+      "player": "Vienna",
+      "note": "",
+      "score": "5-4"
+    },
+    {
+      "id": "mecz272-event-1",
+      "match_id": "mecz272",
+      "minute": "54",
+      "team": "Kreweda",
+      "type": "goal",
+      "player": "Kreweda Gol po wyrzucie z autu",
+      "note": "Gol po wyrzucie z autu",
+      "score": "0-1"
+    },
+    {
+      "id": "mecz273-event-1",
+      "match_id": "mecz273",
+      "minute": "2",
+      "team": "Vienna i Ola",
+      "type": "goal",
+      "player": "Vienna Asysta: Ola",
+      "note": "Asysta: Ola",
+      "score": "0-1"
+    },
+    {
+      "id": "mecz273-event-2",
+      "match_id": "mecz273",
+      "minute": "15",
+      "team": "Pero i Kreweda",
+      "type": "goal",
+      "player": "Kreweda Asysta: Pero",
+      "note": "Asysta: Pero",
+      "score": "1-1"
+    },
+    {
+      "id": "mecz273-event-3",
+      "match_id": "mecz273",
+      "minute": "24",
+      "team": "Pero i Kreweda",
+      "type": "goal",
+      "player": "Kreweda Asysta:Pero",
+      "note": "Asysta:Pero",
+      "score": "2-1"
+    },
+    {
+      "id": "mecz273-event-4",
+      "match_id": "mecz273",
+      "minute": "30",
+      "team": "Vienna i Ola",
+      "type": "goal",
+      "player": "Vienna Asysta:Ola",
+      "note": "Asysta:Ola",
+      "score": "2-2"
+    },
+    {
+      "id": "mecz273-event-5",
+      "match_id": "mecz273",
+      "minute": "45+1",
+      "team": "Vienna i Ola",
+      "type": "goal",
+      "player": "Vienna Asysta:Ola",
+      "note": "Asysta:Ola",
+      "score": "2-3"
+    },
+    {
+      "id": "mecz273-event-6",
+      "match_id": "mecz273",
+      "minute": "48",
+      "team": "Pero i Kreweda",
+      "type": "goal",
+      "player": "Pero Asysta:Kreweda",
+      "note": "Asysta:Kreweda",
+      "score": "3-3"
+    },
+    {
+      "id": "mecz273-event-7",
+      "match_id": "mecz273",
+      "minute": "59",
+      "team": "Pero i Kreweda",
+      "type": "goal",
+      "player": "Pero Asysta:Kreweda",
+      "note": "Asysta:Kreweda",
+      "score": "4-3"
+    },
+    {
+      "id": "mecz273-event-8",
+      "match_id": "mecz273",
+      "minute": "65",
+      "team": "Pero i Kreweda",
+      "type": "goal",
+      "player": "Kreweda Asysta:Pero",
+      "note": "Asysta:Pero",
+      "score": "5-3"
+    },
+    {
+      "id": "mecz273-event-9",
+      "match_id": "mecz273",
+      "minute": "70",
+      "team": "Pero i Kreweda",
+      "type": "missed-penalty",
+      "player": "Kreweda Gol Anulowany (VAR): Zagranie ręką",
+      "note": "Gol Anulowany (VAR): Zagranie ręką",
+      "score": "5-3"
+    },
+    {
+      "id": "mecz273-event-10",
+      "match_id": "mecz273",
+      "minute": "81",
+      "team": "Vienna i Ola",
+      "type": "goal",
+      "player": "Vienna",
+      "note": "",
+      "score": "5-4"
+    },
+    {
+      "id": "mecz273-event-11",
+      "match_id": "mecz273",
+      "minute": "90+5",
+      "team": "Vienna i Ola",
+      "type": "goal",
+      "player": "Vienna Rzut wolny",
+      "note": "Rzut wolny",
+      "score": "5-5"
+    },
+    {
+      "id": "mecz274-event-1",
+      "match_id": "mecz274",
+      "minute": "2",
+      "team": "Vienna i Kreweda",
+      "type": "goal",
+      "player": "Vienna Asysta: Kreweda (Gol po rzucie rożnym)",
+      "note": "Asysta: Kreweda (Gol po rzucie rożnym)",
+      "score": "1-0"
+    },
+    {
+      "id": "mecz274-event-2",
+      "match_id": "mecz274",
+      "minute": "14",
+      "team": "Luśken i Ola",
+      "type": "yellow-card",
+      "player": "Luśken Zagranie ręką",
+      "note": "Zagranie ręką",
+      "score": "1-0"
+    },
+    {
+      "id": "mecz274-event-3",
+      "match_id": "mecz274",
+      "minute": "16",
+      "team": "Vienna i Kreweda",
+      "type": "goal",
+      "player": "Vienna Rzut karny",
+      "note": "Rzut karny",
+      "score": "2-0"
+    },
+    {
+      "id": "mecz274-event-4",
+      "match_id": "mecz274",
+      "minute": "21",
+      "team": "Vienna i Kreweda",
+      "type": "goal",
+      "player": "Kreweda Asysta: Vienna",
+      "note": "Asysta: Vienna",
+      "score": "3-0"
+    },
+    {
+      "id": "mecz274-event-5",
+      "match_id": "mecz274",
+      "minute": "25",
+      "team": "Luśken i Ola",
+      "type": "goal",
+      "player": "Luśken Rzut karny",
+      "note": "Rzut karny",
+      "score": "3-1"
+    },
+    {
+      "id": "mecz274-event-6",
+      "match_id": "mecz274",
+      "minute": "29",
+      "team": "Vienna i Kreweda",
+      "type": "goal",
+      "player": "Vienna Asysta: Kreweda",
+      "note": "Asysta: Kreweda",
+      "score": "4-1"
+    },
+    {
+      "id": "mecz274-event-7",
+      "match_id": "mecz274",
+      "minute": "38",
+      "team": "Vienna i Kreweda",
+      "type": "goal",
+      "player": "Vienna Asysta: Kreweda",
+      "note": "Asysta: Kreweda",
+      "score": "5-1"
+    },
+    {
+      "id": "mecz274-event-8",
+      "match_id": "mecz274",
+      "minute": "42",
+      "team": "Luśken i Ola",
+      "type": "goal",
+      "player": "Vienna (OG) Gol samobójczy (Asysta:Luśken)",
+      "note": "Gol samobójczy (Asysta:Luśken)",
+      "score": "5-2"
+    },
+    {
+      "id": "mecz274-event-9",
+      "match_id": "mecz274",
+      "minute": "45+5",
+      "team": "Luśken i Ola",
+      "type": "goal",
+      "player": "Vienna (OG) Gol samobójczy (Asysta: Luśken)",
+      "note": "Gol samobójczy (Asysta: Luśken)",
+      "score": "5-3"
+    },
+    {
+      "id": "mecz274-event-10",
+      "match_id": "mecz274",
+      "minute": "58",
+      "team": "Vienna i Kreweda",
+      "type": "goal",
+      "player": "Vienna Asysta: Kreweda",
+      "note": "Asysta: Kreweda",
+      "score": "6-3"
+    },
+    {
+      "id": "mecz274-event-11",
+      "match_id": "mecz274",
+      "minute": "70",
+      "team": "Vienna i Kreweda",
+      "type": "goal",
+      "player": "Kreweda Asysta: Vienna",
+      "note": "Asysta: Vienna",
+      "score": "7-3"
+    },
+    {
+      "id": "mecz274-event-12",
+      "match_id": "mecz274",
+      "minute": "89",
+      "team": "Vienna i Kreweda",
+      "type": "goal",
+      "player": "Vienna Asysta: Kreweda",
+      "note": "Asysta: Kreweda",
+      "score": "8-3"
+    },
+    {
+      "id": "mecz275-event-1",
+      "match_id": "mecz275",
+      "minute": "090",
+      "team": "Luśken i Kreweda",
+      "type": "goal",
+      "player": "Kreweda (4) 5 goli Krewedy (Luśke 2A)",
+      "note": "5 goli Krewedy (Luśke 2A)",
+      "score": ""
+    },
+    {
+      "id": "mecz275-event-2",
+      "match_id": "mecz275",
+      "minute": "84",
+      "team": "Luśken i Kreweda",
+      "type": "goal",
+      "player": "Luśken A:Kreweda",
+      "note": "A:Kreweda",
+      "score": ""
+    },
+    {
+      "id": "mecz275-event-3",
+      "match_id": "mecz275",
+      "minute": "090",
+      "team": "Vienna i Ola",
+      "type": "goal",
+      "player": "Vienna 7 goli Vienny (4 a: Ola)",
+      "note": "7 goli Vienny (4 a: Ola)",
+      "score": ""
+    },
+    {
+      "id": "mecz275-event-4",
+      "match_id": "mecz275",
+      "minute": "53",
+      "team": "Vienna i Ola",
+      "type": "goal",
+      "player": "Luśken (OG) Gol Samobójczy",
+      "note": "Gol Samobójczy",
+      "score": ""
+    },
+    {
+      "id": "mecz276-event-1",
+      "match_id": "mecz276",
+      "minute": "1",
+      "team": "Luśken i Vienna",
+      "type": "goal",
+      "player": "Vienna Asysta:Luśken",
+      "note": "Asysta:Luśken",
+      "score": "0-1"
+    },
+    {
+      "id": "mecz276-event-2",
+      "match_id": "mecz276",
+      "minute": "7",
+      "team": "Luśken i Vienna",
+      "type": "goal",
+      "player": "Vienna",
+      "note": "",
+      "score": "0-2"
+    },
+    {
+      "id": "mecz276-event-3",
+      "match_id": "mecz276",
+      "minute": "18",
+      "team": "Ola i Kreweda",
+      "type": "goal",
+      "player": "Kreweda Asysta:Ola",
+      "note": "Asysta:Ola",
+      "score": "1-2"
+    },
+    {
+      "id": "mecz276-event-4",
+      "match_id": "mecz276",
+      "minute": "29",
+      "team": "Luśken i Vienna",
+      "type": "goal",
+      "player": "Vienna Asysta:Luśken",
+      "note": "Asysta:Luśken",
+      "score": "1-3"
+    },
+    {
+      "id": "mecz276-event-5",
+      "match_id": "mecz276",
+      "minute": "44",
+      "team": "Luśken i Vienna",
+      "type": "goal",
+      "player": "Vienna Asysta:Luśken",
+      "note": "Asysta:Luśken",
+      "score": "1-4"
+    },
+    {
+      "id": "mecz276-event-6",
+      "match_id": "mecz276",
+      "minute": "50",
+      "team": "Ola i Kreweda",
+      "type": "goal",
+      "player": "Kreweda Asysta:Ola",
+      "note": "Asysta:Ola",
+      "score": "2-4"
+    },
+    {
+      "id": "mecz276-event-7",
+      "match_id": "mecz276",
+      "minute": "63",
+      "team": "Ola i Kreweda",
+      "type": "goal",
+      "player": "Kreweda",
+      "note": "",
+      "score": "3-4"
+    },
+    {
+      "id": "mecz276-event-8",
+      "match_id": "mecz276",
+      "minute": "70",
+      "team": "Luśken i Vienna",
+      "type": "goal",
+      "player": "Kreweda (OG) asysta:Vienna",
+      "note": "asysta:Vienna",
+      "score": "3-5"
+    },
+    {
+      "id": "mecz276-event-9",
+      "match_id": "mecz276",
+      "minute": "73",
+      "team": "Ola i Kreweda",
+      "type": "goal",
+      "player": "Ola asysta:Kreweda",
+      "note": "asysta:Kreweda",
+      "score": "4-5"
+    },
+    {
+      "id": "mecz276-event-10",
+      "match_id": "mecz276",
+      "minute": "81",
+      "team": "Ola i Kreweda",
+      "type": "goal",
+      "player": "Kreweda asysta:Ola",
+      "note": "asysta:Ola",
+      "score": "5-5"
+    },
+    {
+      "id": "mecz276-event-11",
+      "match_id": "mecz276",
+      "minute": "88",
+      "team": "Ola i Kreweda",
+      "type": "goal",
+      "player": "Vienna Asysta:Luśken",
+      "note": "Asysta:Luśken",
+      "score": "5-6"
+    },
+    {
+      "id": "mecz276-event-12",
+      "match_id": "mecz276",
+      "minute": "90+3",
+      "team": "Ola i Kreweda",
+      "type": "goal",
+      "player": "Vienna",
+      "note": "",
+      "score": "5-7"
+    }
+  ],
+  "playerStats": [
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-player-1",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "team": "Ola / Pero / Koteu",
+      "player": "Ola",
+      "position": "",
+      "rating": 5.4,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-player-2",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "team": "Ola / Pero / Koteu",
+      "player": "Pero",
+      "position": "",
+      "rating": 7,
+      "goals": 3,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-player-3",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "team": "Ola / Pero / Koteu",
+      "player": "Koteu",
+      "position": "",
+      "rating": 8.4,
+      "goals": 4,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-player-4",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "team": "Kreweda / Vienna",
+      "player": "Kreweda",
+      "position": "",
+      "rating": 6.7,
+      "goals": 1,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz-ola-pero-koteu-kreweda-vienna-player-5",
+      "match_id": "mecz-ola-pero-koteu-kreweda-vienna",
+      "team": "",
+      "player": "Vienna ★",
+      "position": "",
+      "rating": 9.8,
+      "goals": 8,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz2-player-1",
+      "match_id": "mecz2",
+      "team": "",
+      "player": "Luśken",
+      "position": "",
+      "rating": 5.7,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz2-player-2",
+      "match_id": "mecz2",
+      "team": "",
+      "player": "★",
+      "position": "",
+      "rating": 8.4,
+      "goals": 2,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz2-player-3",
+      "match_id": "mecz2",
+      "team": "",
+      "player": "Kreweda",
+      "position": "",
+      "rating": 8.2,
+      "goals": 2,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz2-player-4",
+      "match_id": "mecz2",
+      "team": "",
+      "player": "Pero",
+      "position": "",
+      "rating": 8.3,
+      "goals": 1,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz3-player-1",
+      "match_id": "mecz3",
+      "team": "",
+      "player": "★",
+      "position": "",
+      "rating": 9.7,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz3-player-2",
+      "match_id": "mecz3",
+      "team": "Vienna i Luśken",
+      "player": "Vienna",
+      "position": "",
+      "rating": 9.2,
+      "goals": 3,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz3-player-3",
+      "match_id": "mecz3",
+      "team": "Koteu i Serduszkowata",
+      "player": "Koteu",
+      "position": "",
+      "rating": 6.8,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz3-player-4",
+      "match_id": "mecz3",
+      "team": "Koteu i Serduszkowata",
+      "player": "Serduszkowata",
+      "position": "",
+      "rating": 5.3,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz5-player-1",
+      "match_id": "mecz5",
+      "team": "Luśken i Serduszkowata",
+      "player": "Luśken",
+      "position": "",
+      "rating": 6.5,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz5-player-2",
+      "match_id": "mecz5",
+      "team": "",
+      "player": "Ola",
+      "position": "",
+      "rating": 6,
+      "goals": 1,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz5-player-3",
+      "match_id": "mecz5",
+      "team": "",
+      "player": "★",
+      "position": "",
+      "rating": 8.9,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz5-player-4",
+      "match_id": "mecz5",
+      "team": "Kreweda i Pero",
+      "player": "Pero",
+      "position": "",
+      "rating": 8.3,
+      "goals": 1,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz4-player-1",
+      "match_id": "mecz4",
+      "team": "",
+      "player": "Luśken",
+      "position": "",
+      "rating": 6.3,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz4-player-2",
+      "match_id": "mecz4",
+      "team": "",
+      "player": "★",
+      "position": "",
+      "rating": 9,
+      "goals": 2,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz4-player-3",
+      "match_id": "mecz4",
+      "team": "",
+      "player": "Kreweda",
+      "position": "",
+      "rating": 5.8,
+      "goals": 1,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz4-player-4",
+      "match_id": "mecz4",
+      "team": "",
+      "player": "Pero",
+      "position": "",
+      "rating": 5.7,
+      "goals": 1,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz7-player-1",
+      "match_id": "mecz7",
+      "team": "",
+      "player": "★",
+      "position": "",
+      "rating": 9.7,
+      "goals": 7,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz7-player-2",
+      "match_id": "mecz7",
+      "team": "Luśken",
+      "player": "Luśken",
+      "position": "",
+      "rating": 6.4,
+      "goals": 4,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz6-player-1",
+      "match_id": "mecz6",
+      "team": "",
+      "player": "★",
+      "position": "",
+      "rating": 9.1,
+      "goals": 5,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz6-player-2",
+      "match_id": "mecz6",
+      "team": "Vienna",
+      "player": "Vienna",
+      "position": "",
+      "rating": 6.9,
+      "goals": 2,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz8-player-1",
+      "match_id": "mecz8",
+      "team": "",
+      "player": "★",
+      "position": "",
+      "rating": 9.5,
+      "goals": 4,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz8-player-2",
+      "match_id": "mecz8",
+      "team": "Ola",
+      "player": "Ola",
+      "position": "",
+      "rating": 5.1,
+      "goals": 1,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz9-player-1",
+      "match_id": "mecz9",
+      "team": "Vienna",
+      "player": "Vienna",
+      "position": "",
+      "rating": 7,
+      "goals": 2,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz9-player-2",
+      "match_id": "mecz9",
+      "team": "",
+      "player": "★",
+      "position": "",
+      "rating": 8.7,
+      "goals": 3,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz9-player-3",
+      "match_id": "mecz9",
+      "team": "Kreweda i Luśken",
+      "player": "Luśken",
+      "position": "",
+      "rating": 7.7,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz12-player-1",
+      "match_id": "mecz12",
+      "team": "",
+      "player": "Vienna ★",
+      "position": "",
+      "rating": 10,
+      "goals": 6,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz12-player-2",
+      "match_id": "mecz12",
+      "team": "",
+      "player": "Pero",
+      "position": "",
+      "rating": 9,
+      "goals": 4,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz12-player-3",
+      "match_id": "mecz12",
+      "team": "",
+      "player": "Kreweda",
+      "position": "",
+      "rating": 7,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz12-player-4",
+      "match_id": "mecz12",
+      "team": "",
+      "player": "Dzieciok I",
+      "position": "",
+      "rating": 7.2,
+      "goals": 3,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz12-player-5",
+      "match_id": "mecz12",
+      "team": "",
+      "player": "Dzieciok II",
+      "position": "",
+      "rating": 7.1,
+      "goals": 2,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz12-player-6",
+      "match_id": "mecz12",
+      "team": "",
+      "player": "Dzieciok III",
+      "position": "",
+      "rating": 6.8,
+      "goals": 3,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz14-player-1",
+      "match_id": "mecz14",
+      "team": "",
+      "player": "Ola ★",
+      "position": "",
+      "rating": 8.9,
+      "goals": 5,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz14-player-2",
+      "match_id": "mecz14",
+      "team": "Luśken",
+      "player": "Luśken",
+      "position": "",
+      "rating": 5.8,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz15-player-1",
+      "match_id": "mecz15",
+      "team": "Ola i Luśken",
+      "player": "Luśken",
+      "position": "",
+      "rating": 7,
+      "goals": 1,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz15-player-2",
+      "match_id": "mecz15",
+      "team": "Ola i Luśken",
+      "player": "Ola",
+      "position": "",
+      "rating": 7,
+      "goals": 9,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz15-player-3",
+      "match_id": "mecz15",
+      "team": "Kreweda i Vienna",
+      "player": "Kreweda",
+      "position": "",
+      "rating": 9.6,
+      "goals": 11,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz15-player-4",
+      "match_id": "mecz15",
+      "team": "",
+      "player": "Vienna ★",
+      "position": "",
+      "rating": 9.8,
+      "goals": 1,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz16-player-1",
+      "match_id": "mecz16",
+      "team": "Kreweda i Pero",
+      "player": "Kreweda",
+      "position": "",
+      "rating": 8,
+      "goals": 11,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz16-player-2",
+      "match_id": "mecz16",
+      "team": "Kreweda i Pero",
+      "player": "Pero",
+      "position": "",
+      "rating": 7,
+      "goals": 2,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz16-player-3",
+      "match_id": "mecz16",
+      "team": "",
+      "player": "Vienna ★",
+      "position": "",
+      "rating": 8.3,
+      "goals": 12,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz17-player-1",
+      "match_id": "mecz17",
+      "team": "Kreweda i Luśken",
+      "player": "Kreweda",
+      "position": "",
+      "rating": 8.5,
+      "goals": 3,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz17-player-2",
+      "match_id": "mecz17",
+      "team": "Kreweda i Luśken",
+      "player": "Luśken",
+      "position": "",
+      "rating": 4.5,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz17-player-3",
+      "match_id": "mecz17",
+      "team": "",
+      "player": "Vienna ★",
+      "position": "",
+      "rating": 9.7,
+      "goals": 6,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz17-player-4",
+      "match_id": "mecz17",
+      "team": "Vienna i Ola",
+      "player": "Ola",
+      "position": "",
+      "rating": 4.5,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz18-player-1",
+      "match_id": "mecz18",
+      "team": "",
+      "player": "Vienna ★",
+      "position": "",
+      "rating": 8.9,
+      "goals": 4,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz18-player-2",
+      "match_id": "mecz18",
+      "team": "Vienna i Pero",
+      "player": "Pero",
+      "position": "",
+      "rating": 7,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz18-player-3",
+      "match_id": "mecz18",
+      "team": "Kreweda, Luśken i Ola",
+      "player": "Kreweda",
+      "position": "",
+      "rating": 7.5,
+      "goals": 1,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz18-player-4",
+      "match_id": "mecz18",
+      "team": "Kreweda, Luśken i Ola",
+      "player": "Ola",
+      "position": "",
+      "rating": 8.2,
+      "goals": 4,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz18-player-5",
+      "match_id": "mecz18",
+      "team": "Kreweda, Luśken i Ola",
+      "player": "Luśken",
+      "position": "",
+      "rating": 7,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz19-player-1",
+      "match_id": "mecz19",
+      "team": "Vienna",
+      "player": "Vienna",
+      "position": "",
+      "rating": 7.8,
+      "goals": 3,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz19-player-2",
+      "match_id": "mecz19",
+      "team": "Kreweda, Luśken i Ola",
+      "player": "Luśken",
+      "position": "",
+      "rating": 7.7,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz19-player-3",
+      "match_id": "mecz19",
+      "team": "",
+      "player": "Kreweda ★",
+      "position": "",
+      "rating": 9.2,
+      "goals": 5,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz19-player-4",
+      "match_id": "mecz19",
+      "team": "",
+      "player": "Serduszkowata",
+      "position": "",
+      "rating": 7.2,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz271-player-1",
+      "match_id": "mecz271",
+      "team": "",
+      "player": "Vienna ★",
+      "position": "",
+      "rating": 8.9,
+      "goals": 1,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz271-player-2",
+      "match_id": "mecz271",
+      "team": "Vienna, Ola i Kreweda",
+      "player": "Kreweda",
+      "position": "",
+      "rating": 8,
+      "goals": 2,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz271-player-3",
+      "match_id": "mecz271",
+      "team": "Vienna, Ola i Kreweda",
+      "player": "Ola",
+      "position": "",
+      "rating": 6,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz271-player-4",
+      "match_id": "mecz271",
+      "team": "Pero i Luśken",
+      "player": "Pero",
+      "position": "",
+      "rating": 8.9,
+      "goals": 4,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz271-player-5",
+      "match_id": "mecz271",
+      "team": "Pero i Luśken",
+      "player": "Luśken",
+      "position": "",
+      "rating": 7,
+      "goals": 1,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz272-player-1",
+      "match_id": "mecz272",
+      "team": "",
+      "player": "Kreweda ★",
+      "position": "",
+      "rating": 8,
+      "goals": 1,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz272-player-2",
+      "match_id": "mecz272",
+      "team": "Ola i Luśken",
+      "player": "Luśken",
+      "position": "",
+      "rating": 6.1,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz272-player-3",
+      "match_id": "mecz272",
+      "team": "Ola i Luśken",
+      "player": "Ola",
+      "position": "",
+      "rating": 6,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz273-player-1",
+      "match_id": "mecz273",
+      "team": "",
+      "player": "Vienna ★",
+      "position": "",
+      "rating": 9,
+      "goals": 5,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz273-player-2",
+      "match_id": "mecz273",
+      "team": "Vienna i Ola",
+      "player": "Ola",
+      "position": "",
+      "rating": 5.9,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz273-player-3",
+      "match_id": "mecz273",
+      "team": "Pero i Kreweda",
+      "player": "Kreweda",
+      "position": "",
+      "rating": 8.6,
+      "goals": 3,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz273-player-4",
+      "match_id": "mecz273",
+      "team": "Pero i Kreweda",
+      "player": "Pero",
+      "position": "",
+      "rating": 8.4,
+      "goals": 2,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz274-player-1",
+      "match_id": "mecz274",
+      "team": "Luśken i Ola",
+      "player": "Luśken",
+      "position": "",
+      "rating": 7,
+      "goals": 1,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz274-player-2",
+      "match_id": "mecz274",
+      "team": "",
+      "player": "Serduszkowata",
+      "position": "",
+      "rating": 4.7,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz274-player-3",
+      "match_id": "mecz274",
+      "team": "",
+      "player": "Vienna ★",
+      "position": "",
+      "rating": 9.7,
+      "goals": 6,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz274-player-4",
+      "match_id": "mecz274",
+      "team": "Vienna i Kreweda",
+      "player": "Kreweda",
+      "position": "",
+      "rating": 9.5,
+      "goals": 2,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz275-player-1",
+      "match_id": "mecz275",
+      "team": "",
+      "player": "Vienna ★",
+      "position": "",
+      "rating": 8.9,
+      "goals": 7,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz275-player-2",
+      "match_id": "mecz275",
+      "team": "Vienna i Ola",
+      "player": "Ola",
+      "position": "",
+      "rating": 6.2,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz275-player-3",
+      "match_id": "mecz275",
+      "team": "Luśken i Kreweda",
+      "player": "Kreweda",
+      "position": "",
+      "rating": 7.6,
+      "goals": 4,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz275-player-4",
+      "match_id": "mecz275",
+      "team": "Luśken i Kreweda",
+      "player": "Luśken",
+      "position": "",
+      "rating": 6,
+      "goals": 1,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz276-player-1",
+      "match_id": "mecz276",
+      "team": "",
+      "player": "Vienna ★",
+      "position": "",
+      "rating": 8.6,
+      "goals": 6,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz276-player-2",
+      "match_id": "mecz276",
+      "team": "Luśken i Vienna",
+      "player": "Luśken",
+      "position": "",
+      "rating": 6.9,
+      "goals": 0,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz276-player-3",
+      "match_id": "mecz276",
+      "team": "Ola i Kreweda",
+      "player": "Kreweda",
+      "position": "",
+      "rating": 7.9,
+      "goals": 4,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    },
+    {
+      "id": "mecz276-player-4",
+      "match_id": "mecz276",
+      "team": "Ola i Kreweda",
+      "player": "Ola",
+      "position": "",
+      "rating": 6,
+      "goals": 1,
+      "assists": 0,
+      "minutes": null,
+      "details": {}
+    }
+  ]
+}

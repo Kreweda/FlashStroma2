@@ -4,11 +4,13 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { neon } from '@neondatabase/serverless';
-import { configs } from './scripts/db-common.mjs';
+import { configs, migrate, upsertMany } from './scripts/db-common.mjs';
 const root=path.dirname(fileURLToPath(import.meta.url));
 try{if(process.env.NODE_ENV!=='production')process.loadEnvFile(path.join(root,'.env'))}catch{}
 const seed=JSON.parse(await fs.readFile(path.join(root,'data','seed.json'),'utf8'));
 const sql=process.env.DATABASE_URL?neon(process.env.DATABASE_URL):null;
+async function initializeDatabase(){if(!sql)return;await migrate();const imported=await sql.query("SELECT key FROM app_settings WHERE key='initial_data_imported' LIMIT 1");if(imported.length)return;for(const resource of ['teams','players','competitions','matches','news','transfers','injuries','events','playerStats'])await upsertMany(resource,seed[resource]||[]);await sql.query("INSERT INTO app_settings (key,value) VALUES ('initial_data_imported','true'::jsonb) ON CONFLICT (key) DO UPDATE SET value='true'::jsonb,updated_at=now()");console.log('Pierwszy import danych FlashStromy zakończony.')}
+await initializeDatabase();
 const MIME={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.svg':'image/svg+xml','.webp':'image/webp','.ico':'image/x-icon'};
 const ORDER={teams:'name',players:'name',competitions:'name',matches:'season DESC, kickoff DESC',news:'published_at DESC',transfers:'date DESC',injuries:'player',events:'minute',playerStats:'player'};
 function send(res,status,data,headers={}){const body=typeof data==='string'?data:JSON.stringify(data);res.writeHead(status,{'Content-Type':typeof data==='string'?'text/plain; charset=utf-8':'application/json; charset=utf-8','Cache-Control':'no-store',...headers});res.end(body)}
@@ -26,4 +28,5 @@ const resource=parts[1],id=parts[2];if(!configs[resource])return send(res,404,{e
 async function staticFile(req,res,url){let pathname=decodeURIComponent(url.pathname);if(pathname==='/')pathname='/index.html';const publicDir=path.resolve(root,'public');const target=path.resolve(publicDir,'.'+pathname);if(!target.startsWith(publicDir+path.sep))return send(res,403,'Forbidden');try{const data=await fs.readFile(target);res.writeHead(200,{'Content-Type':MIME[path.extname(target).toLowerCase()]||'application/octet-stream','Cache-Control':target.endsWith('index.html')?'no-cache':'public, max-age=3600'});res.end(data)}catch{return send(res,404,'Nie znaleziono strony.')}}
 const server=http.createServer(async(req,res)=>{const url=new URL(req.url,'http://localhost');if(url.pathname.startsWith('/api/'))return routeApi(req,res,url);return staticFile(req,res,url)});
 const port=Number(process.env.PORT||3000);server.listen(port,()=>console.log(`FlashStroma działa: http://localhost:${port}${sql?' (Neon PostgreSQL)':' (tryb podglądu: odczyt z importu)'}`));
+
 

@@ -1,0 +1,969 @@
+
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Konkursy - Flashscore</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+.theme-toggle {
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  min-width: 42px;
+  height: 34px;
+  cursor: pointer;
+  font-weight: 900;
+  margin-left: 8px;
+}
+
+body.dark {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+body.dark .card,
+body.dark .news-item,
+body.dark .player-card,
+body.dark .competition-card,
+body.dark .leader-card,
+body.dark .item,
+body.dark .detail,
+body.dark .list,
+body.dark .row {
+  background: #172033;
+  border-color: #2c3a50;
+  color: #e5e7eb;
+}
+
+body.dark .panel-title,
+body.dark th,
+body.dark .list-head,
+body.dark .leader-card h3,
+body.dark .match-state,
+body.dark .stat,
+body.dark .formation-badge,
+body.dark .period,
+body.dark .league,
+body.dark .admin-form input,
+body.dark .admin-form textarea {
+  background: #111827;
+  border-color: #2c3a50;
+  color: #e5e7eb;
+}
+
+body.dark .intro p,
+body.dark .note,
+body.dark .item-sub,
+body.dark .club-meta,
+body.dark .detail span,
+body.dark .news-date,
+body.dark .news-item p,
+body.dark .player-card span,
+body.dark .info-row span,
+body.dark .row span,
+body.dark .leader-list span,
+body.dark .empty,
+body.dark .empty-info {
+  color: #a8b3c3;
+}
+
+body.dark .club,
+body.dark .number,
+body.dark .rank,
+body.dark .tag {
+  background: #243244;
+  color: #e5e7eb;
+}
+    body {
+      margin: 0;
+      background: #eceff3;
+      color: #111827;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .topbar {
+      background: #07111d;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .topbar-inner {
+      width: min(1180px, calc(100% - 24px));
+      margin: 0 auto;
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: conic-gradient(#ff0046, #ff6b8a, #ff0046);
+      box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.18);
+    }
+
+    .nav {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .nav a {
+      color: #c5ced8;
+      padding: 20px 11px 17px;
+      border-bottom: 3px solid transparent;
+      font-weight: 700;
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .nav .active {
+      color: #fff;
+      border-color: #ff0046;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 24px));
+      margin: 14px auto 30px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #dfe3e8;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 26px rgba(15, 23, 42, 0.08);
+    }
+
+    .intro {
+      padding: 14px 16px;
+    }
+
+    .intro h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .intro p {
+      margin: 4px 0 0;
+      color: #69727d;
+      font-weight: 700;
+    }
+
+    .panel-title {
+      margin: 0;
+      padding: 12px;
+      background: #f6f7f9;
+      border-bottom: 1px solid #dfe3e8;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .panel-body {
+      padding: 12px;
+    }
+
+    .competition-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .competition-card {
+      border: 1px solid #dfe3e8;
+      border-radius: 8px;
+      background: #fff;
+      padding: 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    }
+
+    .competition-card:hover,
+    .competition-card.active {
+      transform: translateY(-2px);
+      border-color: #ff0046;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+    }
+
+    .competition-card strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .competition-card span {
+      color: #69727d;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .competition-panel {
+      display: none;
+    }
+
+    .competition-panel.active {
+      display: block;
+    }
+
+    .competition-head {
+      padding: 16px;
+      background: linear-gradient(135deg, #07111d, #243244);
+      color: #fff;
+    }
+
+    .competition-head h2 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.1;
+    }
+
+    .competition-head p {
+      margin: 8px 0 0;
+      color: #cbd5e1;
+      font-weight: 700;
+    }
+
+    .division {
+      margin-bottom: 14px;
+    }
+
+    .division:last-child {
+      margin-bottom: 0;
+    }
+
+    .division-title {
+      margin: 0 0 8px;
+      color: #38424f;
+      font-size: 14px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 560px;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid #edf0f3;
+      padding: 11px 10px;
+      text-align: center;
+      font-weight: 800;
+    }
+
+    th:first-child,
+    td:first-child {
+      text-align: left;
+    }
+
+    th {
+      background: #f6f7f9;
+      color: #4b5563;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .team-cell {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .rank {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #edf1f5;
+      color: #38424f;
+      display: inline-grid;
+      place-items: center;
+      font-size: 12px;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-left: 8px;
+      border-radius: 999px;
+      padding: 3px 7px;
+      font-size: 11px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .badge-up {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .badge-down {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+
+    .leaders-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .leader-card {
+      border: 1px solid #dfe3e8;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .leader-card h3 {
+      margin: 0;
+      padding: 10px;
+      background: #f6f7f9;
+      border-bottom: 1px solid #dfe3e8;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .leader-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .leader-list li {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      padding: 9px 10px;
+      border-bottom: 1px solid #edf0f3;
+      font-weight: 800;
+    }
+
+    .leader-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .leader-list span {
+      color: #69727d;
+      font-size: 12px;
+    }
+
+    .leader-value {
+      color: #111827;
+      font-weight: 900;
+    }
+
+    .empty-info {
+      margin: 0;
+      color: #69727d;
+      font-weight: 800;
+    }
+
+    .legend {
+      display: grid;
+      gap: 6px;
+      color: #4b5563;
+      font-weight: 800;
+    }
+
+    .legend p {
+      margin: 0;
+    }
+
+    .bracket-wrap {
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .bracket {
+      min-width: 1040px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap: 42px;
+      align-items: center;
+    }
+
+    .bracket-round {
+      display: grid;
+      gap: 18px;
+      position: relative;
+    }
+
+    .bracket-round.quarterfinals {
+      gap: 18px;
+    }
+
+    .bracket-round.semifinals {
+      gap: 108px;
+    }
+
+    .round-title {
+      margin: 0 0 8px;
+      color: #38424f;
+      font-size: 12px;
+      font-weight: 900;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .bracket-match {
+      border: 1px solid #dfe3e8;
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+    }
+
+    .bracket-match h4 {
+      margin: 0;
+      padding: 8px 10px;
+      background: #f6f7f9;
+      border-bottom: 1px solid #dfe3e8;
+      color: #69727d;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .bracket-team {
+      display: grid;
+      grid-template-columns: 1fr 44px;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 7px 10px;
+      border-bottom: 1px solid #edf0f3;
+    }
+
+    .bracket-team:last-child {
+      border-bottom: 0;
+    }
+
+    .bracket-team.winner strong {
+      color: #15803d;
+      font-weight: 900;
+    }
+
+    .score {
+      min-width: 30px;
+      color: #69727d;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .bracket-match::after,
+    .bracket-match::before {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .bracket-match {
+      position: relative;
+    }
+
+    .bracket-round.quarterfinals .bracket-match::after {
+      top: 50%;
+      right: -22px;
+      width: 22px;
+      border-top: 2px solid #cbd5e1;
+    }
+
+    .bracket-round.quarterfinals .bracket-match:nth-of-type(2)::before,
+    .bracket-round.quarterfinals .bracket-match:nth-of-type(4)::before {
+      top: -9px;
+      right: -22px;
+      height: calc(100% + 18px);
+      border-right: 2px solid #cbd5e1;
+    }
+
+    .bracket-round.semifinals .bracket-match::before,
+    .bracket-round.final .bracket-match::before {
+      top: 50%;
+      left: -22px;
+      width: 22px;
+      border-top: 2px solid #cbd5e1;
+    }
+
+    .bracket-round.semifinals .bracket-match::after {
+      top: 50%;
+      right: -22px;
+      width: 22px;
+      border-top: 2px solid #cbd5e1;
+    }
+
+    .bracket-round.semifinals .bracket-match:nth-of-type(2)::after {
+      top: -54px;
+      height: 108px;
+      border-right: 2px solid #cbd5e1;
+    }
+
+    body.dark .score {
+      color: #a8b3c3;
+    }
+
+    body.dark .round-title,
+    body.dark .bracket-team strong {
+      color: #e5e7eb;
+    }
+
+    body.dark .bracket-match {
+      background: #172033;
+      border-color: #334155;
+    }
+
+    body.dark .bracket-match h4 {
+      background: #111827;
+      border-color: #334155;
+      color: #cbd5e1;
+    }
+
+    body.dark .bracket-team {
+      border-color: #334155;
+    }
+
+    body.dark .bracket-team.winner strong {
+      color: #86efac;
+    }
+
+    body.dark .bracket-match::after,
+    body.dark .bracket-match::before {
+      border-color: #475569;
+    }
+
+    @media (max-width: 920px) {
+      .competition-grid,
+      .leaders-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding-top: 10px;
+      }
+
+      .nav a {
+        padding: 14px 10px 11px;
+      }
+
+      .competition-grid,
+      .leaders-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bracket {
+        min-width: 820px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="logo">
+        <span class="logo-mark"></span>
+        <span>Flashscore</span>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Mecz</a>
+        <a href="wiadomosci.html">Wiadomosci</a>
+        <a href="zawodnicy.html">Zawodnicy</a>
+        <a class="active" href="konkursy.html">Konkursy</a>
+        <button id="themeToggle" class="theme-toggle" type="button" title="Tryb ciemny">☾</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="card intro">
+      <h1>Konkursy</h1>
+      <p>Kliknij konkurs, zeby zobaczyc tabele i klasyfikacje zawodnikow.</p>
+    </section>
+
+    <section class="card">
+      <h2 class="panel-title">Lista konkursow</h2>
+      <div class="panel-body">
+        <div id="competitionGrid" class="competition-grid"></div>
+      </div>
+    </section>
+
+    <section id="competitionPanel" class="card competition-panel"></section>
+  </main>
+
+  <script>
+    const competitions = [
+      {
+        id: "liga-stromej",
+        name: "Liga Stromej",
+        format: "Format ligowy",
+        description: "Tabela ligowa z punktami, bramkami zdobytymi, straconymi i bilansem.",
+        divisions: [
+          {
+            name: "Tabela",
+            teams: [
+               { name: "Jugoslawianka", goalsFor: 5, goalsAgainst: 3, points: 3 },
+              { name: "Stromianka", goalsFor: 4, goalsAgainst: 5, points: 3 },
+              { name: "KTE x SER", goalsFor: 0, goalsAgainst: 0, points: 0 }
+            ]
+          }
+        ],
+        leaders: {
+          scorers: [
+            { name: "Vienna", club: "Jugoslawianka", value: 4 },
+            { name: "Kreweda", club: "Stromianka", value: 3 },
+            { name: "Pero", club: "Stromianka", value: 1 }
+          ],
+          assists: [
+            { name: "Pero", club: "Stromianka", value: 3 },
+             { name: "Luśken", club: "Stromianka", value: 2},
+            { name: "Kreweda", club: "Stromianka", value: 1 }
+            
+          ],
+          cleanSheets: [],
+          cards: [
+            { name: "Kreweda", club: "Stromianka", value: 1 }
+          ]
+        }
+      },
+      {
+        id: "puchar-stromej",
+        name: "Puchar Stromej",
+        format: "Dwie grupy / dwie dywizje",
+        description: "Dywizja A i Dywizja B z awansem oraz spadkiem.",
+        divisions: [
+          {
+            name: "Dywizja A",
+            teams: [
+              { name: "Pero", goalsFor: 5, goalsAgainst: 2, points: 3 },
+              { name: "Koteu", goalsFor: 0, goalsAgainst: 0, points: 0 },
+              { name: "Vienna", goalsFor: 2, goalsAgainst: 5, points: 0, status: "down" }
+            ]
+          },
+          {
+            name: "Dywizja B",
+            teams: [
+              { name: "Kreweda", goalsFor: 11, goalsAgainst: 5, points: 6, status: "up" },
+                 { name: "Serduszkowata", goalsFor: 7, goalsAgainst: 6, points: 3 },
+              { name: "Luśken", goalsFor: 6, goalsAgainst: 12, points: 0 }
+            ]
+          }
+        ],
+        leaders: {
+          scorers: [
+             { name: "Kreweda", club: "Stromianka", value: 11 },
+              { name: "Serduszkowata", club: "KTE x SER", value: 7 },
+               { name: "Luśken", club: "Jugosławianka", value: 6 },
+            { name: "Pero", club: "Stromianka", value: 5 },
+             { name: "Vienna", club: "Jugoslawianka", value: 2 }
+          
+         
+          ],
+          assists: [],
+          cleanSheets: [],
+          cards: [
+             { name: "Kreweda", club: "Stromianka", value: 1 },
+            { name: "Pero", club: "Stromianka", value: 1 }
+          ]
+        }
+      },
+      {
+        id: "puchar-4-oguruw",
+        name: "Puchar 4 Oguruw",
+        format: "Liga",
+        description: "Liga czterech druzyn z jedna wspolna tabela.",
+        divisions: [
+          {
+            name: "Tabela",
+            teams: [
+              { name: "Koteu", goalsFor: 0, goalsAgainst: 0, points: 0 },
+              { name: "Vienna", goalsFor: 0, goalsAgainst: 0, points: 0 },
+              { name: "Pero", goalsFor: 0, goalsAgainst: 0, points: 0 },
+              { name: "Kreweda", goalsFor: 0, goalsAgainst: 0, points: 0 }
+            ]
+          }
+        ],
+        leaders: {
+          scorers: [],
+          assists: [],
+          cleanSheets: [],
+          cards: []
+        }
+      },
+      {
+        id: "superpuchar-grahamki",
+        name: "Superpuchar Grahamki",
+        format: "Faza pucharowa",
+        description: "Pusta drabinka fazy pucharowej do uzupełnienia wyników w kodzie.",
+        bracket: {
+          quarterfinals: [
+            { playerA: "-", playerB: "Pero", scoreA: "", scoreB: "", winner: "Pero" },
+            { playerA: "-", playerB: "Luśken", scoreA: "", scoreB: "", winner: "Luśken" },
+            { playerA: "-", playerB: "Vienna", scoreA: "", scoreB: "", winner: "Vienna" },
+            { playerA: "Kreweda", playerB: "Ola", scoreA: "", scoreB: "", winner: "" }
+          ],
+          semifinalOne: { playerA: "Pero", playerB: "Luśken", scoreA: "", scoreB: "", winner: "" },
+          semifinalTwo: { playerA: "Vienna", playerB: "Zwycięzca ćwierćfinału", scoreA: "", scoreB: "", winner: "" },
+          final: { playerA: "Zwycięzca półfinału I", playerB: "Zwycięzca półfinału II", scoreA: "", scoreB: "", winner: "" }
+        },
+        leaders: {
+          scorers: [],
+          assists: [],
+          cleanSheets: [],
+          cards: []
+        }
+      }
+    ];
+
+    const competitionGrid = document.getElementById("competitionGrid");
+    const competitionPanel = document.getElementById("competitionPanel");
+
+    function statusBadge(status) {
+      if (status === "up") return '<span class="badge badge-up">Awans do A</span>';
+      if (status === "down") return '<span class="badge badge-down">Spadek</span>';
+      return "";
+    }
+
+    function renderCompetitionCards() {
+      competitionGrid.innerHTML = competitions.map((competition) => `
+        <button class="competition-card" type="button" data-competition="${competition.id}">
+          <strong>${competition.name}</strong>
+          <span>${competition.format}</span>
+        </button>
+      `).join("");
+    }
+
+    function renderTable(division) {
+      const sortedTeams = [...division.teams].sort((a, b) => {
+        if (b.points !== a.points) return b.points - a.points;
+        return division.teams.indexOf(a) - division.teams.indexOf(b);
+      });
+
+      return `
+        <div class="division">
+          <h3 class="division-title">${division.name}</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Druzyna</th>
+                  <th>BZ</th>
+                  <th>BS</th>
+                  <th>BB</th>
+                  <th>PKT</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${sortedTeams.map((team, index) => `
+                  <tr>
+                    <td>
+                      <span class="team-cell">
+                        <span class="rank">${index + 1}</span>
+                        <strong>${team.name}</strong>
+                        ${statusBadge(team.status)}
+                      </span>
+                    </td>
+                    <td>${team.goalsFor}</td>
+                    <td>${team.goalsAgainst}</td>
+                    <td>${team.goalsFor - team.goalsAgainst > 0 ? "+" : ""}${team.goalsFor - team.goalsAgainst}</td>
+                    <td>${team.points}</td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderLeader(title, items, suffix) {
+      if (items.length === 0) {
+        return `
+          <div class="leader-card">
+            <h3>${title}</h3>
+            <div class="panel-body">
+              <p class="empty-info">-</p>
+            </div>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="leader-card">
+          <h3>${title}</h3>
+          <ol class="leader-list">
+            ${items.map((item) => `
+              <li>
+                <div>
+                  <strong>${item.name}</strong>
+                  <span>${item.club}</span>
+                </div>
+                <span class="leader-value">${item.value}${suffix}</span>
+              </li>
+            `).join("")}
+          </ol>
+        </div>
+      `;
+    }
+
+    function bracketMatch(title, match, matchId) {
+      const renderPlayer = (name, score, side) => `
+        <div class="bracket-team ${match.winner === name && name ? "winner" : ""}">
+          <strong>${name || "________________"}</strong>
+          <span class="score">${score || "_"}</span>
+        </div>
+      `;
+
+      return `
+        <article class="bracket-match">
+          <h4>${title}</h4>
+          ${renderPlayer(match.playerA, match.scoreA, "A")}
+          ${renderPlayer(match.playerB, match.scoreB, "B")}
+        </article>
+      `;
+    }
+
+    function renderBracket(competition) {
+      const bracket = competition.bracket;
+
+      return `
+        <h3 class="panel-title">Drabinka turniejowa</h3>
+        <div class="panel-body bracket-wrap">
+          <div class="bracket">
+            <div class="bracket-round quarterfinals">
+              <h3 class="round-title">Ćwierćfinał</h3>
+              ${bracket.quarterfinals.map((match, index) => bracketMatch(`Mecz ${index + 1}`, match, `quarterfinal-${index}`)).join("")}
+            </div>
+            <div class="bracket-round semifinals">
+              <h3 class="round-title">Półfinały</h3>
+              ${bracketMatch("Półfinał I", bracket.semifinalOne, "semifinalOne")}
+              ${bracketMatch("Półfinał II", bracket.semifinalTwo, "semifinalTwo")}
+            </div>
+            <div class="bracket-round">
+              <h3 class="round-title">Finał</h3>
+              ${bracketMatch("Mecz finałowy", bracket.final, "final")}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderCompetition(competitionId) {
+      const competition = competitions.find((item) => item.id === competitionId);
+
+      if (!competition) return;
+
+      document.querySelectorAll(".competition-card").forEach((card) => {
+        card.classList.toggle("active", card.dataset.competition === competitionId);
+      });
+
+      competitionPanel.classList.add("active");
+      competitionPanel.innerHTML = competition.bracket ? `
+        <div class="competition-head">
+          <h2>${competition.name}</h2>
+          <p>${competition.description}</p>
+        </div>
+        ${renderBracket(competition)}
+        <h3 class="panel-title">Klasyfikacje</h3>
+        <div class="panel-body">
+          <div class="leaders-grid">
+            ${renderLeader("Strzelcy", competition.leaders.scorers, " g")}
+            ${renderLeader("Asystenci", competition.leaders.assists, " a")}
+            ${renderLeader("Czyste konta", competition.leaders.cleanSheets, "")}
+            ${renderLeader("Kartki", competition.leaders.cards, "")}
+          </div>
+        </div>
+      ` : `
+          <div class="competition-head">
+            <h2>${competition.name}</h2>
+            <p>${competition.description}</p>
+          </div>
+
+          <h3 class="panel-title">Tabela</h3>
+          <div class="panel-body">
+            ${competition.divisions.map(renderTable).join("")}
+          </div>
+
+          <h3 class="panel-title">Klasyfikacje</h3>
+          <div class="panel-body">
+            <div class="leaders-grid">
+              ${renderLeader("Strzelcy", competition.leaders.scorers, " g")}
+              ${renderLeader("Asystenci", competition.leaders.assists, " a")}
+              ${renderLeader("Czyste konta", competition.leaders.cleanSheets, "")}
+              ${renderLeader("Kartki", competition.leaders.cards, "")}
+            </div>
+          </div>
+        `;
+
+      competitionPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    competitionGrid.addEventListener("click", (event) => {
+      const card = event.target.closest(".competition-card");
+
+      if (!card) return;
+
+      renderCompetition(card.dataset.competition);
+    });
+
+    renderCompetitionCards();
+  </script>
+  <script>
+  const themeToggle = document.getElementById("themeToggle");
+
+  function applyTheme(theme) {
+    document.body.classList.toggle("dark", theme === "dark");
+    themeToggle.textContent = theme === "dark" ? "☀" : "☾";
+    localStorage.setItem("flasstromaTheme", theme);
+  }
+
+  themeToggle.addEventListener("click", () => {
+    const nextTheme = document.body.classList.contains("dark") ? "light" : "dark";
+    applyTheme(nextTheme);
+  });
+
+  applyTheme(localStorage.getItem("flasstromaTheme") || "light");
+</script>
+</body>
+</html>
+

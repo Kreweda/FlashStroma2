@@ -1,0 +1,918 @@
+
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zawodnicy - Flashscore</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+.theme-toggle {
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  min-width: 42px;
+  height: 34px;
+  cursor: pointer;
+  font-weight: 900;
+  margin-left: 8px;
+}
+
+body.dark {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+body.dark .card,
+body.dark .news-item,
+body.dark .player-card,
+body.dark .competition-card,
+body.dark .leader-card,
+body.dark .item,
+body.dark .detail,
+body.dark .list,
+body.dark .row {
+  background: #172033;
+  border-color: #2c3a50;
+  color: #e5e7eb;
+}
+
+body.dark .panel-title,
+body.dark th,
+body.dark .list-head,
+body.dark .leader-card h3,
+body.dark .match-state,
+body.dark .stat,
+body.dark .formation-badge,
+body.dark .period,
+body.dark .league,
+body.dark .admin-form input,
+body.dark .admin-form textarea {
+  background: #111827;
+  border-color: #2c3a50;
+  color: #e5e7eb;
+}
+
+body.dark .intro p,
+body.dark .note,
+body.dark .item-sub,
+body.dark .club-meta,
+body.dark .detail span,
+body.dark .news-date,
+body.dark .news-item p,
+body.dark .player-card span,
+body.dark .info-row span,
+body.dark .row span,
+body.dark .leader-list span,
+body.dark .empty,
+body.dark .empty-info {
+  color: #a8b3c3;
+}
+
+body.dark .club,
+body.dark .number,
+body.dark .rank,
+body.dark .tag {
+  background: #243244;
+  color: #e5e7eb;
+}
+    body {
+      margin: 0;
+      background: #eceff3;
+      color: #111827;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .topbar {
+      background: #07111d;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .topbar-inner {
+      width: min(1180px, calc(100% - 24px));
+      margin: 0 auto;
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: conic-gradient(#ff0046, #ff6b8a, #ff0046);
+      box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.18);
+    }
+
+    .nav {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .nav a {
+      color: #c5ced8;
+      padding: 20px 11px 17px;
+      border-bottom: 3px solid transparent;
+      font-weight: 700;
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .nav .active {
+      color: #fff;
+      border-color: #ff0046;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 24px));
+      margin: 14px auto 30px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #dfe3e8;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 26px rgba(15, 23, 42, 0.08);
+    }
+
+    .panel-title {
+      margin: 0;
+      padding: 12px;
+      background: #f6f7f9;
+      border-bottom: 1px solid #dfe3e8;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .panel-body {
+      padding: 12px;
+    }
+
+    .intro {
+      padding: 14px 16px;
+    }
+
+    .intro h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .intro p {
+      margin: 4px 0 0;
+      color: #69727d;
+      font-weight: 700;
+    }
+
+    .season-tabs {
+      display: flex;
+      gap: 8px;
+      padding: 12px;
+      border: 1px solid #dfe3e8;
+      border-radius: 8px;
+      background: #f6f7f9;
+    }
+
+    .season-button {
+      border: 1px solid #dfe3e8;
+      border-radius: 999px;
+      padding: 9px 15px;
+      background: #fff;
+      color: #38424f;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .season-button.active {
+      background: #ff0046;
+      border-color: #ff0046;
+      color: #fff;
+    }
+
+    .season-panel {
+      display: none;
+    }
+
+    .season-panel.active {
+      display: grid;
+      gap: 12px;
+    }
+
+    .season-empty {
+      margin: 0;
+      padding: 34px 16px;
+      color: #69727d;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    body.dark .season-tabs {
+      background: #111827;
+      border-color: #2c3a50;
+    }
+
+    body.dark .season-button {
+      background: #172033;
+      border-color: #2c3a50;
+      color: #e5e7eb;
+    }
+
+    body.dark .season-button.active {
+      background: #ff0046;
+      border-color: #ff0046;
+      color: #fff;
+    }
+
+    .players-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .player-card {
+      border: 1px solid #dfe3e8;
+      border-radius: 8px;
+      background: #fff;
+      padding: 12px;
+      display: grid;
+      justify-items: center;
+      gap: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    }
+
+    .player-card:hover,
+    .player-card.active {
+      transform: translateY(-2px);
+      border-color: #ff0046;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+    }
+
+    .player-photo {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,.25);
+      background: #dfe3e8;
+    }
+
+    .player-initials,
+    .profile-initials {
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #111827, #ff0046);
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 4px 12px rgba(0,0,0,.25);
+    }
+
+    .player-initials {
+      width: 76px;
+      height: 76px;
+      font-size: 22px;
+    }
+
+    .player-card strong {
+      font-size: 15px;
+    }
+
+    .player-card span {
+      color: #69727d;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .rating {
+      border-radius: 9px;
+      color: #fff;
+      min-width: 38px;
+      padding: 3px 8px;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .rating-red {
+      background: #dc2626;
+    }
+
+    .rating-yellow {
+      background: #f5c400;
+      color: #111;
+    }
+
+    .rating-light-green {
+      background: #65a30d;
+      color:white;
+    }
+
+    .rating-dark-green {
+      background: #15803d;
+      color: white;
+    }
+
+    .rating-blue {
+      background: #2563eb;
+    }
+
+    .rating-empty {
+      background: #6b7280;
+    }
+
+    .profile {
+      display: none;
+    }
+
+    .profile.active {
+      display: block;
+    }
+
+    .profile-top {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 18px;
+      align-items: center;
+      padding: 16px;
+      background: linear-gradient(135deg, #07111d, #243244);
+      color: #fff;
+    }
+
+    .profile-photo {
+      width: 126px;
+      height: 126px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      background: #dfe3e8;
+    }
+
+    .profile-initials {
+      width: 126px;
+      height: 126px;
+      border: 4px solid #fff;
+      font-size: 34px;
+    }
+
+    .profile-name {
+      margin: 0 0 10px;
+      font-size: 28px;
+      line-height: 1.1;
+    }
+
+    .profile-meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .meta-item {
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 8px;
+      padding: 9px;
+      background: rgba(255,255,255,.08);
+    }
+
+    .meta-item span {
+      display: block;
+      color: #cbd5e1;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .meta-item strong {
+      display: block;
+      margin-top: 3px;
+      font-size: 14px;
+    }
+
+    .stats-table-wrap {
+      overflow-x: auto;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 820px;
+    }
+
+    .stats-table th,
+    .stats-table td {
+      border-bottom: 1px solid #edf0f3;
+      padding: 11px 10px;
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .stats-table th:first-child,
+    .stats-table td:first-child {
+      text-align: left;
+    }
+
+    .stats-table th {
+      background: #f6f7f9;
+      color: #4b5563;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .players-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .profile-meta {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding-top: 10px;
+      }
+
+      .players-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-top {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .profile-meta {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="logo">
+        <span class="logo-mark"></span>
+        <span>Flashscore</span>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Mecz</a>
+        <a href="wiadomosci.html">Wiadomosci</a>
+        <a class="active" href="zawodnicy.html">Zawodnicy</a>
+        <button id="themeToggle" class="theme-toggle" type="button" title="Tryb ciemny">☾</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="card intro">
+      <h1>Zawodnicy</h1>
+      <p>Kliknij zawodnika, zeby zobaczyc profil i statystyki.</p>
+    </section>
+
+    <div class="season-tabs" aria-label="Wybór sezonu">
+      <button class="season-button" type="button" data-season="season-2026">Sezon 2026</button>
+      <button class="season-button active" type="button" data-season="season-2026-2027">Sezon 2026/2027</button>
+    </div>
+
+    <div id="season-2026" class="season-panel">
+    <section class="card">
+      <h2 class="panel-title">Lista zawodnikow</h2>
+      <div class="panel-body">
+        <div id="playersGrid" class="players-grid"></div>
+      </div>
+    </section>
+
+    <section id="playerProfile" class="card profile"></section>
+    </div>
+
+    <div id="season-2026-2027" class="season-panel active">
+      <section class="card">
+        <h2 class="panel-title">Lista zawodników — sezon 2026/2027</h2>
+        <div class="panel-body">
+          <div id="playersGrid2027" class="players-grid"></div>
+        </div>
+      </section>
+
+      <section id="playerProfile2027" class="card profile"></section>
+    </div>
+  </main>
+
+  <script>
+    const players = [
+      {
+        id: "lusken",
+        name: "Luśken",
+        photo: "l.jpg",
+        age: "16 lat",
+        position: "Bramkarz",
+        value: "20 mln",
+        club: "Jugosławianka",
+        averageRating: 6.36,
+        stats: [
+          { competition: "Liga Stromej", appearances: 2, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 1, rating: 6.0 },
+          { competition: "Mecze Towarzyskie", appearances: 6, goals: 0, assists: 12, yellowCards: 0, redCards: 0, cleanSheets: 1, rating: 7.0 },
+          { competition: "Liga Oguruw", appearances: null, goals: null, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null },
+          { competition: "Puchar Stromej", appearances: 2, goals: 6, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: 6.1 },
+            { competition: "Superpuchar Grahamki", appearances: 0, goals: 0, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null }
+        ]
+      },
+      {
+        id: "vienna",
+        name: "Vienna",
+        photo: "116 (2).jpg",
+        age: "17 lat",
+        position: "Środkowy Pomocnik/ Środkowy Pomocnik Defensywny/ Środkowy Obrońca",
+        value: "80 mln",
+        club: "Jugosławianka",
+        averageRating: 8.50,
+        stats: [
+          { competition: "Liga Stromej", appearances: 2, goals: 5, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: 8.7 },
+          { competition: "Mecze Towarzyskie", appearances: 8, goals: 40, assists: 13, yellowCards: 1, redCards: 0, cleanSheets: 0, rating: 8.43 },
+          { competition: "Liga Oguruw", appearances: null, goals: null, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null },
+          { competition: "Puchar Stromej", appearances: 1, goals: 2, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: 6.9 },
+           { competition: "Reprezentacja ul.Stromej", appearances: 1, goals: 6, assists: 3, yellowCards: null, redCards: null, cleanSheets: null, rating: 10.0 },
+              { competition: "Superpuchar Grahamki", appearances: 0, goals: 0, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null }
+        ]
+      },
+      {
+        id: "koteu",
+        name: "Koteu",
+        photo: "116.jpg",
+        age: "20 lat",
+        position: "Napastnik/ Środkowy Pomocnik Ofensywny",
+        value: "100mln",
+        club: "KTE x SER",
+        averageRating: 7.6,
+        stats: [
+          { competition: "Liga Stromej", appearances: null, goals: null, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null },
+          { competition: "Mecze Towarzyskie", appearances: 2, goals: 4, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: 7.6 },
+          { competition: "Liga Oguruw", appearances: null, goals: null, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null },
+          { competition: "Puchar Stromej", appearances: null, goals: null, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null },
+           
+        ]
+      },
+      {
+        id: "kreweda",
+        name: "Kreweda",
+        photo: "10203a2f-3b65-4df0-a5fb-15dbdc0024cf.jpg",
+        age: "19 lat",
+        position: "Środkowy Obrońca/ Środkowy Pomocnik Defensywny",
+        value: "49mln",
+        club: "Stromianka FC",
+        averageRating: 8.21,
+        stats: [
+          { competition: "Liga Stromej", appearances: 2, goals: 3, assists: 1, yellowCards: 1, redCards: 0, cleanSheets: 0, rating: 7.5 },
+          { competition: "Mecze Towarzyskie", appearances: 8, goals: 36, assists: 10, yellowCards: 2, redCards: 0, cleanSheets: 0, rating: 8.75 },
+          { competition: "Liga Oguruw", appearances: null, goals: null, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null },
+          { competition: "Puchar Stromej", appearances: 2, goals: 11, assists: null, yellowCards: 1, redCards: null, cleanSheets: null, rating: 9.6 },
+           { competition: "Reprezentacja ul.Stromej", appearances: 1, goals: 0, assists: 5, yellowCards: null, redCards: null, cleanSheets: null, rating: 7.0 },
+              { competition: "Superpuchar Grahamki", appearances: 0, goals: 0, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null }
+        ]
+      },
+      {
+        id: "serduszkowata",
+        name: "Serduszkowata",
+        photo: "116 (1).jpg",
+        age: "13 lat",
+        position: "Środkowy Pomocnik Ofensywny/ Napastnik",
+        value: "20 mln",
+        club: "KTE x SER",
+        averageRating: 7.0,
+        stats: [
+          { competition: "Liga Stromej", appearances: null, goals: null, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null },
+          { competition: "Mecze Towarzyskie", appearances: 7, goals: 14, assists: 6, yellowCards: 2, redCards: 1, cleanSheets: 0, rating: 7.0 },
+          { competition: "Liga Oguruw", appearances: null, goals: null, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null },
+          { competition: "Puchar Stromej", appearances: 2, goals: 7, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: 7.0 },
+              { competition: "Superpuchar Grahamki", appearances: 0, goals: 0, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null }
+        ]
+      },
+      {
+        id: "pero",
+        name: "Pero",
+        photo: "117.jpg",
+        age: "15 lat",
+        position: "Prawy Skrzydłowy/ Środkowy Pomocnik Ofensywny",
+        value: "75 mln",
+        club: "Stromianka",
+        averageRating: 8.06,
+        stats: [
+          { competition: "Liga Stromej", appearances: 2, goals: 1, assists: 3, yellowCards: 0, redCards: 0, cleanSheets: 1, rating: 7.0 },
+          { competition: "Mecze Towarzyskie", appearances: 4, goals: 5, assists: 11, yellowCards: 1, redCards: 0, cleanSheets: 0, rating: 7.15 },
+          { competition: "Liga Oguruw", appearances: null, goals: null, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null },
+          { competition: "Puchar Stromej", appearances: 1, goals: 5, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: 9.1 },
+           { competition: "Reprezentacja ul.Stromej", appearances: 1, goals: 4, assists: 2, yellowCards: null, redCards: null, cleanSheets: null, rating: 9.0 },
+              { competition: "Superpuchar Grahamki", appearances: 0, goals: 0, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null }
+        ]
+      },
+      {
+        id: "uwu",
+        name: "UwU",
+        photo: "un.jpg",
+        age: "14 lat",
+        position: "Środkowy Pomocnik",
+        value: "1,0 mln",
+        club: "Stromianka",
+        averageRating: null,
+        stats: [
+          { competition: "Liga Stromej", appearances: null, goals: null, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null },
+          { competition: "Mecze Towarzyskie", appearances: null, goals: null, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null },
+          { competition: "Liga Oguruw", appearances: null, goals: null, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null },
+          { competition: "Puchar Stromej", appearances: null, goals: null, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null }
+        ]
+      },
+       {
+        id: "luki",
+        name: "Luki",
+        photo: "92a1363d-8754-43d0-b39c-ead62b8b9378.jpg",
+        age: "19 lat",
+        position: "Prawo skrzydłowy",
+        value: "40,0 mln",
+        club: "KTE x SER",
+        averageRating: null,
+        stats: [
+          { competition: "Liga Stromej", appearances: null, goals: null, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null },
+          { competition: "Mecze Towarzyskie", appearances: null, goals: null, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null },
+          { competition: "Liga Oguruw", appearances: null, goals: null, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null },
+          { competition: "Puchar Stromej", appearances: null, goals: null, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating: null },
+           { competition: "Reprezentacja ul.Stromej", appearances: null, goals: null, assists: null, yellowCards: null, redCards: null, cleanSheets: null, rating:null }
+        ]
+      }
+    ];
+
+    // SEZON 2026/2027 — tę listę edytujesz ręcznie, niezależnie od sezonu 2026.
+    // Zmieniaj liczby przy appearances, goals, assists itd. po rozegranych meczach.
+    const players2026_2027 = [
+      {
+        id: "lusken", name: "Luśken", photo: "luske.png", age: "16 lat", position: "Bramkarz", value: "32 mln €", club: "Stromianka FC", averageRating: 6.77,
+        stats: [
+          { competition: "Liga Stromej", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Mecze Towarzyskie", appearances: 5, goals: 3, assists: 10, yellowCards: 2, redCards: 0, cleanSheets: 0, rating: 6.52 },
+          { competition: "Liga Oguruw", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Puchar Stromej", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Superpuchar Grahamki", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null }
+        ]
+      },
+      {
+        id: "vienna", name: "Vienna", photo: "viena.jpeg", age: "17 lat", position: "Środkowy Pomocnik Ofensywny", value: "145 mln €", club: "Jugosławianka", averageRating: 9.3,
+        stats: [
+          { competition: "Liga Stromej", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Mecze Towarzyskie", appearances: 5, goals: 25, assists: 8, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: 9.1 },
+          { competition: "Liga Oguruw", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Puchar Stromej", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Reprezentacja ul.Stromej", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Superpuchar Grahamki", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null }
+        ]
+      },
+      {
+        id: "koteu", name: "Koteu", photo: "116.jpg", age: "20 lat", position: "Napastnik", value: "82mln €", club: "FS Lammers", averageRating: null,
+        stats: [
+          { competition: "Liga Stromej", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Mecze Towarzyskie", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Liga Oguruw", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Puchar Stromej", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null }
+        ]
+      },
+      {
+        id: "kreweda", name: "Kreweda", photo: "kredken.png", age: "19 lat", position: "Środkowy Obrońca / Prawy Obrońca", value: "120mln €", club: "Jugosławianka FC", averageRating: 8.9,
+        stats: [
+          { competition: "Liga Stromej", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Mecze Towarzyskie", appearances: 6, goals: 16, assists: 9, yellowCards: 1, redCards: 0, cleanSheets: 2, rating: 8.3 },
+          { competition: "Liga Oguruw", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Puchar Stromej", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Reprezentacja ul.Stromej", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Superpuchar Grahamki", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null }
+        ]
+      },
+      {
+        id: "serduszkowata", name: "Serduszkowata", photo: "ola.jpeg", age: "13 lat", position: "Środkowy Pomocnik Defensywny", value: "48 mln €", club: "FS Lammers", averageRating: 5.32,
+        stats: [
+          { competition: "Liga Stromej", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Mecze Towarzyskie", appearances: 6, goals: 1, assists: 11, yellowCards: 1, redCards: 0, cleanSheets: 0, rating: 5.7 },
+          { competition: "Liga Oguruw", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Puchar Stromej", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Superpuchar Grahamki", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null }
+        ]
+      },
+      {
+        id: "pero", name: "Pero", photo: "pero.jpeg", age: "15 lat", position: "Prawy Skrzydłowy", value: "105 mln €", club: "Stromianka", averageRating: 8.65,
+        stats: [
+          { competition: "Liga Stromej", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Mecze Towarzyskie", appearances: 2, goals: 6, assists: 3, yellowCards: 1, redCards: 0, cleanSheets: 0, rating: 8.65 },
+          { competition: "Liga Oguruw", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Puchar Stromej", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Reprezentacja ul.Stromej", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Superpuchar Grahamki", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null }
+        ]
+      },
+       {
+        id: "bambo", name: "Michał", photo: "", age: "18 lat", position: "Napastnik", value: "155 mln €", club: "Athletic Bilbao", averageRating: null,
+        stats: [
+          { competition: "Liga Stromej", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Mecze Towarzyskie", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Liga Oguruw", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Puchar Stromej", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Reprezentacja ul.Stromej", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null },
+          { competition: "Superpuchar Grahamki", appearances: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0, cleanSheets: 0, rating: null }
+        ]
+      }
+     
+    ];
+
+    const playersGrid = document.getElementById("playersGrid");
+    const playerProfile = document.getElementById("playerProfile");
+    const playersGrid2027 = document.getElementById("playersGrid2027");
+    const playerProfile2027 = document.getElementById("playerProfile2027");
+
+    function ratingClass(rating) {
+      if (rating === null) return "rating-empty";
+      if (rating < 6) return "rating-red";
+      if (rating < 7) return "rating-yellow";
+      if (rating < 8) return "rating-light-green";
+      if (rating < 9) return "rating-dark-green";
+      return "rating-blue";
+    }
+
+    function ratingText(rating) {
+      return rating === null ? "-" : rating.toFixed(1);
+    }
+
+    function statText(value) {
+      return value === null ? "-" : value;
+    }
+
+    function initials(name) {
+      return name.slice(0, 2).toUpperCase();
+    }
+
+    function playerImage(player, className) {
+      if (player.photo) {
+        return `<img class="${className}" src="${player.photo}" alt="${player.name}" />`;
+      }
+
+      const initialsClass = className === "profile-photo" ? "profile-initials" : "player-initials";
+      return `<span class="${initialsClass}">${initials(player.name)}</span>`;
+    }
+
+    function renderPlayers(playersList, grid) {
+      grid.innerHTML = playersList.map((player) => `
+        <button class="player-card" type="button" data-player="${player.id}">
+          ${playerImage(player, "player-photo")}
+          <strong>${player.name}</strong>
+          <span>${player.position} • ${player.club}</span>
+          <span class="rating ${ratingClass(player.averageRating)}">${ratingText(player.averageRating)}</span>
+        </button>
+      `).join("");
+    }
+
+    function renderProfile(playersList, profileElement, grid, playerId) {
+      const player = playersList.find((item) => item.id === playerId);
+
+      if (!player) return;
+
+      grid.querySelectorAll(".player-card").forEach((card) => {
+        card.classList.toggle("active", card.dataset.player === playerId);
+      });
+
+      profileElement.classList.add("active");
+      profileElement.innerHTML = `
+        <div class="profile-top">
+          ${playerImage(player, "profile-photo")}
+          <div>
+            <h2 class="profile-name">${player.name}</h2>
+            <div class="profile-meta">
+              <div class="meta-item">
+                <span>Wiek</span>
+                <strong>${player.age}</strong>
+              </div>
+              <div class="meta-item">
+                <span>Pozycja</span>
+                <strong>${player.position}</strong>
+              </div>
+              <div class="meta-item">
+                <span>Wartosc rynkowa</span>
+                <strong>${player.value}</strong>
+              </div>
+              <div class="meta-item">
+                <span>Klub</span>
+                <strong>${player.club}</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="panel-title">Statystyki</h3>
+        <div class="panel-body stats-table-wrap">
+          <table class="stats-table">
+            <thead>
+              <tr>
+                <th>Rozgrywki</th>
+                <th>Wystepy</th>
+                <th>Gole</th>
+                <th>Asysty</th>
+                <th>Zolte kartki</th>
+                <th>Czerwone kartki</th>
+                <th>Czyste konta</th>
+                <th>Ocena srednia</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${player.stats.map((row) => `
+                <tr>
+                  <td>${row.competition}</td>
+                  <td>${statText(row.appearances)}</td>
+                  <td>${statText(row.goals)}</td>
+                  <td>${statText(row.assists)}</td>
+                  <td>${statText(row.yellowCards)}</td>
+                  <td>${statText(row.redCards)}</td>
+                  <td>${statText(row.cleanSheets)}</td>
+                  <td><span class="rating ${ratingClass(row.rating)}">${ratingText(row.rating)}</span></td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
+
+      profileElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function enablePlayerCards(playersList, profileElement, grid) {
+      grid.addEventListener("click", (event) => {
+        const card = event.target.closest(".player-card");
+
+        if (!card) return;
+
+        renderProfile(playersList, profileElement, grid, card.dataset.player);
+      });
+    }
+
+    document.querySelectorAll(".season-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".season-button, .season-panel").forEach((item) => {
+          item.classList.remove("active");
+        });
+        button.classList.add("active");
+        document.getElementById(button.dataset.season).classList.add("active");
+      });
+    });
+
+    renderPlayers(players, playersGrid);
+    renderPlayers(players2026_2027, playersGrid2027);
+    enablePlayerCards(players, playerProfile, playersGrid);
+    enablePlayerCards(players2026_2027, playerProfile2027, playersGrid2027);
+  </script>
+  <script>
+  const themeToggle = document.getElementById("themeToggle");
+
+  function applyTheme(theme) {
+    document.body.classList.toggle("dark", theme === "dark");
+    themeToggle.textContent = theme === "dark" ? "☀" : "☾";
+    localStorage.setItem("flasstromaTheme", theme);
+  }
+
+  themeToggle.addEventListener("click", () => {
+    const nextTheme = document.body.classList.contains("dark") ? "light" : "dark";
+    applyTheme(nextTheme);
+  });
+
+  applyTheme(localStorage.getItem("flasstromaTheme") || "light");
+</script>
+</body>
+</html>
