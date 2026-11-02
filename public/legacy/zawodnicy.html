@@ -893,7 +893,7 @@ body.dark .tag {
       });
     });
 
-    (async()=>{try{const data=await fetch('/api/bootstrap',{cache:'no-store'}).then(r=>r.json()),all=data.players||[],isSource=p=>p.extras?.legacy_id||!p.extras?.team_id,map=p=>({...p,id:p.extras?.legacy_id||p.id,averageRating:p.average_rating});players.splice(0,players.length,...all.filter(p=>p.season==='2026'&&isSource(p)).map(map));players2026_2027.splice(0,players2026_2027.length,...all.filter(p=>p.season==='2026/2027'&&isSource(p)).map(map))}catch(error){console.error('Nie udało się pobrać zawodników z bazy:',error)}renderPlayers(players,playersGrid);renderPlayers(players2026_2027,playersGrid2027);enablePlayerCards(players,playerProfile,playersGrid);enablePlayerCards(players2026_2027,playerProfile2027,playersGrid2027)})();
+    (async()=>{try{const data=await fetch('/api/bootstrap',{cache:'no-store'}).then(r=>r.json()),all=data.players||[],map=p=>({...p,id:p.extras?.legacy_id||p.id,averageRating:p.average_rating}),hasStats=p=>Array.isArray(p.stats)&&p.stats.length>0,db2026=all.filter(p=>p.season==='2026'&&p.extras?.legacy_id&&hasStats(p)).map(map),db2027=all.filter(p=>p.season==='2026/2027'&&p.extras?.legacy_id&&hasStats(p)).map(map);if(db2026.length)players.splice(0,players.length,...db2026);if(db2027.length)players2026_2027.splice(0,players2026_2027.length,...db2027)}catch(error){console.error('Nie udało się pobrać zawodników z bazy:',error)}renderPlayers(players,playersGrid);renderPlayers(players2026_2027,playersGrid2027);enablePlayerCards(players,playerProfile,playersGrid);enablePlayerCards(players2026_2027,playerProfile2027,playersGrid2027)})();
   </script>
   <script>
   const themeToggle = document.getElementById("themeToggle");

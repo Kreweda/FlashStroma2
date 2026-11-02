@@ -1,0 +1,9 @@
+FlashStroma — oryginalne strony, zawodnicy, statystyki i panel
+
+Wypakuj zawartość tego archiwum do głównego folderu repozytorium GitHub, zachowując foldery. Zastąp istniejące pliki.
+
+Po dodaniu plików Render sam uruchomi wdrożenie. Po wdrożeniu aplikacja jednorazowo odświeży oryginalnych zawodników, 82 występy meczowe i 196 zdarzeń dla zachowanych meczów. Linki do istniejących meczów będą otwierały oryginalne strony w public/legacy. Własne statystyki i wydarzenia dla innych meczów pozostaną w bazie.
+
+Panel administratora ma formularz meczu z wyborem zespołów i zawodników z list, wynikiem liczbowym, datą i godziną, zdarzeniami oraz statystykami zawodników.
+
+W Render → Settings → Environment pozostaw ustawione DATABASE_URL i SESSION_SECRET oraz dodaj ADMIN_PASSWORD (własne hasło do panelu), jeśli jeszcze go nie ma.

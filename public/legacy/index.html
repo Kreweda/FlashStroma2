@@ -160,6 +160,6 @@ var th="light";try{th=localStorage.getItem("flasstromaTheme")||"light"}catch(e){
 applyTheme(th);
 function showInstallInfo(){alert("Na iPhone:\n1. Kliknij Udostępnij\n2. Wybierz 'Do ekranu głównego'\n\nNa Androidzie pojawi się opcja instalacji automatycznie.")}
 draw();
-(async function loadMatchesFromDatabase(){try{const data=await fetch('/api/bootstrap',{cache:'no-store'}).then(r=>r.json());if(Array.isArray(data.matches)){M=data.matches.map(m=>[m.season,m.kickoff,m.competition,m.home_team,m.home_score,m.away_team,m.away_score,m.page||('/admin-panel.html#/match/'+encodeURIComponent(m.id)),m.note||'']);draw()}}catch(error){console.error('Nie udało się pobrać wyników z bazy:',error)}})();</script>
+(async function loadMatchesFromDatabase(){try{const data=await fetch('/api/bootstrap',{cache:'no-store'}).then(r=>r.json());if(Array.isArray(data.matches)){M=data.matches.map(m=>[m.season,m.kickoff,m.competition,m.home_team,m.home_score,m.away_team,m.away_score,m.page?('/legacy/'+String(m.page).replace(/^[/]+/,'').replace(/^legacy[/]/,'')):('/admin-panel.html#/match/'+encodeURIComponent(m.id)),m.note||'']);draw()}}catch(error){console.error('Nie udało się pobrać wyników z bazy:',error)}})();</script>
 </body>
 </html>
