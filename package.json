@@ -1,0 +1,19 @@
+{
+  "name": "flasstroma",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "db:migrate": "node scripts/migrate.mjs",
+    "db:import:legacy": "node scripts/import-legacy.mjs && node scripts/enrich-news.mjs && node scripts/import-rosters.mjs && node scripts/import-match-details.mjs",
+    "db:seed": "node scripts/seed-database.mjs"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
