@@ -159,298 +159,18 @@
           }
         ]
       }
-    },
-    {
-      "id": "ola-pero-koteu",
-      "name": "Ola / Pero / Koteu",
-      "short_name": "O/P/",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "kreweda-vienna",
-      "name": "Kreweda / Vienna",
-      "short_name": "K/V",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "jugos-awianka-fc",
-      "name": "Jugosławianka FC",
-      "short_name": "JF",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "vienna-i-lusken",
-      "name": "Vienna i Luśken",
-      "short_name": "VIL",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "koteu-i-serduszkowata",
-      "name": "Koteu i Serduszkowata",
-      "short_name": "KIS",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "kreweda-i-pero",
-      "name": "Kreweda i Pero",
-      "short_name": "KIP",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "lusken-i-serduszkowata",
-      "name": "Luśken i Serduszkowata",
-      "short_name": "LIS",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "kreweda",
-      "name": "Kreweda",
-      "short_name": "K",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "lusken",
-      "name": "Luśken",
-      "short_name": "L",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "vienna",
-      "name": "Vienna",
-      "short_name": "V",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "pero",
-      "name": "Pero",
-      "short_name": "P",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "ola",
-      "name": "Ola",
-      "short_name": "O",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "kreweda-i-lusken",
-      "name": "Kreweda i Luśken",
-      "short_name": "KIL",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "reprezentacja-stromej",
-      "name": "Reprezentacja Stromej",
-      "short_name": "RS",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "reprezentacja-ul-stromej-u16",
-      "name": "Reprezentacja ul. Stromej U16",
-      "short_name": "RUSU",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "ola-i-lusken",
-      "name": "Ola i Luśken",
-      "short_name": "OIL",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "kreweda-i-vienna",
-      "name": "Kreweda i Vienna",
-      "short_name": "KIV",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "vienna-i-ola",
-      "name": "Vienna i Ola",
-      "short_name": "VIO",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "kreweda-lusken-i-ola",
-      "name": "Kreweda, Luśken i Ola",
-      "short_name": "KLIO",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "vienna-i-pero",
-      "name": "Vienna i Pero",
-      "short_name": "VIP",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "pero-i-lusken",
-      "name": "Pero i Luśken",
-      "short_name": "PIL",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "vienna-ola-i-kreweda",
-      "name": "Vienna, Ola i Kreweda",
-      "short_name": "VOIK",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "pero-i-kreweda",
-      "name": "Pero i Kreweda",
-      "short_name": "PIK",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "vienna-i-kreweda",
-      "name": "Vienna i Kreweda",
-      "short_name": "VIK",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "lusken-i-ola",
-      "name": "Luśken i Ola",
-      "short_name": "LIO",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "lusken-i-kreweda",
-      "name": "Luśken i Kreweda",
-      "short_name": "LIK",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "ola-i-kreweda",
-      "name": "Ola i Kreweda",
-      "short_name": "OIK",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
-    },
-    {
-      "id": "lusken-i-vienna",
-      "name": "Luśken i Vienna",
-      "short_name": "LIV",
-      "crest": "",
-      "stadium": "",
-      "capacity": null,
-      "description": "",
-      "extras": {}
     }
   ],
   "players": [
     {
-      "id": "lusken",
+      "id": "lusken-2026",
       "name": "Luśken",
       "photo": "l.jpg",
       "age": "16 lat",
       "position": "Bramkarz",
       "value": "20 mln",
       "club": "Jugosławianka",
-      "season": "2026/2027",
+      "season": "2026",
       "average_rating": 6.36,
       "stats": [
         {
@@ -505,19 +225,21 @@
         }
       ],
       "extras": {
+        "legacy_id": "lusken",
+        "season": "2026",
         "shirt_number": 1,
         "team_id": "stromianka"
       }
     },
     {
-      "id": "vienna",
+      "id": "vienna-2026",
       "name": "Vienna",
       "photo": "116 (2).jpg",
       "age": "17 lat",
       "position": "Środkowy Pomocnik/ Środkowy Pomocnik Defensywny/ Środkowy Obrońca",
       "value": "80 mln",
       "club": "Jugosławianka",
-      "season": "2026/2027",
+      "season": "2026",
       "average_rating": 8.5,
       "stats": [
         {
@@ -582,19 +304,21 @@
         }
       ],
       "extras": {
+        "legacy_id": "vienna",
+        "season": "2026",
         "shirt_number": 7,
         "team_id": "jugoslawianka"
       }
     },
     {
-      "id": "koteu",
+      "id": "koteu-2026",
       "name": "Koteu",
       "photo": "116.jpg",
       "age": "20 lat",
       "position": "Napastnik/ Środkowy Pomocnik Ofensywny",
       "value": "100mln",
       "club": "KTE x SER",
-      "season": "2026/2027",
+      "season": "2026",
       "average_rating": 7.6,
       "stats": [
         {
@@ -639,19 +363,21 @@
         }
       ],
       "extras": {
+        "legacy_id": "koteu",
+        "season": "2026",
         "shirt_number": 19,
         "team_id": "lammers"
       }
     },
     {
-      "id": "kreweda",
+      "id": "kreweda-2026",
       "name": "Kreweda",
       "photo": "10203a2f-3b65-4df0-a5fb-15dbdc0024cf.jpg",
       "age": "19 lat",
       "position": "Środkowy Obrońca/ Środkowy Pomocnik Defensywny",
       "value": "49mln",
       "club": "Stromianka FC",
-      "season": "2026/2027",
+      "season": "2026",
       "average_rating": 8.21,
       "stats": [
         {
@@ -716,19 +442,21 @@
         }
       ],
       "extras": {
+        "legacy_id": "kreweda",
+        "season": "2026",
         "shirt_number": 25,
         "team_id": "jugoslawianka"
       }
     },
     {
-      "id": "serduszkowata",
+      "id": "serduszkowata-2026",
       "name": "Serduszkowata",
       "photo": "116 (1).jpg",
       "age": "13 lat",
       "position": "Środkowy Pomocnik Ofensywny/ Napastnik",
       "value": "20 mln",
       "club": "KTE x SER",
-      "season": "2026/2027",
+      "season": "2026",
       "average_rating": 7,
       "stats": [
         {
@@ -783,19 +511,21 @@
         }
       ],
       "extras": {
+        "legacy_id": "serduszkowata",
+        "season": "2026",
         "shirt_number": 6,
         "team_id": "reprezentacja"
       }
     },
     {
-      "id": "pero",
+      "id": "pero-2026",
       "name": "Pero",
       "photo": "117.jpg",
       "age": "15 lat",
       "position": "Prawy Skrzydłowy/ Środkowy Pomocnik Ofensywny",
       "value": "75 mln",
       "club": "Stromianka",
-      "season": "2026/2027",
+      "season": "2026",
       "average_rating": 8.06,
       "stats": [
         {
@@ -860,19 +590,21 @@
         }
       ],
       "extras": {
+        "legacy_id": "pero",
+        "season": "2026",
         "shirt_number": 9,
         "team_id": "reprezentacja"
       }
     },
     {
-      "id": "uwu",
+      "id": "uwu-2026",
       "name": "UwU",
       "photo": "un.jpg",
       "age": "14 lat",
       "position": "Środkowy Pomocnik",
       "value": "1,0 mln",
       "club": "Stromianka",
-      "season": "2026/2027",
+      "season": "2026",
       "average_rating": null,
       "stats": [
         {
@@ -915,17 +647,21 @@
           "cleanSheets": null,
           "rating": null
         }
-      ]
+      ],
+      "extras": {
+        "legacy_id": "uwu",
+        "season": "2026"
+      }
     },
     {
-      "id": "luki",
+      "id": "luki-2026",
       "name": "Luki",
       "photo": "92a1363d-8754-43d0-b39c-ead62b8b9378.jpg",
       "age": "19 lat",
       "position": "Prawo skrzydłowy",
       "value": "40,0 mln",
       "club": "KTE x SER",
-      "season": "2026/2027",
+      "season": "2026",
       "average_rating": null,
       "stats": [
         {
@@ -978,7 +714,510 @@
           "cleanSheets": null,
           "rating": null
         }
-      ]
+      ],
+      "extras": {
+        "legacy_id": "luki",
+        "season": "2026"
+      }
+    },
+    {
+      "id": "lusken-2026-2027",
+      "name": "Luśken",
+      "photo": "luske.png",
+      "age": "16 lat",
+      "position": "Bramkarz",
+      "value": "32 mln €",
+      "club": "Stromianka FC",
+      "season": "2026/2027",
+      "average_rating": 6.77,
+      "stats": [
+        {
+          "competition": "Liga Stromej",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Mecze Towarzyskie",
+          "appearances": 5,
+          "goals": 3,
+          "assists": 10,
+          "yellowCards": 2,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": 6.52
+        },
+        {
+          "competition": "Liga Oguruw",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Puchar Stromej",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Superpuchar Grahamki",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        }
+      ],
+      "extras": {
+        "legacy_id": "lusken",
+        "season": "2026/2027"
+      }
+    },
+    {
+      "id": "vienna-2026-2027",
+      "name": "Vienna",
+      "photo": "viena.jpeg",
+      "age": "17 lat",
+      "position": "Środkowy Pomocnik Ofensywny",
+      "value": "145 mln €",
+      "club": "Jugosławianka",
+      "season": "2026/2027",
+      "average_rating": 9.3,
+      "stats": [
+        {
+          "competition": "Liga Stromej",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Mecze Towarzyskie",
+          "appearances": 5,
+          "goals": 25,
+          "assists": 8,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": 9.1
+        },
+        {
+          "competition": "Liga Oguruw",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Puchar Stromej",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Reprezentacja ul.Stromej",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Superpuchar Grahamki",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        }
+      ],
+      "extras": {
+        "legacy_id": "vienna",
+        "season": "2026/2027"
+      }
+    },
+    {
+      "id": "koteu-2026-2027",
+      "name": "Koteu",
+      "photo": "116.jpg",
+      "age": "20 lat",
+      "position": "Napastnik",
+      "value": "82mln €",
+      "club": "FS Lammers",
+      "season": "2026/2027",
+      "average_rating": null,
+      "stats": [
+        {
+          "competition": "Liga Stromej",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Mecze Towarzyskie",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Liga Oguruw",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Puchar Stromej",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        }
+      ],
+      "extras": {
+        "legacy_id": "koteu",
+        "season": "2026/2027"
+      }
+    },
+    {
+      "id": "kreweda-2026-2027",
+      "name": "Kreweda",
+      "photo": "kredken.png",
+      "age": "19 lat",
+      "position": "Środkowy Obrońca / Prawy Obrońca",
+      "value": "120mln €",
+      "club": "Jugosławianka FC",
+      "season": "2026/2027",
+      "average_rating": 8.9,
+      "stats": [
+        {
+          "competition": "Liga Stromej",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Mecze Towarzyskie",
+          "appearances": 6,
+          "goals": 16,
+          "assists": 9,
+          "yellowCards": 1,
+          "redCards": 0,
+          "cleanSheets": 2,
+          "rating": 8.3
+        },
+        {
+          "competition": "Liga Oguruw",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Puchar Stromej",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Reprezentacja ul.Stromej",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Superpuchar Grahamki",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        }
+      ],
+      "extras": {
+        "legacy_id": "kreweda",
+        "season": "2026/2027"
+      }
+    },
+    {
+      "id": "serduszkowata-2026-2027",
+      "name": "Serduszkowata",
+      "photo": "ola.jpeg",
+      "age": "13 lat",
+      "position": "Środkowy Pomocnik Defensywny",
+      "value": "48 mln €",
+      "club": "FS Lammers",
+      "season": "2026/2027",
+      "average_rating": 5.32,
+      "stats": [
+        {
+          "competition": "Liga Stromej",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Mecze Towarzyskie",
+          "appearances": 6,
+          "goals": 1,
+          "assists": 11,
+          "yellowCards": 1,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": 5.7
+        },
+        {
+          "competition": "Liga Oguruw",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Puchar Stromej",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Superpuchar Grahamki",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        }
+      ],
+      "extras": {
+        "legacy_id": "serduszkowata",
+        "season": "2026/2027"
+      }
+    },
+    {
+      "id": "pero-2026-2027",
+      "name": "Pero",
+      "photo": "pero.jpeg",
+      "age": "15 lat",
+      "position": "Prawy Skrzydłowy",
+      "value": "105 mln €",
+      "club": "Stromianka",
+      "season": "2026/2027",
+      "average_rating": 8.65,
+      "stats": [
+        {
+          "competition": "Liga Stromej",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Mecze Towarzyskie",
+          "appearances": 2,
+          "goals": 6,
+          "assists": 3,
+          "yellowCards": 1,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": 8.65
+        },
+        {
+          "competition": "Liga Oguruw",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Puchar Stromej",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Reprezentacja ul.Stromej",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Superpuchar Grahamki",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        }
+      ],
+      "extras": {
+        "legacy_id": "pero",
+        "season": "2026/2027"
+      }
+    },
+    {
+      "id": "bambo-2026-2027",
+      "name": "Michał",
+      "photo": "",
+      "age": "18 lat",
+      "position": "Napastnik",
+      "value": "155 mln €",
+      "club": "Athletic Bilbao",
+      "season": "2026/2027",
+      "average_rating": null,
+      "stats": [
+        {
+          "competition": "Liga Stromej",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Mecze Towarzyskie",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Liga Oguruw",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Puchar Stromej",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Reprezentacja ul.Stromej",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        },
+        {
+          "competition": "Superpuchar Grahamki",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0,
+          "rating": null
+        }
+      ],
+      "extras": {
+        "legacy_id": "bambo",
+        "season": "2026/2027"
+      }
     },
     {
       "id": "kitkisana-lulusiowata",
