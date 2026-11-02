@@ -45,7 +45,7 @@ th:nth-child(2),td:nth-child(2){text-align:left}
 <body>
 <header class="topbar"><div class="in">
 <div class="bar"><div class="logo"><span class="mark"></span>Flashscore</div><button id="themeToggle" class="theme" type="button" title="Tryb ciemny">☾</button></div>
-<nav class="nav"><a class="active" href="index.html">Wyniki</a><a href="wiadomosci.html">Wiadomości</a><a href="kluby.html">Drużyny</a><a href="wyniki.html">Wyniki Zawodów</a><a href="zawodnicy.html">Statystyki indywidualne</a><a href="transfery.html">Transfery i kontuzje</a></nav>
+<nav class="nav"><a class="active" href="index.html">Wyniki</a><a href="wiadomosci.html">Wiadomości</a><a href="kluby.html">Drużyny</a><a href="wyniki.html">Wyniki Zawodów</a><a href="zawodnicy.html">Statystyki indywidualne</a><a href="transfery.html">Transfery i kontuzje</a><a href="/admin-panel.html#/admin">Panel administratora</a></nav>
 </div></header>
 <main class="page">
 <div class="chips" id="views"></div>
@@ -160,6 +160,6 @@ var th="light";try{th=localStorage.getItem("flasstromaTheme")||"light"}catch(e){
 applyTheme(th);
 function showInstallInfo(){alert("Na iPhone:\n1. Kliknij Udostępnij\n2. Wybierz 'Do ekranu głównego'\n\nNa Androidzie pojawi się opcja instalacji automatycznie.")}
 draw();
-</script>
+(async function loadMatchesFromDatabase(){try{const data=await fetch('/api/bootstrap',{cache:'no-store'}).then(r=>r.json());if(Array.isArray(data.matches)){M=data.matches.map(m=>[m.season,m.kickoff,m.competition,m.home_team,m.home_score,m.away_team,m.away_score,m.page||('/admin-panel.html#/match/'+encodeURIComponent(m.id)),m.note||'']);draw()}}catch(error){console.error('Nie udało się pobrać wyników z bazy:',error)}})();</script>
 </body>
 </html>

@@ -1,1 +1,165 @@
-<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101a24"><title>FlashStroma — centrum futbolu</title><link rel="stylesheet" href="/app.css"></head><body><div id="app"><div class="boot"><span class="brand-mark">F</span><strong>FlashStroma</strong><span class="muted">Ładowanie centrum meczowego…</span></div></div><script type="module" src="/app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="pl">
+<head><base href="/legacy/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#001e28">
+<title>FlashStroma — Wyniki</title>
+<style>
+*{box-sizing:border-box}
+:root{--bg:#f2f2f2;--card:#fff;--text:#111827;--muted:#6b7280;--line:#e5e7eb;--soft:#f6f7f9;--accent:#ff0046}
+body.dark{--bg:#0b1419;--card:#12202a;--text:#e8eef2;--muted:#8a99a4;--line:#1f303b;--soft:#182a35}
+body{margin:0;background:var(--bg);color:var(--text);font:14px Arial,Helvetica,sans-serif}
+.topbar{position:sticky;top:0;z-index:10;background:#001e28;color:#fff}
+.in{width:min(900px,calc(100% - 16px));margin:auto}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+.logo{display:flex;align-items:center;gap:8px;font-size:20px;font-weight:900}
+.mark{width:26px;height:26px;border-radius:50%;background:conic-gradient(#ff0046,#ff6b8a,#ff0046)}
+.theme{border:1px solid #fff4;border-radius:99px;color:#fff;background:#fff1;height:30px;min-width:38px;cursor:pointer}
+.nav{display:flex;overflow-x:auto;white-space:nowrap}
+.nav a{padding:10px 11px;border-bottom:3px solid transparent;color:#9fb3bf;text-decoration:none;font-size:13px;font-weight:700}
+.nav a.active{color:#fff;border-color:var(--accent)}
+.page{width:min(900px,calc(100% - 16px));margin:10px auto 30px}
+.chips{display:flex;gap:6px;overflow-x:auto;margin-bottom:10px}
+.chips button{border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:99px;padding:7px 13px;cursor:pointer;white-space:nowrap;font:inherit;font-weight:700}
+.chips button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.sub{margin-top:-4px}.sub button{font-size:12px;padding:5px 11px}
+.lg{background:var(--card);border-radius:6px;margin-bottom:10px;overflow:hidden}
+.lg h3{margin:0;padding:8px 12px;font-size:12px;color:var(--muted);background:var(--soft);display:flex;justify-content:space-between;text-transform:uppercase}
+.m{display:grid;grid-template-columns:46px 1fr 40px 28px;gap:6px;align-items:center;padding:9px 12px;border-top:1px solid var(--line);color:var(--text);text-decoration:none}
+.m:hover{background:var(--soft)}
+.t{color:var(--muted);font-size:12px}.fin{font-size:10px;color:var(--accent);font-weight:700}
+.tm div{padding:1px 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tm .w,.sc .w{font-weight:800}
+.sc{text-align:center;font-weight:700}.sc div{padding:1px 0}
+.st{background:none;border:0;color:var(--muted);font-size:19px;cursor:pointer;padding:0}.st.on{color:#f5b301}
+.empty{padding:28px;text-align:center;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:8px 6px;text-align:center;border-top:1px solid var(--line)}
+th:nth-child(2),td:nth-child(2){text-align:left}
+.sel{display:flex;gap:8px;padding:12px;flex-wrap:wrap}
+.sel select{flex:1;min-width:140px;padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--text);font:inherit}
+.install{margin-top:6px;padding:10px 18px;border:0;border-radius:7px;color:#fff;background:#001e28;cursor:pointer;font-size:15px}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="in">
+<div class="bar"><div class="logo"><span class="mark"></span>Flashscore</div><button id="themeToggle" class="theme" type="button" title="Tryb ciemny">☾</button></div>
+<nav class="nav"><a class="active" href="index.html">Wyniki</a><a href="wiadomosci.html">Wiadomości</a><a href="kluby.html">Drużyny</a><a href="wyniki.html">Wyniki Zawodów</a><a href="zawodnicy.html">Statystyki indywidualne</a><a href="transfery.html">Transfery i kontuzje</a><a href="/admin-panel.html#/admin">Panel administratora</a></nav>
+</div></header>
+<main class="page">
+<div class="chips" id="views"></div>
+<div class="chips sub" id="seasons"></div>
+<div class="chips sub" id="filters"></div>
+<div id="out"></div>
+<button class="install" type="button" onclick="showInstallInfo()">📲 Zainstaluj aplikację</button>
+</main>
+<script>
+// DANE — jedno miejsce do edycji. Pola: sezon, godzina, rozgrywki, gospodarz, gole, gość, gole, plik, notatka
+var S1="2026",S2="2026/2027";
+var T="Mecz Towarzyski",FR="Świat: mecze towarzyskie",LS="Świat: Liga Stromej",PA="Świat: Puchar Stromej Dywizja A",PB="Świat: Puchar Stromej Dywizja B";
+var M=[
+[S1,"20:55",FR,"Ola / Pero / Koteu",6,"Kreweda / Vienna",9,"mecz-ola-pero-koteu-kreweda-vienna.html",""],
+[S1,"21:40",LS,"Jugosławianka FC",2,"Stromianka FC",3,"mecz2.html","Kolejka I"],
+[S1,"20:30",FR,"Vienna i Luśken",3,"Koteu i Serduszkowata",0,"mecz3.html",""],
+[S1,"20:30",FR,"Kreweda i Pero",1,"Luśken i Serduszkowata",1,"mecz5.html","Karne 1:0"],
+[S1,"18:40",LS,"Stromianka FC",1,"Jugosławianka FC",3,"mecz4.html","Kolejka II"],
+[S1,"19:30",PB,"Kreweda",7,"Luśken",4,"mecz7.html",""],
+[S1,"20:00",PA,"Vienna",2,"Pero",5,"mecz6.html",""],
+[S1,"20:30",PB,"Kreweda",4,"Ola",1,"mecz8.html",""],
+[S1,"18:45",FR,"Kreweda i Luśken",4,"Vienna",3,"mecz9.html",""],
+[S1,"18:20",FR,"Reprezentacja Stromej",10,"Reprezentacja ul. Stromej U16",8,"mecz12.html",""],
+[S1,"19:20",PB,"Ola",5,"Luśken",2,"mecz14.html",""],
+[S1,"20:30",T,"Ola i Luśken",10,"Kreweda i Vienna",12,"mecz15.html",""],
+[S1,"20:00",T,"Kreweda i Pero",13,"Vienna",15,"mecz16.html",""],
+[S1,"21:00",T,"Kreweda i Luśken",3,"Vienna i Ola",6,"mecz17.html",""],
+[S1,"20:40",T,"Kreweda, Luśken i Ola",5,"Vienna i Pero",5,"mecz18.html",""],
+[S1,"20:30",T,"Kreweda, Luśken i Ola",6,"Vienna",4,"mecz19.html",""],
+[S2,"19:30",T,"Pero i Luśken",5,"Vienna, Ola i Kreweda",4,"mecz271.html",""],
+[S2,"19:30",T,"Ola i Luśken",0,"Kreweda",1,"mecz272.html",""],
+[S2,"19:10",T,"Pero i Kreweda",5,"Vienna i Ola",5,"mecz273.html",""],
+[S2,"19:00",T,"Vienna i Kreweda",8,"Luśken i Ola",3,"mecz274.html",""],
+[S2,"19:00",T,"Luśken i Kreweda",5,"Vienna i Ola",8,"mecz275.html",""],
+[S2,"19:30",T,"Ola i Kreweda",5,"Luśken i Vienna",7,"mecz276.html",""]
+];
+var tab="m",season=S2,flt="all",fav={};
+try{fav=JSON.parse(localStorage.getItem("flasstromaFav")||"{}")}catch(e){}
+var $=function(i){return document.getElementById(i)};
+function lgName(c){return c==FR||c==T?FR:c}
+function chips(id,list,cur,key){
+ $(id).innerHTML=list.map(function(x){return '<button class="'+(cur==x[0]?"on":"")+'" data-k="'+key+'" data-v="'+x[0]+'">'+x[1]+'</button>'}).join("");
+}
+function matches(){
+ var g={},h="";
+ M.forEach(function(m,i){
+  if(m[0]!=season||(flt=="fav"&&!fav[i]))return;
+  var k=lgName(m[2]);(g[k]=g[k]||[]).push(i);
+ });
+ [LS,PA,PB,FR].forEach(function(k){
+  if(!g[k])return;
+  h+='<div class="lg"><h3><span>'+k+'</span><span>'+g[k].length+'</span></h3>';
+  g[k].forEach(function(i){
+   var m=M[i],a=m[4]>m[6],b=m[6]>m[4];
+   h+='<a class="m" href="'+m[7]+'"><div><div class="t">'+m[1]+'</div><div class="fin">'+(m[8].indexOf("Karne")==0?"Karne":"Koniec")+'</div></div><div class="tm"><div class="'+(a?"w":"")+'">'+m[3]+'</div><div class="'+(b?"w":"")+'">'+m[5]+'</div></div><div class="sc"><div class="'+(a?"w":"")+'">'+m[4]+'</div><div class="'+(b?"w":"")+'">'+m[6]+'</div></div><button class="st'+(fav[i]?" on":"")+'" data-s="'+i+'">'+(fav[i]?"★":"☆")+'</button></a>';
+  });
+  h+='</div>';
+ });
+ return h||'<div class="empty">Brak meczów</div>';
+}
+function tbl(k,title){
+ var t={};
+ M.forEach(function(m){
+  if(m[2]!=k)return;
+  [[m[3],m[4],m[6]],[m[5],m[6],m[4]]].forEach(function(x){
+   var r=t[x[0]]=t[x[0]]||{n:x[0],m:0,w:0,d:0,l:0,f:0,a:0,p:0};
+   r.m++;r.f+=x[1];r.a+=x[2];
+   if(x[1]>x[2]){r.w++;r.p+=3}else if(x[1]==x[2]){r.d++;r.p++}else r.l++;
+  });
+ });
+ var a=Object.keys(t).map(function(n){return t[n]}).sort(function(x,y){return y.p-x.p||(y.f-y.a)-(x.f-x.a)||y.f-x.f});
+ var h='<div class="lg"><h3><span>'+title+'</span></h3><table><tr><th>#</th><th>Drużyna</th><th>M</th><th>Z</th><th>R</th><th>P</th><th>Bramki</th><th>Pkt</th></tr>';
+ a.forEach(function(r,i){h+='<tr><td>'+(i+1)+'</td><td>'+r.n+'</td><td>'+r.m+'</td><td>'+r.w+'</td><td>'+r.d+'</td><td>'+r.l+'</td><td>'+r.f+':'+r.a+'</td><td><b>'+r.p+'</b></td></tr>'});
+ return h+'</table></div>';
+}
+var h2a="Kreweda",h2b="Vienna";
+function teams(){
+ var s={};M.forEach(function(m){[m[3],m[5]].forEach(function(n){s[n]=1})});
+ return Object.keys(s).sort();
+}
+function h2h(){
+ var ts=teams(),opt=function(v){return ts.map(function(n){return '<option'+(n==v?" selected":"")+'>'+n+'</option>'}).join("")};
+ var h='<div class="lg"><h3><span>Bezpośrednie spotkania (H2H)</span></h3><div class="sel"><select id="ha">'+opt(h2a)+'</select><select id="hb">'+opt(h2b)+'</select></div>',n=0,w=[0,0,0];
+ M.forEach(function(m){
+  var f=(m[3]==h2a&&m[5]==h2b),r=(m[3]==h2b&&m[5]==h2a);
+  if(!f&&!r)return;n++;
+  var x=f?m[4]:m[6],y=f?m[6]:m[4];w[x>y?0:x==y?1:2]++;
+  h+='<a class="m" style="grid-template-columns:46px 1fr 40px" href="'+m[7]+'"><div class="t">'+m[0]+'</div><div class="tm"><div>'+m[3]+'</div><div>'+m[5]+'</div></div><div class="sc"><div>'+m[4]+'</div><div>'+m[6]+'</div></div></a>';
+ });
+ if(!n)h+='<div class="empty">Te drużyny nie grały ze sobą (jako pojedyncze składy)</div>';
+ else h='<div class="lg"><h3><span>'+h2a+' '+w[0]+' · remisy '+w[1]+' · '+w[2]+' '+h2b+'</span></h3></div>'+h;
+ return h+'</div>';
+}
+function draw(){
+ chips("views",[["m","Mecze"],["t","Tabele"],["h","H2H"]],tab,"tab");
+ $("seasons").style.display=tab=="m"?"flex":"none";
+ $("filters").style.display=tab=="m"?"flex":"none";
+ chips("seasons",[[S1,"Sezon 2026"],[S2,"Sezon 2026/2027"]],season,"season");
+ chips("filters",[["all","Wszystkie"],["fav","Ulubione ★"]],flt,"flt");
+ $("out").innerHTML=tab=="m"?matches():tab=="t"?tbl(LS,"Liga Stromej")+tbl(PA,"Puchar Stromej — Dywizja A")+tbl(PB,"Puchar Stromej — Dywizja B"):h2h();
+ if(tab=="h"){$("ha").onchange=function(){h2a=this.value;draw()};$("hb").onchange=function(){h2b=this.value;draw()}}
+}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ if(t.dataset.s){e.preventDefault();var i=t.dataset.s;fav[i]=!fav[i];try{localStorage.setItem("flasstromaFav",JSON.stringify(fav))}catch(x){}draw();return}
+ if(t.dataset.k){var k=t.dataset.k,v=t.dataset.v;if(k=="tab")tab=v;if(k=="season")season=v;if(k=="flt")flt=v;draw()}
+});
+var tg=$("themeToggle");
+function applyTheme(t){document.body.classList.toggle("dark",t=="dark");tg.textContent=t=="dark"?"☀":"☾";try{localStorage.setItem("flasstromaTheme",t)}catch(e){}}
+tg.addEventListener("click",function(){applyTheme(document.body.classList.contains("dark")?"light":"dark")});
+var th="light";try{th=localStorage.getItem("flasstromaTheme")||"light"}catch(e){}
+applyTheme(th);
+function showInstallInfo(){alert("Na iPhone:\n1. Kliknij Udostępnij\n2. Wybierz 'Do ekranu głównego'\n\nNa Androidzie pojawi się opcja instalacji automatycznie.")}
+draw();
+(async function loadMatchesFromDatabase(){try{const data=await fetch('/api/bootstrap',{cache:'no-store'}).then(r=>r.json());if(Array.isArray(data.matches)){M=data.matches.map(m=>[m.season,m.kickoff,m.competition,m.home_team,m.home_score,m.away_team,m.away_score,m.page||('/admin-panel.html#/match/'+encodeURIComponent(m.id)),m.note||'']);draw()}}catch(error){console.error('Nie udało się pobrać wyników z bazy:',error)}})();</script>
+</body>
+</html>

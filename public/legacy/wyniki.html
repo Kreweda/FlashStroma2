@@ -946,7 +946,7 @@ body.dark .tag {
       renderCompetition(card.dataset.competition);
     });
 
-    renderCompetitionCards();
+renderCompetitionCards();(async()=>{try{const data=await fetch('/api/bootstrap',{cache:'no-store'}).then(r=>r.json());competitions.splice(0,competitions.length,...(data.competitions||[]).map(c=>({...c.details,id:c.id,name:c.name,format:c.details?.format||c.kind,description:c.details?.description||''})))}catch(error){console.error('Nie udało się pobrać rozgrywek z bazy:',error)}renderCompetitionCards()})();
   </script>
   <script>
   const themeToggle = document.getElementById("themeToggle");

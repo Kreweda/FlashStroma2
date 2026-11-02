@@ -586,8 +586,7 @@
       });
     });
 
-    renderTransfers();
-    renderInjuries();
+    (async()=>{try{const data=await fetch('/api/bootstrap',{cache:'no-store'}).then(r=>r.json());transfers.splice(0,transfers.length,...(data.transfers||[]).map(t=>({...t,from:t.from_club,to:t.to_club,money:t.fee,emoji:t.emoji||'⚽'})));injuries.splice(0,injuries.length,...(data.injuries||[]).map(i=>({...i,returnDate:i.return_date||''})))}catch(error){console.error('Nie udało się pobrać transferów z bazy:',error)}renderTransfers();renderInjuries()})();
   </script>
 </body>
 </html>
